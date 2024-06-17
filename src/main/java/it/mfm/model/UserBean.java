@@ -1,6 +1,6 @@
 package it.mfm.model;
 
-public class User {
+public class UserBean {
 
     private String username;
     private String nome;
@@ -9,9 +9,10 @@ public class User {
     private String password;
     private String indirizzo;
     private String telefono;
+    private boolean valid;
     private boolean admin;
 
-    public User() {}
+    public UserBean() {}
 
     public String getUsername() {
         return username;
@@ -75,5 +76,13 @@ public class User {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public void setValid(boolean valid) {
+        this.valid = valid;
+    }
+
+    public boolean isValid() {
+        return valid;
     }
 }

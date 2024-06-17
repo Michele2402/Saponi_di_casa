@@ -1,6 +1,6 @@
 package it.mfm.control;
 
-import it.mfm.model.User;
+import it.mfm.model.UserBean;
 import it.mfm.model.UserDao;
 
 import javax.servlet.ServletException;
@@ -35,18 +35,18 @@ public class UserServlet extends HttpServlet {
         String telefono = request.getParameter("telefono");
         boolean admin = Boolean.parseBoolean(request.getParameter("admin"));
 
-        User user = new User();
-        user.setUsername(username);
-        user.setNome(nome);
-        user.setCognome(cognome);
-        user.setEmail(email);
-        user.setPassword(password);
-        user.setIndirizzo(indirizzo);
-        user.setTelefono(telefono);
-        user.setAdmin(admin);
+        UserBean userBean = new UserBean();
+        userBean.setUsername(username);
+        userBean.setNome(nome);
+        userBean.setCognome(cognome);
+        userBean.setEmail(email);
+        userBean.setPassword(password);
+        userBean.setIndirizzo(indirizzo);
+        userBean.setTelefono(telefono);
+        userBean.setAdmin(admin);
 
         try {
-            userDao.doSave(user);
+            userDao.doSave(userBean);
             response.sendRedirect("success.jsp");
         } catch (SQLException e) {
             e.printStackTrace();

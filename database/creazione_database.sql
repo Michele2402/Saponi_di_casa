@@ -1,10 +1,7 @@
-CREATE DATABASE  IF NOT EXISTS `saponidicasa`
+CREATE DATABASE IF NOT EXISTS `saponidicasa`;
 USE `saponidicasa`;
 
-
-
 DROP TABLE IF EXISTS `categoria`;
-
 CREATE TABLE `categoria` (
                              `id` int NOT NULL,
                              `nome` varchar(100) DEFAULT NULL,
@@ -12,10 +9,7 @@ CREATE TABLE `categoria` (
                              PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-
-
 DROP TABLE IF EXISTS `prodotto`;
-
 CREATE TABLE `prodotto` (
                             `id` int NOT NULL AUTO_INCREMENT,
                             `nome` varchar(100) NOT NULL,
@@ -31,11 +25,7 @@ CREATE TABLE `prodotto` (
                                     ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-
-
-
 DROP TABLE IF EXISTS `utente`;
-
 CREATE TABLE `utente` (
                           `username` varchar(100) NOT NULL,
                           `nome` varchar(100) NOT NULL,
@@ -46,14 +36,9 @@ CREATE TABLE `utente` (
                           `indirizzo` varchar(300) NOT NULL,
                           `admin` boolean NOT NULL DEFAULT 0,
                           PRIMARY KEY (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
-
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 DROP TABLE IF EXISTS `recensione`;
-
 CREATE TABLE `recensione` (
                               `id` int NOT NULL AUTO_INCREMENT,
                               `utente_username` varchar(100) NOT NULL,
@@ -74,11 +59,7 @@ CREATE TABLE `recensione` (
                                       ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-
-
-
 DROP TABLE IF EXISTS `ordine`;
-
 CREATE TABLE `ordine` (
                           `id` int NOT NULL AUTO_INCREMENT,
                           `totale` double NOT NULL,
@@ -92,11 +73,7 @@ CREATE TABLE `ordine` (
                                   ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-
-
-
 DROP TABLE IF EXISTS `prodotto_acquistato`;
-
 CREATE TABLE `prodotto_acquistato` (
                                        `id` int NOT NULL AUTO_INCREMENT,
                                        `nome` varchar(100) NOT NULL,
@@ -111,11 +88,7 @@ CREATE TABLE `prodotto_acquistato` (
                                                ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-
-
-
 DROP TABLE IF EXISTS `metodo_di_pagamento`;
-
 CREATE TABLE `metodo_di_pagamento` (
                                        `tipo` varchar(50) NOT NULL,
                                        `numero_di_carta` varchar(20) NOT NULL,
