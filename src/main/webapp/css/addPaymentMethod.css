@@ -1,0 +1,74 @@
+#add-payment-method-container {
+    width: 40%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #C39898;
+    border-radius: 20px;
+}
+
+#myForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+    text-align: center;
+}
+
+
+.top {
+    margin-bottom: auto;
+}
+
+.bottom{
+    margin-top: auto;
+}
+
+.button {
+    width: 30%;
+    height: 50px;
+    background-color: #DBB5B5;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px
+}
+
+.middle {
+    grid-column-start: 1;
+    grid-column-end: 3;
+ }
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+@media screen and (max-width: 700px) {
+    #myForm {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 10px;
+    }
+
+    .middle {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    .button {
+        width: 60%;
+    }
+}
+
+
