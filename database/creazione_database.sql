@@ -19,7 +19,7 @@ DROP TABLE IF EXISTS `prodotto`;
 CREATE TABLE `prodotto` (
                             `id` int NOT NULL AUTO_INCREMENT,
                             `nome` varchar(100) NOT NULL,
-                            `descrizione` varchar(5000) NOT NULL,
+                            `descrizione` varchar(300) NOT NULL,
                             `prezzo` double NOT NULL,
                             `immagine` varchar(100) DEFAULT NULL,
                             `categoria_id` int NOT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE `recensione` (
                               `valutazione` int NOT NULL,
                               `testo` text NOT NULL,
                               `data` datetime NOT NULL,
-                              `categoria_id` int NOT NULL,
+                              `prodotto_id` int NOT NULL,
                               PRIMARY KEY (`id`),
                               CONSTRAINT `fk_utente_username`
                                   FOREIGN KEY (`utente_username`)
