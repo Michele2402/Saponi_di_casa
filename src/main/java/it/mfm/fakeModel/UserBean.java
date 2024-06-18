@@ -1,4 +1,4 @@
-package it.mfm.model;
+package it.mfm.fakeModel;
 
 public class UserBean {
 
@@ -85,4 +85,5 @@ public class UserBean {
     public boolean isValid() {
         return valid;
     }
+
 }
