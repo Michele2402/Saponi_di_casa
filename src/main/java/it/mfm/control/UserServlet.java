@@ -1,7 +1,6 @@
 package it.mfm.control;
 
 import it.mfm.model.User;
-import it.mfm.model.UserDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
