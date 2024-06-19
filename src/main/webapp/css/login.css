@@ -1,6 +1,13 @@
 #login-container {
-    width: 60%;
     height: 400px;
+}
+
+#registration-container {
+    height: 800px;
+}
+
+#registration-container, #login-container {
+    width: 60%;
     background-color: #C39898;
     margin-top: 50px;
     margin-left: auto;
@@ -13,6 +20,7 @@
     justify-items: center;
 }
 
+
 .button {
     width: 60%;
     height: 50px;
@@ -24,13 +32,44 @@
     line-height: 50px;
 }
 
+#form-login {
+    display: block;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+    color: white;
+}
+
+.tableRow{
+    width: 300px;
+}
+
+.error {
+    color: red;
+}
+
 
 @media screen and (max-width: 700px) {
-    #login-container {
+    #login-container, #registration-container {
         width: 80%;
         grid-template-columns: 100%;
-        grid-template-rows: 15% 15% 70%;
+        grid-template-rows: auto auto auto;
         align-items: center;
         justify-items: center;
+    }
+
+
+    .button {
+        width: 80%;
+    }
+
+    #form-login {
+        width: 100%;
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    .tableRow {
+        width: 80%;
     }
 }

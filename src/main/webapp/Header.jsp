@@ -18,7 +18,9 @@
         </div>
         <div id="item3">
             <div id="personal-options">
-                <% if(request.getSession().getAttribute("username") == null) {%>
+                <%
+                    request.getSession().setAttribute("username", "Michele");
+                    if(request.getSession().getAttribute("username") == null) {%>
                 <div class="option" onclick="goToLogin()">Login</div>
                 <% } else {%>
                 <div class="option" onclick="goToAccount()">Account</div>
