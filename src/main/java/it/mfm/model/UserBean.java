@@ -85,3 +85,4 @@ public class UserBean {
         this.admin = admin;
     }
 }
+
