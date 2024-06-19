@@ -1,0 +1,59 @@
+package it.mfm.model;
+
+public class ProductBean {
+    private int id;
+    private String nome;
+    private String descrizione;
+    private int prezzo;
+    private String immagine;
+    private int categoria_id;
+
+    public void setPrezzo(int prezzo) {
+        this.prezzo = prezzo;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNome(String name) {
+        this.nome = name;
+    }
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
+    }
+
+    public void setImmagine(String immagine) {
+        this.immagine = immagine;
+    }
+
+    public void setCategoria_id(int categoria_id) {
+        this.categoria_id = categoria_id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getDescrizione() {
+        return descrizione;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getPrezzo() {
+        return prezzo;
+    }
+
+    public String getImmagine() {
+        return immagine;
+    }
+
+    public int getCategoria_id() {
+        return categoria_id;
+    }
+
+}
