@@ -43,7 +43,7 @@ public class PurchasedProductDao implements PurchasedProductDaoInterfaccia{
 
             for (PurchasedProductBean purchasedProduct : purchasedProductBeans) {
                 preparedStatement.setString(2, purchasedProduct.getNome());
-                preparedStatement.setInt(3, purchasedProduct.getPrezzo());
+                preparedStatement.setDouble(3, purchasedProduct.getPrezzo());
                 preparedStatement.setInt(4, purchasedProduct.getQuantita());
                 preparedStatement.setInt(5, purchasedProduct.getOrdine_id());
                 preparedStatement.addBatch();
@@ -82,7 +82,7 @@ public class PurchasedProductDao implements PurchasedProductDaoInterfaccia{
                 PurchasedProductBean purchasedProduct = new PurchasedProductBean();
                 purchasedProduct.setId(resultSet.getInt("id"));
                 purchasedProduct.setNome(resultSet.getString("nome"));
-                purchasedProduct.setPrezzo(resultSet.getInt("prezzo"));
+                purchasedProduct.setPrezzo(resultSet.getDouble("prezzo"));
                 purchasedProduct.setQuantita(resultSet.getInt("quantita"));
                 purchasedProduct.setOrdine_id(resultSet.getInt("ordine_id"));
                 purchasedProductList.add(purchasedProduct);

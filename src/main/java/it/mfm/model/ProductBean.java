@@ -4,11 +4,11 @@ public class ProductBean {
     private int id;
     private String nome;
     private String descrizione;
-    private int prezzo;
+    private double prezzo;
     private String immagine;
     private int categoria_id;
 
-    public void setPrezzo(int prezzo) {
+    public void setPrezzo(double prezzo) {
         this.prezzo = prezzo;
     }
 
@@ -44,7 +44,7 @@ public class ProductBean {
         return id;
     }
 
-    public int getPrezzo() {
+    public double getPrezzo() {
         return prezzo;
     }
 

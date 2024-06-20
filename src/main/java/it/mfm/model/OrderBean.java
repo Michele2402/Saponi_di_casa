@@ -4,15 +4,15 @@ import java.sql.Date;
 
 public class OrderBean {
     private int id;
-    private int totale;
+    private double totale;
     private Date data_creazione;
     private String utente_username;
 
-    public int getTotale() {
+    public double getTotale() {
         return totale;
     }
 
-    public void setTotale(int totale) {
+    public void setTotale(double totale) {
         this.totale = totale;
     }
 

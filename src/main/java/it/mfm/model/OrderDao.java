@@ -38,7 +38,7 @@ public class OrderDao implements OrderDaoInterfaccia{
         try {
             connection = ds.getConnection();
             preparedStatement = connection.prepareStatement(insertSQL);
-            preparedStatement.setInt(2, orderBean.getTotale());
+            preparedStatement.setDouble(2, orderBean.getTotale());
             preparedStatement.setDate(3, new java.sql.Date(orderBean.getData_creazione().getTime()));
             preparedStatement.setString(4, orderBean.getUtente_username());
             preparedStatement.executeUpdate();
@@ -77,7 +77,7 @@ public class OrderDao implements OrderDaoInterfaccia{
             if (resultSet.next()) {
                 orderBean = new OrderBean();
                 orderBean.setId(resultSet.getInt("id"));
-                orderBean.setTotale(resultSet.getInt("totale"));
+                orderBean.setTotale(resultSet.getDouble("totale"));
                 orderBean.setData_creazione(resultSet.getDate("data_creazione"));
                 orderBean.setUtente_username(resultSet.getString("utente_username"));
             }
@@ -116,7 +116,7 @@ public class OrderDao implements OrderDaoInterfaccia{
             while (resultSet.next()) {
                 OrderBean orderBean = new OrderBean();
                 orderBean.setId(resultSet.getInt("id"));
-                orderBean.setTotale(resultSet.getInt("totale"));
+                orderBean.setTotale(resultSet.getDouble("totale"));
                 orderBean.setData_creazione(resultSet.getDate("data_creazione"));
                 orderBean.setUtente_username(resultSet.getString("utente_username"));
                 orderList.add(orderBean);
@@ -157,7 +157,7 @@ public class OrderDao implements OrderDaoInterfaccia{
             if (resultSet.next()) {
                 orderBean = new OrderBean();
                 orderBean.setId(resultSet.getInt("id"));
-                orderBean.setTotale(resultSet.getInt("totale"));
+                orderBean.setTotale(resultSet.getDouble("totale"));
                 orderBean.setData_creazione(resultSet.getDate("data_creazione"));
                 orderBean.setUtente_username(resultSet.getString("utente_username"));
             }
@@ -198,7 +198,7 @@ public class OrderDao implements OrderDaoInterfaccia{
             while (resultSet.next()) {
                 OrderBean orderBean = new OrderBean();
                 orderBean.setId(resultSet.getInt("id"));
-                orderBean.setTotale(resultSet.getInt("totale"));
+                orderBean.setTotale(resultSet.getDouble("totale"));
                 orderBean.setData_creazione(resultSet.getDate("data_creazione"));
                 orderBean.setUtente_username(resultSet.getString("utente_username"));
                 orderList.add(orderBean);
