@@ -38,7 +38,6 @@ public class OrderDao implements OrderDaoInterfaccia{
         try {
             connection = ds.getConnection();
             preparedStatement = connection.prepareStatement(insertSQL);
-            preparedStatement.setInt(1, orderBean.getId());
             preparedStatement.setInt(2, orderBean.getTotale());
             preparedStatement.setDate(3, new java.sql.Date(orderBean.getData_creazione().getTime()));
             preparedStatement.setString(4, orderBean.getUtente_username());
