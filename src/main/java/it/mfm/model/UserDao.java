@@ -38,6 +38,7 @@ public class UserDao implements UserDaoInterfaccia {
 
         try {
             connection = ds.getConnection();
+            connection.setAutoCommit(false);
             preparedStatement = connection.prepareStatement(insertSQL);
             preparedStatement.setString(1, userBean.getUsername());
             preparedStatement.setString(2, userBean.getNome());

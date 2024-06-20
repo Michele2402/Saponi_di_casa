@@ -38,6 +38,7 @@ public class PaymentMethodDao implements PaymentMethodDaoInterfaccia{
 
         try {
             connection = ds.getConnection();
+            connection.setAutoCommit(false);
             preparedStatement = connection.prepareStatement(insertSQL);
             preparedStatement.setInt(1, paymentMethodBean.getNumero_di_carta());
             preparedStatement.setString(2, paymentMethodBean.getCvv());

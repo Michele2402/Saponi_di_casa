@@ -26,24 +26,34 @@ public class OrderDao implements OrderDaoInterfaccia{
     private static final String TABLE_NAME = "ordine";
 
     @Override
-    public void doSave(OrderBean orderBean) throws SQLException{
+    public int doSave(OrderBean orderBean) throws SQLException{
         Connection connection = null;
         PreparedStatement preparedStatement = null;
+        ResultSet generatedKeys = null;
+        int id = 0;
 
         String insertSQL = "INSERT INTO " +
                 TABLE_NAME +
-                "(id, totale, data_creazione, utente_username) " +
-                "VALUES (?, ?, ?, ?)";
+                "(totale, data_creazione, utente_username) " +
+                "VALUES (?, ?, ?)";
 
         try {
             connection = ds.getConnection();
+            connection.setAutoCommit(false);
             preparedStatement = connection.prepareStatement(insertSQL);
-            preparedStatement.setDouble(2, orderBean.getTotale());
-            preparedStatement.setDate(3, new java.sql.Date(orderBean.getData_creazione().getTime()));
-            preparedStatement.setString(4, orderBean.getUtente_username());
+            preparedStatement.setDouble(1, orderBean.getTotale());
+            preparedStatement.setDate(2, new java.sql.Date(orderBean.getData_creazione().getTime()));
+            preparedStatement.setString(3, orderBean.getUtente_username());
             preparedStatement.executeUpdate();
 
             connection.commit();
+
+            generatedKeys = preparedStatement.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                id = generatedKeys.getInt(1);
+            } else {
+                throw new SQLException("Creating order failed, no ID obtained.");
+            }
         } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
         } finally {
@@ -51,10 +61,17 @@ public class OrderDao implements OrderDaoInterfaccia{
                 if (preparedStatement != null)
                     preparedStatement.close();
             } finally {
-                if (connection != null)
-                    connection.close();
+                try {
+                    if (connection != null)
+                        connection.close();
+                }
+                finally {
+                    if(generatedKeys != null)
+                        generatedKeys.close();
+                }
             }
         }
+        return id;
     }
 
     @Override

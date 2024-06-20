@@ -34,18 +34,19 @@ public class PurchasedProductDao implements PurchasedProductDaoInterfaccia{
 
         String insertSQL = "INSERT INTO " +
                 TABLE_NAME +
-                " (id, nome, prezzo, quantita, ordine_id) " +
+                " (nome, prezzo, quantita, ordine_id) " +
                 "VALUES (?, ?, ?, ?, ?)";
 
         try {
             connection = ds.getConnection();
             preparedStatement = connection.prepareStatement(insertSQL);
+            connection.setAutoCommit(false);
 
             for (PurchasedProductBean purchasedProduct : purchasedProductBeans) {
-                preparedStatement.setString(2, purchasedProduct.getNome());
-                preparedStatement.setDouble(3, purchasedProduct.getPrezzo());
-                preparedStatement.setInt(4, purchasedProduct.getQuantita());
-                preparedStatement.setInt(5, purchasedProduct.getOrdine_id());
+                preparedStatement.setString(1, purchasedProduct.getNome());
+                preparedStatement.setDouble(2, purchasedProduct.getPrezzo());
+                preparedStatement.setInt(3, purchasedProduct.getQuantita());
+                preparedStatement.setInt(4, purchasedProduct.getOrdine_id());
                 preparedStatement.addBatch();
             }
 

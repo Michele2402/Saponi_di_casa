@@ -31,17 +31,18 @@ public class ReviewDao implements ReviewDaoInterfaccia{
         PreparedStatement preparedStatement = null;
 
         String insertSQL = "INSERT INTO " + TABLE_NAME +
-                " (id, utente_username, valutazione, testo, data, prodotto_id) " +
+                " (utente_username, valutazione, testo, data, prodotto_id) " +
                 "VALUES (?, ?, ?, ?, ?, ?)";
 
         try {
             connection = ds.getConnection();
+            connection.setAutoCommit(false);
             preparedStatement = connection.prepareStatement(insertSQL);
-            preparedStatement.setString(2, reviewBean.getUtente_username());
-            preparedStatement.setInt(3, reviewBean.getValutazione());
-            preparedStatement.setString(4, reviewBean.getTesto());
-            preparedStatement.setDate(5, new java.sql.Date(reviewBean.getData().getTime()));
-            preparedStatement.setInt(6, reviewBean.getProdotto_id());
+            preparedStatement.setString(1, reviewBean.getUtente_username());
+            preparedStatement.setInt(2, reviewBean.getValutazione());
+            preparedStatement.setString(3, reviewBean.getTesto());
+            preparedStatement.setDate(4, new java.sql.Date(reviewBean.getData().getTime()));
+            preparedStatement.setInt(5, reviewBean.getProdotto_id());
             preparedStatement.executeUpdate();
 
             connection.commit();

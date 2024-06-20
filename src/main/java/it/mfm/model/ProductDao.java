@@ -35,16 +35,17 @@ public class ProductDao implements ProductDaoInterfaccia{
 
         String insertSQL = "INSERT INTO " +
                 TABLE_NAME +
-                " (id, nome, descrizione, prezzo, immagine, categoria_id) VALUES (?, ?, ?, ?, ?, ?)";
+                " (nome, descrizione, prezzo, immagine, categoria_id) VALUES (?, ?, ?, ?, ?, ?)";
 
         try {
             connection = ds.getConnection();
+            connection.setAutoCommit(false);
             preparedStatement = connection.prepareStatement(insertSQL);
-            preparedStatement.setString(2, productBean.getNome());
-            preparedStatement.setString(3, productBean.getDescrizione());
-            preparedStatement.setDouble(4, productBean.getPrezzo());
-            preparedStatement.setString(5, productBean.getImmagine());
-            preparedStatement.setInt(6, productBean.getCategoria_id());
+            preparedStatement.setString(1, productBean.getNome());
+            preparedStatement.setString(2, productBean.getDescrizione());
+            preparedStatement.setDouble(3, productBean.getPrezzo());
+            preparedStatement.setString(4, productBean.getImmagine());
+            preparedStatement.setInt(5, productBean.getCategoria_id());
             preparedStatement.executeUpdate();
 
             connection.commit();
