@@ -19,7 +19,7 @@ public class ProductDao {
         return null;
     }
 
-    ArrayList<ProductBean> doRetrieveByCategory(int id) throws SQLException {
+    public ArrayList<ProductBean> doRetrieveByCategory(int id) throws SQLException {
         // Implementation here
         return null;
     }

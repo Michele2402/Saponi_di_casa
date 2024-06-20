@@ -1,19 +1,19 @@
 package it.mfm.fakeModel;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryDao {
-    void doSave() {
-        // method body
+    public void doSave(CategoryBean category) throws SQLException {
+        return;
     }
 
-    public List<CategoryBean> doRetrieveAll() {
-        // method body
+    public ArrayList<CategoryBean> doRetrieveAll() throws SQLException {
         return null;
     }
 
-    public CategoryBean doRetrieveById(int ID) {
-        // method body
-        return null; // return statement added
+    public CategoryBean doRetrieveById(int id) throws SQLException {
+        return null;
     }
 }

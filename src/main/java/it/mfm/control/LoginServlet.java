@@ -3,6 +3,8 @@ package it.mfm.control;
 import it.mfm.fakeModel.PaymentMethodBean;
 import it.mfm.fakeModel.UserBean;
 import it.mfm.fakeModel.UserDao;
+
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +22,7 @@ import java.util.ArrayList;
 public class LoginServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
+
     private UserDao userDao; // DAO for user operations
     private ArrayList<PaymentMethodBean> paymentMethods; // List of payment methods
 
@@ -44,14 +47,14 @@ public class LoginServlet extends HttpServlet {
             if (userBean == null) {
                 // If user not found, redirect to login page
                 System.out.println(request.getContextPath());
-                response.sendRedirect("login.jsp");
+                response.sendRedirect("Login.jsp");
             } else {
                 // If user found, create a new session
                 HttpSession session = request.getSession();
                 session.setAttribute("user", userBean); // Set the user in the session
 
                 // Retrieve the payment methods for the user
-                paymentMethods = UserDao.doRetrievePaymentMethods(userBean);
+                paymentMethods = userDao.doRetrievePaymentMethods(userBean);
                 session.setAttribute("paymentMethods", paymentMethods); // Set the payment methods in the session
 
                 // Set the admin status in the session
@@ -61,7 +64,7 @@ public class LoginServlet extends HttpServlet {
                     session.setAttribute("isAdmin", false);
 
                 // Redirect to home page
-                response.sendRedirect("home.jsp");
+                response.sendRedirect("Home.jsp");
             }
         } catch (SQLException e) {
             // Handle SQL exception

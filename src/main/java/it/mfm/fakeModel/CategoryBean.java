@@ -6,11 +6,11 @@ public class CategoryBean {
     private String nome;
     private String descrizione;
 
-    public int getID() {
+    public int getId() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setId(int ID) {
         this.ID = ID;
     }
 

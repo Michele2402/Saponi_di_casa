@@ -2,6 +2,8 @@ package it.mfm.control;
 
 public class Utils {
 
+
+
     protected static String escapeHtml(String input) {
         if (input == null) {
             return null;

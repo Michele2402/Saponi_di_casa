@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class DetailsServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
+
     private ProductDao productDao; // DAO for product operations
     private ProductBean productBean; // Product bean
     private CategoryBean categoryBean; // Category bean
@@ -33,6 +34,8 @@ public class DetailsServlet extends HttpServlet {
 
     // Handle GET requests
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
 
         int id = Integer.parseInt(request.getParameter("id"));
 

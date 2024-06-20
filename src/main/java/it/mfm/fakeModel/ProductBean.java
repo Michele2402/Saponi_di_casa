@@ -57,4 +57,15 @@ public class ProductBean {
     public void setID(int ID) {
         this.ID = ID;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ProductBean that = (ProductBean) o;
+
+        return ID == that.ID;
+    }
+
 }

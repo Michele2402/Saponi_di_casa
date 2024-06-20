@@ -19,6 +19,7 @@ import java.sql.SQLException;
 public class MyInformationsServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
+
     private UserDao userDao; // DAO for user operations
     private UserInformation userInformation; // User information;
 

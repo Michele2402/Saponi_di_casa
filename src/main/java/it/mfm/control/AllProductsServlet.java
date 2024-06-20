@@ -1,9 +1,6 @@
 package it.mfm.control;
 
-import it.mfm.fakeModel.CategoryBean;
-import it.mfm.fakeModel.CategoryDao;
-import it.mfm.fakeModel.ProductBean;
-import it.mfm.fakeModel.ProductDao;
+import it.mfm.fakeModel.*;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +15,8 @@ import java.util.List;
 @WebServlet("/allProducts")
 public class AllProductsServlet extends HttpServlet {
 
+        private static final long serialVersionUID = 1L;
+
         private ProductDao productDao;
         private CategoryDao categoryDao;
 
@@ -31,7 +30,9 @@ public class AllProductsServlet extends HttpServlet {
 
                 List<CategoryBean> allCategories = categoryDao.doRetrieveAll();
                 List<ProductBean> allProducts = productDao.doRetrieveAll();
+                Cart cart = new Cart();
                 HttpSession session = request.getSession();
+                session.setAttribute("cart", cart);
                 session.setAttribute("allProducts", allProducts);
                 session.setAttribute("allCategories", allCategories);
                 response.sendRedirect("Home.jsp");
