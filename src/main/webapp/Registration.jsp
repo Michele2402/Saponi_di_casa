@@ -21,13 +21,18 @@
     <div class="button"  onclick="showForm(0)">Login</div>
     <div class="button">Crea Account</div>
     <div id="form-login">
-        <form action="Register" method="post"  onsubmit="event.preventDefault(); validateRegistration(this)">
+        <form action="registration" method="post"  onsubmit="event.preventDefault(); validateRegistration(this)">
             <%if(request.getParameter("action")!=null && request.getParameter("action").equalsIgnoreCase("error") ){ %>
             <div class="tableRow">
                 <p class="error">Errore nella creazione dell'account!</p>
             </div>
             <%} %>
 
+            <div class="tableRow">
+                <p>Username:</p>
+                <p><input class="input" type="text" name="username" required placeholder="inserisci il tuo username"/></p>
+                <div class="error" id="RegUsername"></div>
+            </div>
             <div class="tableRow">
                 <p>Nome:</p>
                 <p><input class="input" type="text" name="nome" required placeholder="inserisci il tuo nome"/></p>
@@ -39,11 +44,6 @@
                 <div class="error" id="RegCognome"></div>
             </div>
             <div class="tableRow">
-                <p>Data di nascita:</p>
-                <p><input class="input" type="date" name="dataNascita" required placeholder="inserisci la tua data di nascita"/></p>
-                <div class="error" id="RegData"></div>
-            </div>
-            <div class="tableRow">
                 <p>Indirizzo:</p>
                 <p><input class="input" type="text" name="indirizzo" required placeholder="inserisci il tuo indirizzo"/></p>
                 <div class="error" id="RegIndirizzo"></div>
@@ -52,6 +52,11 @@
                 <p>Email:</p>
                 <p><input class="input" type="email" name="email" required placeholder="inserisci la tua email"/></p>
                 <div class="error" id="RegEmail"></div>
+            </div>
+            <div class="tableRow">
+                <p>Username:</p>
+                <p><input class="input" type="number" name="telefono" required placeholder="inserisci il tuo numero di telefono"/></p>
+                <div class="error" id="RegTelefono"></div>
             </div>
             <div class="tableRow">
                 <p>Password:</p>

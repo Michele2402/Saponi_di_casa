@@ -2,7 +2,7 @@ package it.mfm.fakeModel;
 
 public class PaymentMethodDao {
 
-    public PaymentMethodBean doRetrieveByCardNumber(String cardNumber) {
+    public PaymentMethodBean doRetrieveByCardNumber(int cardNumber) {
         return null;
     }
 

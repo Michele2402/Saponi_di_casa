@@ -7,7 +7,6 @@ public class UserBean {
     private String cognome;
     private String email;
     private String password;
-    private String indirizzo;
     private String telefono;
     private boolean valid;
     private boolean admin;
@@ -36,14 +35,6 @@ public class UserBean {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
-    }
-
-    public String getIndirizzo() {
-        return indirizzo;
-    }
-
-    public void setIndirizzo(String indirizzo) {
-        this.indirizzo = indirizzo;
     }
 
     public String getPassword() {

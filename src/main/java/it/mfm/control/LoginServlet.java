@@ -43,6 +43,7 @@ public class LoginServlet extends HttpServlet {
             UserBean userBean = userDao.doRetrieveByUsernamePassword(username, password);
             if (userBean == null) {
                 // If user not found, redirect to login page
+                System.out.println(request.getContextPath());
                 response.sendRedirect("login.jsp");
             } else {
                 // If user found, create a new session
@@ -65,7 +66,7 @@ public class LoginServlet extends HttpServlet {
         } catch (SQLException e) {
             // Handle SQL exception
             System.out.println("Error:" + e.getMessage());
-            response.sendRedirect("error.jsp");
+            response.sendRedirect("Error.jsp");
         }
     }
 
