@@ -3,7 +3,7 @@ package it.mfm.model;
 public class PurchasedProductBean {
     private int id;
     private String nome;
-    private int prezzo;
+    private double prezzo;
     private int quantita;
     private int ordine_id;
 
@@ -23,11 +23,11 @@ public class PurchasedProductBean {
         this.nome = nome;
     }
 
-    public int getPrezzo() {
+    public double getPrezzo() {
         return prezzo;
     }
 
-    public void setPrezzo(int prezzo) {
+    public void setPrezzo(double prezzo) {
         this.prezzo = prezzo;
     }
 

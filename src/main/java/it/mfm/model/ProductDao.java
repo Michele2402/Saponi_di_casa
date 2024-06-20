@@ -35,16 +35,17 @@ public class ProductDao implements ProductDaoInterfaccia{
 
         String insertSQL = "INSERT INTO " +
                 TABLE_NAME +
-                " (id, nome, descrizione, prezzo, immagine, categoria_id) VALUES (?, ?, ?, ?, ?, ?)";
+                " (nome, descrizione, prezzo, immagine, categoria_id) VALUES (?, ?, ?, ?, ?, ?)";
 
         try {
             connection = ds.getConnection();
+            connection.setAutoCommit(false);
             preparedStatement = connection.prepareStatement(insertSQL);
-            preparedStatement.setString(2, productBean.getNome());
-            preparedStatement.setString(3, productBean.getDescrizione());
-            preparedStatement.setInt(4, productBean.getPrezzo());
-            preparedStatement.setString(5, productBean.getImmagine());
-            preparedStatement.setInt(6, productBean.getCategoria_id());
+            preparedStatement.setString(1, productBean.getNome());
+            preparedStatement.setString(2, productBean.getDescrizione());
+            preparedStatement.setDouble(3, productBean.getPrezzo());
+            preparedStatement.setString(4, productBean.getImmagine());
+            preparedStatement.setInt(5, productBean.getCategoria_id());
             preparedStatement.executeUpdate();
 
             connection.commit();
@@ -75,7 +76,7 @@ public class ProductDao implements ProductDaoInterfaccia{
             preparedStatement = connection.prepareStatement(updateSQL);
             preparedStatement.setString(1, productBean.getNome());
             preparedStatement.setString(2, productBean.getDescrizione());
-            preparedStatement.setInt(3, productBean.getPrezzo());
+            preparedStatement.setDouble(3, productBean.getPrezzo());
             preparedStatement.setString(4, productBean.getImmagine());
             preparedStatement.setInt(5, productBean.getCategoria_id());
             preparedStatement.setInt(6, productBean.getId());
@@ -143,7 +144,7 @@ public class ProductDao implements ProductDaoInterfaccia{
                 productBean.setId(resultSet.getInt("id"));
                 productBean.setNome(resultSet.getString("nome"));
                 productBean.setDescrizione(resultSet.getString("descrizione"));
-                productBean.setPrezzo(resultSet.getInt("prezzo"));
+                productBean.setPrezzo(resultSet.getDouble("prezzo"));
                 productBean.setImmagine(resultSet.getString("immagine"));
                 productBean.setCategoria_id(resultSet.getInt("categoria_id"));
             }
@@ -184,7 +185,7 @@ public class ProductDao implements ProductDaoInterfaccia{
                 productBean.setId(resultSet.getInt("id"));
                 productBean.setNome(resultSet.getString("nome"));
                 productBean.setDescrizione(resultSet.getString("descrizione"));
-                productBean.setPrezzo(resultSet.getInt("prezzo"));
+                productBean.setPrezzo(resultSet.getDouble("prezzo"));
                 productBean.setImmagine(resultSet.getString("immagine"));
                 productBean.setCategoria_id(resultSet.getInt("categoria_id"));
                 productList.add(productBean);
@@ -227,7 +228,7 @@ public class ProductDao implements ProductDaoInterfaccia{
                 productBean.setId(resultSet.getInt("id"));
                 productBean.setNome(resultSet.getString("nome"));
                 productBean.setDescrizione(resultSet.getString("descrizione"));
-                productBean.setPrezzo(resultSet.getInt("prezzo"));
+                productBean.setPrezzo(resultSet.getDouble("prezzo"));
                 productBean.setImmagine(resultSet.getString("immagine"));
                 productBean.setCategoria_id(resultSet.getInt("categoria_id"));
                 productList.add(productBean);

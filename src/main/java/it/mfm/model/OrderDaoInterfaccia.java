@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public interface OrderDaoInterfaccia {
 
-    public void doSave(OrderBean orderBean) throws SQLException;
+    public int doSave(OrderBean orderBean) throws SQLException;
 
     public OrderBean doRetrieveByUsername(String utente_username) throws SQLException;
 

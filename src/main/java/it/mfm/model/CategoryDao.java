@@ -40,6 +40,7 @@ public class CategoryDao implements CategoryDaoInterfaccia{
 
         try {
             connection = ds.getConnection();
+            connection.setAutoCommit(false);
             preparedStatement = connection.prepareStatement(insertSQL);
             preparedStatement.setString(2, category.getNome());
             preparedStatement.setString(3, category.getDescrizione());
