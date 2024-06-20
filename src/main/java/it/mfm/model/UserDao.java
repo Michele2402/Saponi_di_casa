@@ -136,7 +136,6 @@ public class UserDao implements UserDaoInterfaccia {
                 paymentMethodBean.setCognome(resultSet.getString("cognome"));
                 paymentMethodBean.setNumero_di_carta(resultSet.getInt("numero_di_carta"));
                 paymentMethodBean.setData_di_Scadenza(resultSet.getDate("data_di_Scadenza"));
-                paymentMethodBean.setTipo(resultSet.getString("tipo"));
                 paymentMethodBean.setCvv(resultSet.getString("cvv"));
                 bean.add(paymentMethodBean);
             }

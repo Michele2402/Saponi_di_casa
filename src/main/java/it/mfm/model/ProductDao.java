@@ -40,7 +40,6 @@ public class ProductDao implements ProductDaoInterfaccia{
         try {
             connection = ds.getConnection();
             preparedStatement = connection.prepareStatement(insertSQL);
-            preparedStatement.setInt(1, productBean.getId());
             preparedStatement.setString(2, productBean.getNome());
             preparedStatement.setString(3, productBean.getDescrizione());
             preparedStatement.setInt(4, productBean.getPrezzo());

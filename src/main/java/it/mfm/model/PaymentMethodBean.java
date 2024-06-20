@@ -5,7 +5,6 @@ import java.util.Date;
 public class PaymentMethodBean {
 
     private int numero_di_carta;
-    private String tipo;
     private String cvv;
     private String nome;
     private String cognome;
@@ -37,14 +36,6 @@ public class PaymentMethodBean {
 
     public int getNumero_di_carta() {
         return numero_di_carta;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getTipo() {
-        return tipo;
     }
 
     public void setCvv(String cvv) {

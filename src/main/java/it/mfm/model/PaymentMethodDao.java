@@ -34,18 +34,17 @@ public class PaymentMethodDao implements PaymentMethodDaoInterfaccia{
         PreparedStatement preparedStatement = null;
 
         String insertSQL = "INSERT INTO " + TABLE_NAME
-                + "(numero_di_carta, tipo, cvv, nome, cognome, data_di_Scadenza, utente_username) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                + "(numero_di_carta, cvv, nome, cognome, data_di_Scadenza, utente_username) VALUES (?, ?, ?, ?, ?, ?)";
 
         try {
             connection = ds.getConnection();
             preparedStatement = connection.prepareStatement(insertSQL);
             preparedStatement.setInt(1, paymentMethodBean.getNumero_di_carta());
-            preparedStatement.setString(2, paymentMethodBean.getTipo());
-            preparedStatement.setString(3, paymentMethodBean.getCvv());
-            preparedStatement.setString(4, paymentMethodBean.getNome());
-            preparedStatement.setString(5, paymentMethodBean.getCognome());
-            preparedStatement.setDate(6, new Date(paymentMethodBean.getData_di_Scadenza().getTime()));
-            preparedStatement.setString(7, paymentMethodBean.getUtente_username());
+            preparedStatement.setString(2, paymentMethodBean.getCvv());
+            preparedStatement.setString(3, paymentMethodBean.getNome());
+            preparedStatement.setString(4, paymentMethodBean.getCognome());
+            preparedStatement.setDate(5, new Date(paymentMethodBean.getData_di_Scadenza().getTime()));
+            preparedStatement.setString(6, paymentMethodBean.getUtente_username());
             preparedStatement.executeUpdate();
 
             connection.commit();

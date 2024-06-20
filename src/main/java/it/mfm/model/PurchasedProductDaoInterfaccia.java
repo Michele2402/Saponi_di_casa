@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public interface PurchasedProductDaoInterfaccia {
 
-    public void doSaveAll() throws SQLException;
+    public void doSaveAll(ArrayList<PurchasedProductBean> purchasedProductBeans) throws SQLException;
 
-    public ArrayList<PurchasedProductBean> doRetrieveAllByOrderIds(int id) throws SQLException;
+    public ArrayList<PurchasedProductBean> doRetrieveAllByOrderId(int id) throws SQLException;
 
 }

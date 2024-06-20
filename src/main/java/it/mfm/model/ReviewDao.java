@@ -37,7 +37,6 @@ public class ReviewDao implements ReviewDaoInterfaccia{
         try {
             connection = ds.getConnection();
             preparedStatement = connection.prepareStatement(insertSQL);
-            preparedStatement.setInt(1, reviewBean.getId());
             preparedStatement.setString(2, reviewBean.getUtente_username());
             preparedStatement.setInt(3, reviewBean.getValutazione());
             preparedStatement.setString(4, reviewBean.getTesto());
