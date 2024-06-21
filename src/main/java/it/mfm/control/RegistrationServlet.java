@@ -1,8 +1,5 @@
 package it.mfm.control;
 
-import it.mfm.fakeModel.ProductBean;
-import it.mfm.fakeModel.ProductDao;
-import it.mfm.fakeModel.UserBean;
 import it.mfm.fakeModel.UserDao;
 
 import javax.servlet.http.HttpServlet;
@@ -13,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import static it.mfm.control.LoginServlet.hashPassword;
 

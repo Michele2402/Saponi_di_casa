@@ -1,11 +1,10 @@
 package it.mfm.control;
 
-import com.mysql.cj.Session;
 import it.mfm.fakeModel.OrderBean;
 import it.mfm.fakeModel.OrderDao;
 import it.mfm.fakeModel.PurchasedProductBean;
 import it.mfm.fakeModel.PurchasedProductDao;
-import it.mfm.fakeModel.UserBean;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -2,7 +2,6 @@ package it.mfm.control;
 
 import it.mfm.fakeModel.PaymentMethodBean;
 import it.mfm.fakeModel.PaymentMethodDao;
-import it.mfm.fakeModel.UserBean;
 import it.mfm.fakeModel.UserDao;
 
 import javax.servlet.http.HttpServlet;

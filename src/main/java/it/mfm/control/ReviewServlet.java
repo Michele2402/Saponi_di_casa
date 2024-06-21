@@ -2,7 +2,7 @@ package it.mfm.control;
 
 import it.mfm.fakeModel.ReviewBean;
 import it.mfm.fakeModel.ReviewDao;
-import it.mfm.fakeModel.UserBean;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

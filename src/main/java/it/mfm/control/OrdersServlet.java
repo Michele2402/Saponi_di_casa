@@ -4,7 +4,7 @@ import it.mfm.fakeModel.OrderBean;
 import it.mfm.fakeModel.OrderDao;
 import it.mfm.fakeModel.PurchasedProductBean;
 import it.mfm.fakeModel.PurchasedProductDao;
-import it.mfm.fakeModel.UserBean;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +13,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
