@@ -14,7 +14,7 @@ import java.sql.SQLException;
 
 import static it.mfm.control.LoginServlet.hashPassword;
 
-@WebServlet("/registration")
+@WebServlet("/Registration")
 public class RegistrationServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -44,18 +44,21 @@ public class RegistrationServlet extends HttpServlet {
         String surname = request.getParameter("cognome").trim(); // Get the surname
         String phone = request.getParameter("telefono").trim(); // Get the phone
         String name = request.getParameter("nome").trim(); // Get the name
+        String address = request.getParameter("indirizzo").trim();
 
-        // Validate input
-        if (!username.matches("^[a-zA-Z0-9_]{1,20}$") ||
-                //!password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}$") ||
-                !email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$") ||
-                !name.matches("^[a-zA-Z\\s]{1,20}$") ||
-                !surname.matches("^[a-zA-Z\\s]{1,20}$") ||
-                !phone.matches("^[0-9]{10}$")) {
-            System.out.println(request.getContextPath());
-            response.sendRedirect("Registration.jsp?action=error"); // Redirect to the registration page
-            return;
-        }
+///*
+//        // Validate input
+//        if (!username.matches("^[a-zA-Z0-9_]{1,20}$") ||
+//                //!password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}$") ||
+//                !email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$") ||
+//                !name.matches("^[a-zA-Z\\s]{1,20}$") ||
+//                !surname.matches("^[a-zA-Z\\s]{1,20}$") ||
+//                !phone.matches("^[0-9]{10}$")) {
+//            System.out.println(request.getContextPath());
+//            response.sendRedirect("Registration.jsp?action=error"); // Redirect to the registration page
+//            return;
+//        }
+//*/
 
         // Create a new user bean
         userBean.setUsername(username);
@@ -64,7 +67,18 @@ public class RegistrationServlet extends HttpServlet {
         userBean.setNome(name);
         userBean.setCognome(surname);
         userBean.setTelefono(phone);
+        userBean.setIndirizzo(address);
         System.out.println(request.getContextPath());
+
+
+        System.out.println("Username: " + userBean.getUsername());
+        System.out.println("Password: " + userBean.getPassword());
+        System.out.println("Email: " + userBean.getEmail());
+        System.out.println("Name: " + userBean.getNome());
+        System.out.println("Surname: " + userBean.getCognome());
+        System.out.println("Phone: " + userBean.getTelefono());
+        System.out.println("Address: " + userBean.getIndirizzo());
+
 
         try {
 

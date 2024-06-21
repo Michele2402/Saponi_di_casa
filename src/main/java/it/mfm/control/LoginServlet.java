@@ -17,7 +17,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 // Servlet for handling login requests
-@WebServlet("/login")
+@WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -37,8 +37,8 @@ public class LoginServlet extends HttpServlet {
 
         request.setCharacterEncoding("UTF-8"); // Set request encoding
 
-        String username = request.getParameter("username").trim(); // Get the username
-        String password = hashPassword(request.getParameter("password").trim()); // Hash the password
+        String username = request.getParameter("un").trim(); // Get the username
+        String password = hashPassword(request.getParameter("pw").trim()); // Hash the password
 
         try {
             // Retrieve the user by username and password
