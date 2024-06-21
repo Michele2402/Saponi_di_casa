@@ -30,6 +30,13 @@ public class ProductServlet extends HttpServlet {
     // Handle GET requests
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //Check if the user is an admin
+        HttpSession session = request.getSession();
+        if (session.getAttribute("admin") == null) {
+            response.sendRedirect("NotAuthorized.jsp");
+            return;
+        }
+
         String action = request.getParameter("action");
 
         switch (action) {
@@ -59,7 +66,6 @@ public class ProductServlet extends HttpServlet {
                 try {
 
                     productDao.doSave(productBean);
-                    HttpSession session = request.getSession(); //get the session+
                     session.setAttribute("allProducts", productDao.doRetrieveAll()); //update the list of products
 
                 } catch (SQLException e) {
@@ -78,7 +84,6 @@ public class ProductServlet extends HttpServlet {
                     ProductBean newBean = new ProductBean();
                     newBean.setId(id);
                     productDao.doDelete(newBean);
-                    HttpSession session = request.getSession(); //get the session
                     session.setAttribute("allProducts", productDao.doRetrieveAll()); //update the list of products
 
                 } catch (SQLException e) {
@@ -92,7 +97,6 @@ public class ProductServlet extends HttpServlet {
 
             case "modify":
 
-                HttpSession session = request.getSession(); //get the session
                 ProductBean currentProduct = (ProductBean) session.getAttribute("product"); //get the product to modify
                 String nomeModify = escapeHtml(request.getParameter("nome"));
                 String descrizioneModify = escapeHtml(request.getParameter("descrizione"));
