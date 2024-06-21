@@ -25,7 +25,7 @@
         </div>
         <div class="placeholder">
             <p class="top">Numero Carta:</p>
-            <p class="bottom"><input type="number" name="nu" required placeholder="Inserisci numero"/></p>
+            <p class="bottom"><input type="text" name="nu" required placeholder="Inserisci numero"/></p>
             <div class="error numero"></div>
         </div>
         <div class="placeholder">
