@@ -3,5 +3,5 @@ function goToPaymentMethod() {
 }
 
 function goToMyInformations() {
-    window.location.href = "Account";
+    window.location.href = "MyInformations.jsp";
 }

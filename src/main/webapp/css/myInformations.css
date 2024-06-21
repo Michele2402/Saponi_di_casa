@@ -1,0 +1,51 @@
+#myInformations-container {
+    width: 60%;
+    background-color: #C39898;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+.button {
+    width: 60%;
+    height: 50px;
+    background-color: #DBB5B5;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 50px;
+}
+
+#modify-form {
+    display: block;
+    text-align: center;
+    color: white;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.tableRow{
+    width: 300px;
+}
+
+.tableRowButton{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 300px;
+    font-size: 20px;
+}
+
+.error {
+    color: red;
+}
