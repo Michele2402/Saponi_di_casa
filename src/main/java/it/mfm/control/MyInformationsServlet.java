@@ -51,7 +51,7 @@ public class MyInformationsServlet extends HttpServlet {
 
             String address = request.getParameter("address");
             String email = request.getParameter("email");
-            String name = request.getParameter("nome");
+            String name = request.getParameter("name");
             String surname = request.getParameter("surname");
             String phone = request.getParameter("phone");
             String password = request.getParameter("password");
@@ -62,7 +62,7 @@ public class MyInformationsServlet extends HttpServlet {
                     !name.matches("^[a-zA-Z\\s]+$") ||
                     !surname.matches("^[a-zA-Z\\s]+$") ||
                     !phone.matches("^\\d{10}$") ||
-                    !password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}$")) {
+                    !password.matches("/^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/")) {
                 response.sendRedirect("MyInformations.jsp?error=true"); // Redirect to the error page
                 return;
             }

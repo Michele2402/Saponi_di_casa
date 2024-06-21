@@ -42,21 +42,31 @@ private static final long serialVersionUID = 1L;
         UserBean user = (UserBean)session.getAttribute("user");
         String username = user.getUsername();
 
-
-
         try {
             if ("add".equals(action)) {
 
                 String nome = escapeHtml(request.getParameter("nome"));
                 String cognome = escapeHtml(request.getParameter("cognome"));
-                int numeroCarta = Integer.parseInt(escapeHtml(request.getParameter("numeroCarta")));
+                String numeroCarta = escapeHtml(request.getParameter("numeroCarta"));
                 Date scadenza = stringToDate(escapeHtml(request.getParameter("scadenza")));
                 String cvv = escapeHtml(request.getParameter("cvv"));
 
-                paymentMethodBean.setCvv(cvv);
+                //validate input
+                if (!nome.matches("^[a-zA-Z\\s]{1,20}$") ||
+                        !numeroCarta.matches("^[0-9]{16}$")||
+                        !cognome.matches("^[a-zA-Z\\s]{1,20}$") ||
+                        !cvv.matches("^[0-9]{3}$")) {
+                    response.sendRedirect("AddPaymentMethod.jsp?error=true");
+                    return;
+                }
+
+                int numeroCartaInt = Integer.parseInt(numeroCarta);
+                int cvvInt = Integer.parseInt(cvv);
+
+                paymentMethodBean.setCvv(cvvInt);
                 paymentMethodBean.setNome(nome);
                 paymentMethodBean.setCognome(cognome);
-                paymentMethodBean.setNumero_di_carta(numeroCarta);
+                paymentMethodBean.setNumero_di_carta(numeroCartaInt);
                 paymentMethodBean.setData_di_Scadenza(scadenza);
                 paymentMethodBean.setUtente_username(username);
                 // Add the payment method to the database
@@ -67,7 +77,7 @@ private static final long serialVersionUID = 1L;
                 UserDao userDao = new UserDao();
                 session.setAttribute("paymentMethods", userDao.doRetrievePaymentMethods(user));
 
-            } else if ("remove".equals(action)) {
+            } else if ("delete".equals(action)) {
                 // Remove the payment method from the database
                 paymentMethodDao.doDeleteByNumber(Integer.parseInt(escapeHtml(request.getParameter("numeroCarta"))));
                 // Update the payment methods in the session

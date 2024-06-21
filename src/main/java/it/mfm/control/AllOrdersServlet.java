@@ -35,6 +35,12 @@ public class AllOrdersServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         HttpSession session = request.getSession();
+        UserBean user = (UserBean) session.getAttribute("user");
+
+        if(user == null || !user.isAdmin()) {
+            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            return;
+        }
 
         try {
             if ("all".equals(action)) {

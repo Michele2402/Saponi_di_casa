@@ -5,7 +5,7 @@ import java.util.Date;
 public class PaymentMethodBean {
 
     private int numero_di_carta;
-    private String cvv;
+    private int cvv;
     private String nome;
     private String cognome;
     private Date data_di_Scadenza;
@@ -38,11 +38,11 @@ public class PaymentMethodBean {
         return numero_di_carta;
     }
 
-    public void setCvv(String cvv) {
+    public void setCvv(int cvv) {
         this.cvv = cvv;
     }
 
-    public String getCvv() {
+    public int getCvv() {
         return cvv;
     }
 

@@ -84,8 +84,7 @@ public class ProductServlet extends HttpServlet {
                     response.sendRedirect(request.getContextPath()+ "/Error.jsp");
                 }
 
-                response.sendRedirect(request.getContextPath() + "/admin/ViewCategory.jsp");
-
+                response.sendRedirect(request.getContextPath() + "/ViewCategory.jsp");
 
                 break;
 
@@ -125,7 +124,7 @@ public class ProductServlet extends HttpServlet {
                     response.sendRedirect(request.getContextPath()+ "/Error.jsp");
                 }
 
-                response.sendRedirect(request.getContextPath() + "/admin/ViewCategory.jsp");
+                response.sendRedirect(request.getContextPath() + "/ViewCategory.jsp");
 
                 break;
 

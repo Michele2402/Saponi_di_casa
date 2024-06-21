@@ -40,7 +40,8 @@ public class ReviewServlet extends HttpServlet {
             response.sendRedirect("MyOrders.jsp");
 
         } catch (SQLException e) {
-            throw new ServletException("Error saving review", e);
+            System.out.println(e.getMessage());
+            response.sendRedirect("Error.jsp");
         }
     }
 

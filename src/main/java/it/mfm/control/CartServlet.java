@@ -30,7 +30,7 @@ public class CartServlet extends HttpServlet{
 
             HttpSession session = request.getSession();
             String action = request.getParameter("action");
-            String id = request.getParameter("ID");
+            String id = request.getParameter("id");
             String pageredirect = request.getParameter("page");
 
             if(action != null && id != null) {
