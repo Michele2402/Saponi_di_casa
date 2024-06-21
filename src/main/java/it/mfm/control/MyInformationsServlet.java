@@ -1,8 +1,8 @@
 package it.mfm.control;
 
 
-import it.mfm.fakeModel.UserDao;
-import it.mfm.fakeModel.UserInformation;
+import it.mfm.model.UserDao;
+import it.mfm.model.UserBean;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,12 +20,12 @@ public class MyInformationsServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private UserDao userDao; // DAO for user operations
-    private UserInformation userInformation; // User information;
+    private UserBean userInformation; // User information;
 
     // Initialize the servlet
     public void init() {
         userDao = new UserDao(); // Initialize the user DAO
-        userInformation = new UserInformation(); // Initialize the user information
+        userInformation = new UserBean(); // Initialize the user information
     }
 
     // Handle GET requests
@@ -66,13 +66,16 @@ public class MyInformationsServlet extends HttpServlet {
                 return;
             }
 
-            userInformation.setAddress(address);
+            userInformation.setIndirizzo(address);
             userInformation.setEmail(email);
-            userInformation.setName(name);
-            userInformation.setSurname(surname);
-            userInformation.setPhone(phone);
+            userInformation.setNome(name);
+            userInformation.setCognome(surname);
+            userInformation.setTelefono(phone);
+            userInformation.setPassword(password);
+            userInformation.setAdmin(user.isAdmin());
+            userInformation.setUsername(user.getUsername());
 
-            userDao.doUpdate(userInformation, user.getUsername());
+            userDao.doUpdate(userInformation);
             session.setAttribute("user", user); // Update the user in the session
 
         } catch (SQLException e) {

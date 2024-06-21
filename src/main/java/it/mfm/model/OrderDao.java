@@ -75,7 +75,7 @@ public class OrderDao implements OrderDaoInterfaccia{
     }
 
     @Override
-    public OrderBean doRetrieveByUsername(String utente_username) throws SQLException {
+    public ArrayList<OrderBean> doRetrieveByUsername(String utente_username) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -113,7 +113,7 @@ public class OrderDao implements OrderDaoInterfaccia{
             }
         }
 
-        return orderBean;
+        return null;
     }
 
     @Override

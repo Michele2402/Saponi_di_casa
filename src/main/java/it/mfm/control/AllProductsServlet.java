@@ -1,6 +1,6 @@
 package it.mfm.control;
 
-import it.mfm.fakeModel.*;
+import it.mfm.model.*;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

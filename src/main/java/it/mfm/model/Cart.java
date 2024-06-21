@@ -1,7 +1,8 @@
-package it.mfm.fakeModel;
+package it.mfm.model;
+
+import it.mfm.model.ProductBean;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class Cart {
 

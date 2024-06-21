@@ -1,6 +1,7 @@
 package it.mfm.control;
 
-import it.mfm.fakeModel.UserDao;
+import it.mfm.model.UserDao;
+import it.mfm.model.UserBean;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

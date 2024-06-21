@@ -1,7 +1,7 @@
 package it.mfm.control;
 
-import it.mfm.fakeModel.ProductBean;
-import it.mfm.fakeModel.ProductDao;
+import it.mfm.model.ProductBean;
+import it.mfm.model.ProductDao;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -54,7 +54,7 @@ public class ProductServlet extends HttpServlet {
                 productBean.setDescrizione(descrizione);
                 productBean.setPrezzo(prezzo);
                 productBean.setImmagine(immagine);
-                productBean.setIDcategoria(IDcategoria);
+                productBean.setCategoria_id(IDcategoria);
 
                 try {
 
@@ -75,7 +75,9 @@ public class ProductServlet extends HttpServlet {
 
                 int id = Integer.parseInt(request.getParameter("id"));
                 try {
-                    productDao.doDelete(id);
+                    ProductBean newBean = new ProductBean();
+                    newBean.setId(id);
+                    productDao.doDelete(newBean);
                     HttpSession session = request.getSession(); //get the session
                     session.setAttribute("allProducts", productDao.doRetrieveAll()); //update the list of products
 
@@ -96,7 +98,7 @@ public class ProductServlet extends HttpServlet {
                 String descrizioneModify = escapeHtml(request.getParameter("descrizione"));
                 int prezzoModify = Integer.parseInt(escapeHtml(request.getParameter("prezzo")));
                 String immagineModify = escapeHtml(request.getParameter("immagine"));
-                int idModify = currentProduct.getIDcategoria();
+                int idModify = currentProduct.getCategoria_id();
 
                 //validation of the input
                 if (!nomeModify.matches("^[a-zA-Z0-9\\s]{1,50}$") ||
@@ -107,7 +109,7 @@ public class ProductServlet extends HttpServlet {
                     return;
                 }
 
-                productBean.setIDcategoria(idModify);
+                productBean.setCategoria_id(idModify);
                 productBean.setNome(nomeModify);
                 productBean.setDescrizione(descrizioneModify);
                 productBean.setPrezzo(prezzoModify);
@@ -115,8 +117,9 @@ public class ProductServlet extends HttpServlet {
 
                 try {
 
-                    int idProduct = currentProduct.getID();
-                    productDao.doUpdate(idProduct, productBean);
+                    int idProduct = currentProduct.getId();
+                    productBean.setId(idProduct);
+                    productDao.doUpdate(productBean);
                     session.setAttribute("allProducts", productDao.doRetrieveAll()); //update the list of products
 
                 } catch (SQLException e) {

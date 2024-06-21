@@ -1,6 +1,6 @@
 package it.mfm.control;
 
-import it.mfm.fakeModel.*;
+import it.mfm.model.*;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,8 +38,8 @@ public class DetailsServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
 
         try {
-            productBean = productDao.doRetreveById(id);
-            categoryBean = categoryDao.doRetrieveById(productBean.getIDcategoria());
+            productBean = productDao.doRetrieveById(id);
+            categoryBean = categoryDao.doRetrieveById(productBean.getCategoria_id());
             ArrayList<ReviewBean> reviews = productDao.doRetrieveReviewsById(id);
             HttpSession session = request.getSession();
             session.setAttribute("category", categoryBean);

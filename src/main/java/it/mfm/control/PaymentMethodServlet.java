@@ -1,8 +1,9 @@
 package it.mfm.control;
 
-import it.mfm.fakeModel.PaymentMethodBean;
-import it.mfm.fakeModel.PaymentMethodDao;
-import it.mfm.fakeModel.UserDao;
+import it.mfm.model.PaymentMethodBean;
+import it.mfm.model.PaymentMethodDao;
+import it.mfm.model.UserDao;
+import it.mfm.model.UserBean;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -62,7 +63,7 @@ private static final long serialVersionUID = 1L;
                 int numeroCartaInt = Integer.parseInt(numeroCarta);
                 int cvvInt = Integer.parseInt(cvv);
 
-                paymentMethodBean.setCvv(cvvInt);
+                paymentMethodBean.setCvv(cvv);
                 paymentMethodBean.setNome(nome);
                 paymentMethodBean.setCognome(cognome);
                 paymentMethodBean.setNumero_di_carta(numeroCartaInt);
@@ -74,14 +75,14 @@ private static final long serialVersionUID = 1L;
 
                 // Update the payment methods in the session
                 UserDao userDao = new UserDao();
-                session.setAttribute("paymentMethods", userDao.doRetrievePaymentMethods(user));
+                session.setAttribute("paymentMethods", userDao.doRetrivePaymentMethods(user));
 
             } else if ("delete".equals(action)) {
                 // Remove the payment method from the database
                 paymentMethodDao.doDeleteByNumber(Integer.parseInt(escapeHtml(request.getParameter("numeroCarta"))));
                 // Update the payment methods in the session
                 UserDao userDao = new UserDao();
-                session.setAttribute("paymentMethods", userDao.doRetrievePaymentMethods(user));
+                session.setAttribute("paymentMethods", userDao.doRetrivePaymentMethods(user));
 
             }
         } catch (SQLException e) {

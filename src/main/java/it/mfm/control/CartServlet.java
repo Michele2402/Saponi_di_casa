@@ -1,8 +1,8 @@
 package it.mfm.control;
 
-import it.mfm.fakeModel.ProductBean;
-import it.mfm.fakeModel.ProductDao;
-import it.mfm.fakeModel.Cart;
+import it.mfm.model.ProductBean;
+import it.mfm.model.ProductDao;
+import it.mfm.model.Cart;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,7 +34,7 @@ public class CartServlet extends HttpServlet{
             String pageredirect = request.getParameter("page");
 
             if(action != null && id != null) {
-                ProductBean product = productDao.doRetreveById(Integer.parseInt(id));
+                ProductBean product = productDao.doRetrieveById(Integer.parseInt(id));
                 if(product != null) {
                     switch (action) {
                         case "add":

@@ -1,8 +1,8 @@
 package it.mfm.control;
 
-import it.mfm.fakeModel.PaymentMethodBean;
-import it.mfm.fakeModel.UserDao;
-
+import it.mfm.model.PaymentMethodBean;
+import it.mfm.model.UserDao;
+import it.mfm.model.UserBean;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 
         try {
             // Retrieve the user by username and password
-            UserBean userBean = userDao.doRetrieveByUsernamePassword(username, password);
+            UserBean userBean = userDao.doRetriveByUsernameAndPassword(username, password);
             if (userBean == null) {
                 // If user not found, redirect to login page
                 System.out.println(request.getContextPath());
@@ -53,7 +53,7 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("user", userBean); // Set the user in the session
 
                 // Retrieve the payment methods for the user
-                paymentMethods = userDao.doRetrievePaymentMethods(userBean);
+                paymentMethods = userDao.doRetrivePaymentMethods(userBean);
                 session.setAttribute("paymentMethods", paymentMethods); // Set the payment methods in the session
 
                 // Set the admin status in the session

@@ -8,7 +8,7 @@ public interface OrderDaoInterfaccia {
 
     public int doSave(OrderBean orderBean) throws SQLException;
 
-    public OrderBean doRetrieveByUsername(String utente_username) throws SQLException;
+    public ArrayList<OrderBean> doRetrieveByUsername(String utente_username) throws SQLException;
 
     public ArrayList<OrderBean> doRetrieveAll() throws SQLException;
 

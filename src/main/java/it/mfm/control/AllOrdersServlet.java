@@ -1,9 +1,10 @@
 package it.mfm.control;
 
-import it.mfm.fakeModel.OrderBean;
-import it.mfm.fakeModel.OrderDao;
-import it.mfm.fakeModel.PurchasedProductBean;
-import it.mfm.fakeModel.PurchasedProductDao;
+import it.mfm.model.OrderBean;
+import it.mfm.model.OrderDao;
+import it.mfm.model.PurchasedProductBean;
+import it.mfm.model.PurchasedProductDao;
+import it.mfm.model.UserBean;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

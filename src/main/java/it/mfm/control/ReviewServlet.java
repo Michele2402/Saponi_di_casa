@@ -1,7 +1,8 @@
 package it.mfm.control;
 
-import it.mfm.fakeModel.ReviewBean;
-import it.mfm.fakeModel.ReviewDao;
+import it.mfm.model.ReviewBean;
+import it.mfm.model.ReviewDao;
+import it.mfm.model.UserBean;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

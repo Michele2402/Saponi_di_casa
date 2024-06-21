@@ -1,9 +1,9 @@
 package it.mfm.control;
 
-import it.mfm.fakeModel.CategoryBean;
-import it.mfm.fakeModel.CategoryDao;
-import it.mfm.fakeModel.ProductBean;
-import it.mfm.fakeModel.ProductDao;
+import it.mfm.model.CategoryBean;
+import it.mfm.model.CategoryDao;
+import it.mfm.model.ProductBean;
+import it.mfm.model.ProductDao;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
