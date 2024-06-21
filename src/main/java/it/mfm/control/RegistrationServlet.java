@@ -79,7 +79,7 @@ public class RegistrationServlet extends HttpServlet {
 
         } catch (SQLException e) {
             System.out.println("Error:" + e.getMessage());
-            response.sendRedirect("error.jsp");
+            response.sendRedirect("Error.jsp");
         }
     }
 }

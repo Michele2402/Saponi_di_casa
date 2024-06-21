@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
             if (userBean == null) {
                 // If user not found, redirect to login page
                 System.out.println(request.getContextPath());
-                response.sendRedirect("Login.jsp");
+                response.sendRedirect("Login.jsp?error=true");
             } else {
                 // If user found, create a new session
                 HttpSession session = request.getSession();

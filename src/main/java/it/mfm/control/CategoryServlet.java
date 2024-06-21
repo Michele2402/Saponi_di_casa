@@ -30,7 +30,7 @@ public class CategoryServlet extends HttpServlet {
         String redirectedPage = request.getParameter("page");
 
         try {
-            if ("add".equals(action)) {
+            if ("new".equals(action)) {
                 // Create and save a new category
                 String nome = request.getParameter("nome");
                 String descrizione = request.getParameter("descrizione");

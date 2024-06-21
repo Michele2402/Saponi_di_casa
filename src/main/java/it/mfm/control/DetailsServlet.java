@@ -35,8 +35,6 @@ public class DetailsServlet extends HttpServlet {
     // Handle GET requests
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-
         int id = Integer.parseInt(request.getParameter("id"));
 
         try {
