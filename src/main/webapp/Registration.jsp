@@ -14,7 +14,7 @@
     <div class="button"  onclick="showForm(0)">Login</div>
     <div class="button">Crea Account</div>
     <div id="form-login">
-        <form action="registration" method="post"  onsubmit="event.preventDefault(); validateRegistration(this)">
+        <form action="Registration" method="post"  onsubmit="event.preventDefault(); validateRegistration(this)">
             <%if(request.getParameter("action")!=null && request.getParameter("action").equalsIgnoreCase("error") ){ %>
             <div class="tableRow">
                 <p class="error">Errore nella creazione dell'account!</p>
