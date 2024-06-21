@@ -1,4 +1,4 @@
-package it.mfm.fakeModel;
+package it.mfm.model;
 
 public class UserBean {
 
@@ -9,7 +9,6 @@ public class UserBean {
     private String password;
     private String indirizzo;
     private String telefono;
-    private boolean valid;
     private boolean admin;
 
     public UserBean() {}
@@ -78,12 +77,12 @@ public class UserBean {
         this.nome = nome;
     }
 
-    public void setValid(boolean valid) {
-        this.valid = valid;
+    public boolean getAdmin() {
+        return admin;
     }
 
-    public boolean isValid() {
-        return valid;
+    public void setAdmin(Boolean admin) {
+        this.admin = admin;
     }
-
 }
+

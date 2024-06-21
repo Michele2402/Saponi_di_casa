@@ -1,8 +1,9 @@
 package it.mfm.control;
 
-import it.mfm.fakeModel.PaymentMethodBean;
-import it.mfm.fakeModel.UserBean;
-import it.mfm.fakeModel.UserDao;
+import it.mfm.model.PaymentMethodBean;
+import it.mfm.model.UserDao;
+import it.mfm.model.UserBean;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 public class LoginServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
+
     private UserDao userDao; // DAO for user operations
     private ArrayList<PaymentMethodBean> paymentMethods; // List of payment methods
 
@@ -40,17 +42,18 @@ public class LoginServlet extends HttpServlet {
 
         try {
             // Retrieve the user by username and password
-            UserBean userBean = userDao.doRetrieveByUsernamePassword(username, password);
+            UserBean userBean = userDao.doRetriveByUsernameAndPassword(username, password);
             if (userBean == null) {
                 // If user not found, redirect to login page
-                response.sendRedirect("login.jsp");
+                System.out.println(request.getContextPath());
+                response.sendRedirect("Login.jsp?error=true");
             } else {
                 // If user found, create a new session
                 HttpSession session = request.getSession();
                 session.setAttribute("user", userBean); // Set the user in the session
 
                 // Retrieve the payment methods for the user
-                paymentMethods = UserDao.doRetrievePaymentMethods(userBean);
+                paymentMethods = userDao.doRetrivePaymentMethods(userBean);
                 session.setAttribute("paymentMethods", paymentMethods); // Set the payment methods in the session
 
                 // Set the admin status in the session
@@ -60,12 +63,12 @@ public class LoginServlet extends HttpServlet {
                     session.setAttribute("isAdmin", false);
 
                 // Redirect to home page
-                response.sendRedirect("home.jsp");
+                response.sendRedirect("Home.jsp");
             }
         } catch (SQLException e) {
             // Handle SQL exception
             System.out.println("Error:" + e.getMessage());
-            response.sendRedirect("error.jsp");
+            response.sendRedirect("Error.jsp");
         }
     }
 

@@ -1,9 +1,8 @@
 package it.mfm.control;
 
 
-import it.mfm.fakeModel.UserBean;
-import it.mfm.fakeModel.UserDao;
-import it.mfm.fakeModel.UserInformation;
+import it.mfm.model.UserDao;
+import it.mfm.model.UserBean;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,13 +18,14 @@ import java.sql.SQLException;
 public class MyInformationsServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
+
     private UserDao userDao; // DAO for user operations
-    private UserInformation userInformation; // User information;
+    private UserBean userInformation; // User information;
 
     // Initialize the servlet
     public void init() {
         userDao = new UserDao(); // Initialize the user DAO
-        userInformation = new UserInformation(); // Initialize the user information
+        userInformation = new UserBean(); // Initialize the user information
     }
 
     // Handle GET requests
@@ -50,7 +50,7 @@ public class MyInformationsServlet extends HttpServlet {
 
             String address = request.getParameter("address");
             String email = request.getParameter("email");
-            String name = request.getParameter("nome");
+            String name = request.getParameter("name");
             String surname = request.getParameter("surname");
             String phone = request.getParameter("phone");
             String password = request.getParameter("password");
@@ -61,18 +61,21 @@ public class MyInformationsServlet extends HttpServlet {
                     !name.matches("^[a-zA-Z\\s]+$") ||
                     !surname.matches("^[a-zA-Z\\s]+$") ||
                     !phone.matches("^\\d{10}$") ||
-                    !password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}$")) {
+                    !password.matches("/^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/")) {
                 response.sendRedirect("MyInformations.jsp?error=true"); // Redirect to the error page
                 return;
             }
 
-            userInformation.setAddress(address);
+            userInformation.setIndirizzo(address);
             userInformation.setEmail(email);
-            userInformation.setName(name);
-            userInformation.setSurname(surname);
-            userInformation.setPhone(phone);
+            userInformation.setNome(name);
+            userInformation.setCognome(surname);
+            userInformation.setTelefono(phone);
+            userInformation.setPassword(password);
+            userInformation.setAdmin(user.isAdmin());
+            userInformation.setUsername(user.getUsername());
 
-            userDao.doUpdate(userInformation, user.getUsername());
+            userDao.doUpdate(userInformation);
             session.setAttribute("user", user); // Update the user in the session
 
         } catch (SQLException e) {
