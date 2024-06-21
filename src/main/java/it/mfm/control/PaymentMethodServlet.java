@@ -19,7 +19,7 @@ import java.util.Date;
 
 import static it.mfm.control.Utils.escapeHtml;
 
-@WebServlet("/paymentMethod")
+@WebServlet("/PaymentMethod")
 public class PaymentMethodServlet extends HttpServlet {
 
 private static final long serialVersionUID = 1L;

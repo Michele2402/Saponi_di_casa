@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet("/checkout")
+@WebServlet("/Checkout")
 public class CheckoutServlet extends HttpServlet {
 
     private OrderDao orderDao;

@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Utente
-  Date: 17/06/2024
-  Time: 14:30
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -54,8 +47,8 @@
                 <div class="error" id="RegEmail"></div>
             </div>
             <div class="tableRow">
-                <p>Username:</p>
-                <p><input class="input" type="number" name="telefono" required placeholder="inserisci il tuo numero di telefono"/></p>
+                <p>Numero di telefono:</p>
+                <p><input class="input" type="text" name="telefono" required placeholder="inserisci il tuo numero di telefono"/></p>
                 <div class="error" id="RegTelefono"></div>
             </div>
             <div class="tableRow">

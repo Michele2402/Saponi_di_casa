@@ -14,7 +14,7 @@ import java.sql.SQLException;
 
 import static it.mfm.control.Utils.escapeHtml;
 
-@WebServlet("/product")
+@WebServlet("/Product")
 public class ProductServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;

@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet("/orders")
+@WebServlet("/Orders")
 public class OrdersServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;

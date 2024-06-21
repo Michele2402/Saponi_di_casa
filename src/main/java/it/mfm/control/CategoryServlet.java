@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-@WebServlet("/category")
+@WebServlet("/Category")
 public class CategoryServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;

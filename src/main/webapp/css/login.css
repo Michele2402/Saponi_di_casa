@@ -3,7 +3,7 @@
 }
 
 #registration-container {
-    height: 800px;
+    height: 900px;
 }
 
 #registration-container, #login-container {
@@ -38,6 +38,7 @@
     grid-column-end: 3;
     text-align: center;
     color: white;
+
 }
 
 .tableRow{

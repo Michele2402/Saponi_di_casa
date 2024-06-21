@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/cart")
+@WebServlet("/Cart")
 public class CartServlet extends HttpServlet{
 
     private static final long serialVersionUID = 1L;

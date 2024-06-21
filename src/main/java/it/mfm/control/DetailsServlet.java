@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 
-@WebServlet("/details")
+@WebServlet("/Details")
 public class DetailsServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
