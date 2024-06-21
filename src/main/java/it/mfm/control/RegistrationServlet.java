@@ -1,6 +1,5 @@
 package it.mfm.control;
 
-import it.mfm.fakeModel.UserBean;
 import it.mfm.fakeModel.UserDao;
 
 import javax.servlet.http.HttpServlet;
@@ -40,20 +39,20 @@ public class RegistrationServlet extends HttpServlet {
         String username = request.getParameter("username").trim(); // Get the username
         String password = hashPassword(request.getParameter("password").trim()); // Hash the password
         String email = request.getParameter("email").trim(); // Get the email
-        String name = request.getParameter("name").trim(); // Get the name
-        String surname = request.getParameter("surname").trim(); // Get the surname
-        String address = request.getParameter("address").trim(); // Get the address
-        String phone = request.getParameter("phone").trim(); // Get the phone
+
+        String surname = request.getParameter("cognome").trim(); // Get the surname
+        String phone = request.getParameter("telefono").trim(); // Get the phone
+        String name = request.getParameter("nome").trim(); // Get the name
 
         // Validate input
         if (!username.matches("^[a-zA-Z0-9_]{1,20}$") ||
-                !password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}$") ||
+                //!password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}$") ||
                 !email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$") ||
                 !name.matches("^[a-zA-Z\\s]{1,20}$") ||
                 !surname.matches("^[a-zA-Z\\s]{1,20}$") ||
-                !address.matches("^[a-zA-Z0-9\\s,]{1,50}$") ||
                 !phone.matches("^[0-9]{10}$")) {
-            response.sendRedirect("registration.jsp?error=true"); // Redirect to the registration page
+            System.out.println(request.getContextPath());
+            response.sendRedirect("Registration.jsp?action=error"); // Redirect to the registration page
             return;
         }
 
@@ -63,19 +62,20 @@ public class RegistrationServlet extends HttpServlet {
         userBean.setEmail(email);
         userBean.setNome(name);
         userBean.setCognome(surname);
-        userBean.setIndirizzo(address);
         userBean.setTelefono(phone);
+        System.out.println(request.getContextPath());
 
         try {
 
             userDao.doSave(userBean); // Save the user
             HttpSession session = request.getSession();
             session.setAttribute("user", userBean); // Set the user in the session
+
             response.sendRedirect("Home.jsp"); // Redirect to the index page
 
         } catch (SQLException e) {
-            e.printStackTrace();
-            response.sendRedirect("Error.jsp"); // Redirect to the registration page
+            System.out.println("Error:" + e.getMessage());
+            response.sendRedirect("Error.jsp");
         }
     }
 }

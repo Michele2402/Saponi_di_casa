@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class UserDao {
 
 
-    public static ArrayList<PaymentMethodBean> doRetrievePaymentMethods(UserBean userBean) throws SQLException {
+    public ArrayList<PaymentMethodBean> doRetrievePaymentMethods(UserBean userBean) throws SQLException {
         return null;
     }
 

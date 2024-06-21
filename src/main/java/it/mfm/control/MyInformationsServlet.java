@@ -1,7 +1,6 @@
 package it.mfm.control;
 
 
-import it.mfm.fakeModel.UserBean;
 import it.mfm.fakeModel.UserDao;
 import it.mfm.fakeModel.UserInformation;
 
@@ -19,6 +18,7 @@ import java.sql.SQLException;
 public class MyInformationsServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
+
     private UserDao userDao; // DAO for user operations
     private UserInformation userInformation; // User information;
 
@@ -50,7 +50,7 @@ public class MyInformationsServlet extends HttpServlet {
 
             String address = request.getParameter("address");
             String email = request.getParameter("email");
-            String name = request.getParameter("nome");
+            String name = request.getParameter("name");
             String surname = request.getParameter("surname");
             String phone = request.getParameter("phone");
             String password = request.getParameter("password");
@@ -61,7 +61,7 @@ public class MyInformationsServlet extends HttpServlet {
                     !name.matches("^[a-zA-Z\\s]+$") ||
                     !surname.matches("^[a-zA-Z\\s]+$") ||
                     !phone.matches("^\\d{10}$") ||
-                    !password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}$")) {
+                    !password.matches("/^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/")) {
                 response.sendRedirect("MyInformations.jsp?error=true"); // Redirect to the error page
                 return;
             }
