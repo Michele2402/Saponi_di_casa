@@ -49,12 +49,13 @@ public class UserDao implements UserDaoInterfaccia {
             preparedStatement.setString(7, userBean.getTelefono());
             preparedStatement.setInt(8, userBean.getAdmin());
 
+
             preparedStatement.executeUpdate();
 
             connection.commit();
         }
         catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
+            throw new SQLException(e.getMessage());
         } finally {
             try {
                 if (preparedStatement != null)
@@ -95,7 +96,7 @@ public class UserDao implements UserDaoInterfaccia {
             }
             else {userBean = null;}
         } catch (Exception e) {
-                System.out.println("Error: " + e.getMessage());
+            throw new SQLException(e.getMessage());
         } finally {
             try {
                 if (resultSet != null)
@@ -143,7 +144,7 @@ public class UserDao implements UserDaoInterfaccia {
             }
         }
         catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            throw new SQLException(e.getMessage());
         } finally {
             try {
                 if (resultSet != null)
@@ -185,11 +186,9 @@ public class UserDao implements UserDaoInterfaccia {
             preparedStatement.executeUpdate();
 
             connection.commit();
-        }
-        catch(Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-        finally {
+        } catch(Exception e) {
+            throw new SQLException(e.getMessage());
+        } finally {
             try {
                 if (preparedStatement != null)
                     preparedStatement.close();

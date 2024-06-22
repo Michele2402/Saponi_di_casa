@@ -12,7 +12,7 @@ public interface OrderDaoInterfaccia {
 
     public ArrayList<OrderBean> doRetrieveAll() throws SQLException;
 
-    public OrderBean doRetrieveByUser(UserBean userBean) throws SQLException;
+    public ArrayList<OrderBean> doRetrieveByUser(UserBean userBean) throws SQLException;
 
     public ArrayList<OrderBean> doRetrieveByDateInterval(Date startDate, Date endDate) throws SQLException;
 }
