@@ -40,7 +40,7 @@ public class PaymentMethodDao implements PaymentMethodDaoInterfaccia{
             connection = ds.getConnection();
             connection.setAutoCommit(false);
             preparedStatement = connection.prepareStatement(insertSQL);
-            preparedStatement.setInt(1, paymentMethodBean.getNumero_di_carta());
+            preparedStatement.setString(1, paymentMethodBean.getNumero_di_carta());
             preparedStatement.setString(2, paymentMethodBean.getCvv());
             preparedStatement.setString(3, paymentMethodBean.getNome());
             preparedStatement.setString(4, paymentMethodBean.getCognome());
@@ -63,7 +63,7 @@ public class PaymentMethodDao implements PaymentMethodDaoInterfaccia{
     }
 
     @Override
-    public synchronized void doDeleteByNumber(int numero_di_carta) throws SQLException {
+    public synchronized void doDeleteByNumber(String numero_di_carta) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -72,7 +72,7 @@ public class PaymentMethodDao implements PaymentMethodDaoInterfaccia{
         try {
             connection = ds.getConnection();
             preparedStatement = connection.prepareStatement(deleteSQL);
-            preparedStatement.setInt(1, numero_di_carta);
+            preparedStatement.setString(1, numero_di_carta);
             preparedStatement.executeUpdate();
 
             connection.commit();

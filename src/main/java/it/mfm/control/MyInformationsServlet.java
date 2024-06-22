@@ -72,7 +72,7 @@ public class MyInformationsServlet extends HttpServlet {
             userInformation.setCognome(surname);
             userInformation.setTelefono(phone);
             userInformation.setPassword(password);
-            userInformation.setAdmin(user.isAdmin());
+            userInformation.setAdmin(user.getAdmin());
             userInformation.setUsername(user.getUsername());
 
             userDao.doUpdate(userInformation);

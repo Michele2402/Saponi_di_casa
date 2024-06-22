@@ -40,8 +40,8 @@
             <% for (ReviewBean review : reviews) {%>
             <div class="review-container">
                 <div class="username"><%= review.getUtente_username() %></div>
-                <div class="stars"><%= review.getValutazione() %></div>
-                <div class="review"><%= review.getTesto() %>/5</div>
+                <div class="stars"><%= review.getValutazione()%>/5</div>
+                <div class="review"><%= review.getTesto() %></div>
                 <div class="date">Recensito il <%= review.getData() %></div>
             </div>
             <% } %>

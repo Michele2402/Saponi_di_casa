@@ -1,6 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="it.mfm.model.CategoryBean" %>
 <%@ page import="it.mfm.model.ProductBean" %>
+<%@ page import="it.mfm.model.UserBean" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -28,6 +29,14 @@
     <%
         List<CategoryBean> allCategories = (List<CategoryBean>) request.getSession().getAttribute("allCategories");
         List<ProductBean> allProducts = (List<ProductBean>) request.getSession().getAttribute("allProducts");
+        UserBean user = (UserBean) request.getSession().getAttribute("user");
+        boolean admin = false;
+        if(user != null) {
+            if(user.isAdmin())
+                admin = true;
+            System.out.println(user.isAdmin());
+        }
+
     %>
 
     <div id="home-container">
@@ -62,6 +71,9 @@
         </div>
     </div>
 
+    <% if(admin) {%>
+    <button id="admin-button">Sezione admin</button>
+    <%}%>
 
 </body>
 </html>
