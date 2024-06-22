@@ -22,7 +22,7 @@ import static it.mfm.control.Utils.escapeHtml;
 @WebServlet("/PaymentMethod")
 public class PaymentMethodServlet extends HttpServlet {
 
-private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     private PaymentMethodDao paymentMethodDao;
     private PaymentMethodBean paymentMethodBean;
@@ -45,11 +45,13 @@ private static final long serialVersionUID = 1L;
         try {
             if ("add".equals(action)) {
 
-                String nome = escapeHtml(request.getParameter("nome"));
-                String cognome = escapeHtml(request.getParameter("cognome"));
-                String numeroCarta = escapeHtml(request.getParameter("numeroCarta"));
-                Date scadenza = stringToDate(escapeHtml(request.getParameter("scadenza")));
-                String cvv = escapeHtml(request.getParameter("cvv"));
+                String nome = escapeHtml(request.getParameter("no"));
+                String cognome = escapeHtml(request.getParameter("co"));
+                String numeroCarta = escapeHtml(request.getParameter("nu"));
+                String data = escapeHtml(request.getParameter("da"));
+                System.out.println("Data: " + data);
+                Date scadenza = stringToDate(escapeHtml(request.getParameter("da")));
+                String cvv = escapeHtml(request.getParameter("cv"));
 
                 //validate input
                 if (!nome.matches("^[a-zA-Z\\s]{1,20}$") ||
@@ -60,14 +62,12 @@ private static final long serialVersionUID = 1L;
                     return;
                 }
 
-                int numeroCartaInt = Integer.parseInt(numeroCarta);
-                int cvvInt = Integer.parseInt(cvv);
-
                 paymentMethodBean.setCvv(cvv);
                 paymentMethodBean.setNome(nome);
                 paymentMethodBean.setCognome(cognome);
-                paymentMethodBean.setNumero_di_carta(numeroCartaInt);
+                paymentMethodBean.setNumero_di_carta(numeroCarta);
                 paymentMethodBean.setData_di_Scadenza(scadenza);
+                System.out.println("Scadenza: " + scadenza);
                 paymentMethodBean.setUtente_username(username);
                 // Add the payment method to the database
 
@@ -79,7 +79,7 @@ private static final long serialVersionUID = 1L;
 
             } else if ("delete".equals(action)) {
                 // Remove the payment method from the database
-                paymentMethodDao.doDeleteByNumber(Integer.parseInt(escapeHtml(request.getParameter("numeroCarta"))));
+                paymentMethodDao.doDeleteByNumber(escapeHtml(request.getParameter("numeroCarta")));
                 // Update the payment methods in the session
                 UserDao userDao = new UserDao();
                 session.setAttribute("paymentMethods", userDao.doRetrivePaymentMethods(user));
@@ -100,7 +100,7 @@ private static final long serialVersionUID = 1L;
 
 
     public static Date stringToDate(String dateStr) {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         try {
             return formatter.parse(dateStr);
         } catch (ParseException e) {

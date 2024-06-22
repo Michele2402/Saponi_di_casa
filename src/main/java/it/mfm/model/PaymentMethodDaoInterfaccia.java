@@ -6,6 +6,6 @@ public interface PaymentMethodDaoInterfaccia {
 
     public void doSave(PaymentMethodBean paymentMethodBean) throws SQLException;
 
-    public void doDeleteByNumber(int numero_di_carta) throws SQLException;
+    public void doDeleteByNumber(String numero_di_carta) throws SQLException;
 
 }

@@ -91,8 +91,9 @@ public class UserDao implements UserDaoInterfaccia {
                 userBean.setPassword(resultSet.getString("password"));
                 userBean.setIndirizzo(resultSet.getString("indirizzo"));
                 userBean.setTelefono(resultSet.getString("telefono"));
-                userBean.setAdmin(resultSet.getBoolean("admin"));
+                userBean.setAdmin(resultSet.getInt("admin"));
             }
+            else {userBean = null;}
         } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
         } finally {
@@ -135,7 +136,7 @@ public class UserDao implements UserDaoInterfaccia {
                 paymentMethodBean.setUtente_username(resultSet.getString("utente_username"));
                 paymentMethodBean.setNome(resultSet.getString("nome"));
                 paymentMethodBean.setCognome(resultSet.getString("cognome"));
-                paymentMethodBean.setNumero_di_carta(resultSet.getInt("numero_di_carta"));
+                paymentMethodBean.setNumero_di_carta(resultSet.getString("numero_di_carta"));
                 paymentMethodBean.setData_di_Scadenza(resultSet.getDate("data_di_Scadenza"));
                 paymentMethodBean.setCvv(resultSet.getString("cvv"));
                 bean.add(paymentMethodBean);
@@ -179,7 +180,7 @@ public class UserDao implements UserDaoInterfaccia {
             preparedStatement.setString(3, user.getCognome());
             preparedStatement.setString(4, user.getEmail());
             preparedStatement.setString(5, user.getIndirizzo());
-            preparedStatement.setBoolean(6, user.getAdmin());
+            preparedStatement.setInt(6, user.getAdmin());
             preparedStatement.setString(7, user.getUsername());
             preparedStatement.executeUpdate();
 

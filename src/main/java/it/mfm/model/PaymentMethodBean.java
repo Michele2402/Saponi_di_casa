@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class PaymentMethodBean {
 
-    private int numero_di_carta;
+    private String numero_di_carta;
     private String cvv;
     private String nome;
     private String cognome;
@@ -30,11 +30,11 @@ public class PaymentMethodBean {
         return data_di_Scadenza;
     }
 
-    public void setNumero_di_carta(int numero_di_carta) {
+    public void setNumero_di_carta(String numero_di_carta) {
         this.numero_di_carta = numero_di_carta;
     }
 
-    public int getNumero_di_carta() {
+    public String getNumero_di_carta() {
         return numero_di_carta;
     }
 

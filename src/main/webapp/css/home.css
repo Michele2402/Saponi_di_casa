@@ -97,6 +97,20 @@ img {
     color: #543310;
 }
 
+#admin-button {
+    background-color: #9370DB;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#admin-button:hover {
+    background-color: #7B68EE;
+}
+
 @media screen and (max-width: 700px) {
     #home-container {
         display: flex;

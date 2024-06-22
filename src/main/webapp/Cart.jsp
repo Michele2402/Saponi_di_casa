@@ -42,18 +42,21 @@
         <div class="info-container">
             <label>Quantità</label>
             <div id="quantity-container">
-                <button class="quantity-button">-</button>
+                <button class="quantity-button" onclick="RemoveFromCart(<%=entry.getKey().getId()%>)">-</button>
                 <div><%= entry.getValue() %></div>
                 <button class="quantity-button" onclick="AddToCart(<%=entry.getKey().getId()%>)">+</button>
             </div>
         </div>
         <div class="info-container">
-            <button id="remove-button">Rimuovi</button>
+            <button id="remove-button" onclick="DeleteFromCart(<%=entry.getKey().getId()%>)">Rimuovi</button>
         </div>
     </div>
     <% } %>
     <% } %>
+    <button id="checkout-button">Acquista</button>
 </div>
+
+
 
 </body>
 </html>

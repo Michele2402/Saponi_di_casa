@@ -30,9 +30,11 @@ public class AllProductsServlet extends HttpServlet {
 
                 List<CategoryBean> allCategories = categoryDao.doRetrieveAll();
                 List<ProductBean> allProducts = productDao.doRetrieveAll();
-                Cart cart = new Cart();
                 HttpSession session = request.getSession();
-                session.setAttribute("cart", cart);
+                if (session.getAttribute("cart") == null) {
+                    Cart cart = new Cart();
+                    session.setAttribute("cart", cart);
+                }
                 session.setAttribute("allProducts", allProducts);
                 session.setAttribute("allCategories", allCategories);
                 response.sendRedirect("Home.jsp");
