@@ -4,6 +4,7 @@ function goToCategory(id) {
 }
 
 function goToDetails(id) {
+    console.log(id);
     const url = `Details?id=${id}&page=Product.jsp`;
     window.location.href = url;
 }

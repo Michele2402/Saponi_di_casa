@@ -27,10 +27,7 @@
     <%@ include file="./Header.jsp" %>
     <%
         List<CategoryBean> allCategories = (List<CategoryBean>) request.getSession().getAttribute("allCategories");
-        System.out.println(allCategories);
         List<ProductBean> allProducts = (List<ProductBean>) request.getSession().getAttribute("allProducts");
-        System.out.println(allProducts);
-
     %>
 
     <div id="home-container">
@@ -43,7 +40,7 @@
             </div>
             <% } %>
             <% } else { %>
-            <p>No categories available.</p>
+            <p>Nessuna categoria disponibile</p>
             <% } %>
         </div>
         <div id="products-container">
@@ -60,7 +57,7 @@
             </div>
             <% } %>
             <% } else { %>
-            <p>No products available.</p>
+            <p>Nessun prodotto disponibile.</p>
             <% } %>
         </div>
     </div>

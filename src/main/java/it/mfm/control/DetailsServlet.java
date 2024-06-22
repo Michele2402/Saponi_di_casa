@@ -29,7 +29,6 @@ public class DetailsServlet extends HttpServlet {
         productBean = new ProductBean(); // Initialize the product bean
         categoryBean = new CategoryBean(); // Initialize the category bean
         categoryDao = new CategoryDao(); // Initialize the category DAO
-
     }
 
     // Handle GET requests
@@ -45,7 +44,7 @@ public class DetailsServlet extends HttpServlet {
             session.setAttribute("category", categoryBean);
             session.setAttribute("product", productBean);
             session.setAttribute("reviews", reviews);
-            String redirectedpage = (String) session.getAttribute("page");
+            String redirectedpage = request.getParameter("page");
             response.sendRedirect(request.getContextPath() + "/" + redirectedpage);
 
             }
