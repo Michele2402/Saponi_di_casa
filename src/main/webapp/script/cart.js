@@ -12,3 +12,7 @@ function DeleteFromCart(id) {
     const url = `Cart?id=${id}&action=delete&page=Cart.jsp`;
     window.location.href = url;
 }
+
+function Checkout() {
+    window.location.href = "ReviewOrder.jsp"
+}

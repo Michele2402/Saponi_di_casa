@@ -10,8 +10,6 @@
     display: flex;
     flex-direction: column;
 
-
-
 }
 
 .product {
@@ -22,6 +20,7 @@
     padding: 10px;
     margin-bottom: 5px;
     box-sizing: border-box;
+
 }
 
 
@@ -124,3 +123,24 @@ label {
     background-color: #5be55b; /* Verde più scuro al passaggio */
 }
 
+
+
+@media screen and (max-width: 700px) {
+
+    .product {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        padding: 10px;
+        margin-bottom: 5px;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+    }
+
+    #info-container {
+        align-items: center;
+        min-width: 60px
+    }
+
+}
