@@ -47,7 +47,8 @@ public class UserDao implements UserDaoInterfaccia {
             preparedStatement.setString(5, userBean.getPassword());
             preparedStatement.setString(6, userBean.getIndirizzo());
             preparedStatement.setString(7, userBean.getTelefono());
-            preparedStatement.setInt(8, userBean.isAdmin());
+            preparedStatement.setInt(8, userBean.getAdmin());
+
 
             preparedStatement.executeUpdate();
 

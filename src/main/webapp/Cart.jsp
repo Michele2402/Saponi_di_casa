@@ -1,6 +1,7 @@
 <%@ page import="it.mfm.model.Cart" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="it.mfm.model.ProductBean" %>
+<%@ page import="it.mfm.model.UserBean" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -20,6 +21,7 @@
     if (cart != null) {
         products = cart.getProducts();
     }
+    UserBean user = (UserBean) request.getSession().getAttribute("user");
 %>
 
 <div id="cart-container">
@@ -53,7 +55,9 @@
     </div>
     <% } %>
     <% } %>
-    <button id="checkout-button">Acquista</button>
+    <% if(user != null && cart != null)  { %>
+    <button id="checkout-button" onclick="Checkout()">Acquista</button>
+    <% } %>
 </div>
 
 

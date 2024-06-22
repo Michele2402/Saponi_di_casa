@@ -107,19 +107,19 @@ button {
 }
 
 #reviews-container {
-    background-color: #F8F4E1;
-    border: 2px solid #543310;
-    border-radius: 15px;
-    height: 90%;
-    width: 100%;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    justify-self: start;
-    gap: 15px;
-}
+     background-color: #F8F4E1;
+     border: 2px solid #543310;
+     border-radius: 15px;
+     height: 90%;
+     width: 100%;
+     padding: 10px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: start;
+     justify-self: start;
+     gap: 15px;
+ }
 
 .review-container {
     width: 100%;

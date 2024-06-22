@@ -10,8 +10,81 @@
     padding: 15px;
     color: #543310;
     display: flex;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+#order-info {
+    width: 30%;
 }
 
 #payment-methods-container {
+    background-color: #F8F4E1;
+    border: 2px solid #543310;
+    border-radius: 15px;
+    height: 90%;
+    width: 30%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 15px;
+}
 
+.payment-method-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: self-start;
+    gap: 5px;
+    width: 100%;
+    color: #543310;
+    font-size: 18px;
+    border: 2px solid #A67B5B;
+    background-color: #F1F1F1;
+    box-sizing: border-box;
+    padding: 5px;
+    cursor:pointer;
+}
+
+.highlight {
+    background-color: #EADBC8;
+    border-color: #543310;
+}
+
+#delivery-info {
+    width: 30%;
+    justify-self: right;
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.headers {
+    font-weight: bold;
+    font-size: 20px
+}
+
+.text {
+    font-size: 16px;
+}
+
+
+button {
+    background-color: #76ec76;
+    border: 2px solid #543310;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 130px;
+    height: 70px;
+    line-height: 25px;
+    text-align: center;
+    font-size: 25px;
+    align-self: center;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #5be55b;
 }

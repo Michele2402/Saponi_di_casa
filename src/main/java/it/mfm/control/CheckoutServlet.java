@@ -69,6 +69,7 @@ public class CheckoutServlet extends HttpServlet {
 
             // Create a new PurchasedProductBean for each product
             PurchasedProductBean purchasedProduct = new PurchasedProductBean();
+            purchasedProduct.setNome(product.getNome());
             purchasedProduct.setOrdine_id(orderId);
             purchasedProduct.setQuantita(quantity);
             purchasedProduct.setPrezzo(product.getPrezzo());
