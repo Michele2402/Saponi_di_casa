@@ -55,7 +55,7 @@
     </div>
     <% } %>
     <% } %>
-    <% if(user != null && cart != null)  { %>
+    <% if(user != null && products != null && !products.isEmpty())  { %>
     <button id="checkout-button" onclick="Checkout()">Acquista</button>
     <% } %>
 </div>

@@ -34,7 +34,6 @@
         if(user != null) {
             if(user.isAdmin())
                 admin = true;
-            System.out.println(user.isAdmin());
         }
 
     %>

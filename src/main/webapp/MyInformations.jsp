@@ -1,6 +1,9 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="it.mfm.model.UserBean" %>
+<%@ page import="it.mfm.model.PaymentMethodBean" %>
+<%@ page import="java.util.List" %>
 <%--<%@ page import="com.example.UserBean" %>
 <%@ page import="com.example.PaymentMethodBean" %> --%>
 <html>
@@ -13,12 +16,10 @@
 <%@ include file="./Header.jsp" %>
 
 <%
-/*        UserBean user = (UserBean) session.getAttribute("user");
-        const userName = user.getNome();
-        const userCognome = user.getCognome();
-        const userData
-        ArrayList<PaymentMethodBean> paymentMethods = (ArrayList<PaymentMethodBean>) session.getAttribute("paymentMethods");*/
+      UserBean user = (UserBean) session.getAttribute("user");
+      List<PaymentMethodBean> paymentMethods = (List<PaymentMethodBean>) session.getAttribute("paymentMethods");
 %>
+
 <div id="myInformations-container">
     <form action="MyInformations" method="post" id="modify-form"  onsubmit="event.preventDefault(); validateRegistration(this)">
         <div class="tableRow">
