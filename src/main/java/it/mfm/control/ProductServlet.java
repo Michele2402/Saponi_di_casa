@@ -32,7 +32,8 @@ public class ProductServlet extends HttpServlet {
 
         //Check if the user is an admin
         HttpSession session = request.getSession();
-        if (session.getAttribute("admin") == null) {
+        if (session.getAttribute("isAdmin") == null || !((Boolean)session.getAttribute("isAdmin")) ){
+            //System.out.println("admin status " + session.getAttribute("isAdmin") + " not authorized to access this page");
             response.sendRedirect("NotAuthorized.jsp");
             return;
         }
@@ -40,19 +41,22 @@ public class ProductServlet extends HttpServlet {
         String action = request.getParameter("action");
 
         switch (action) {
+
             case "add":
 
                 String nome = escapeHtml(request.getParameter("nome"));
                 String descrizione = escapeHtml(request.getParameter("descrizione"));
                 int prezzo = Integer.parseInt(escapeHtml(request.getParameter("prezzo")));
-                String immagine = escapeHtml(request.getParameter("immagine"));
+                String immagine = request.getParameter("immagine");
                 int IDcategoria = Integer.parseInt(escapeHtml(request.getParameter("IDcategoria")));
+                System.out.println(immagine);
 
                 //validation of the input
                 if (!nome.matches("^[a-zA-Z0-9\\s]{1,50}$") ||
-                        !descrizione.matches("^[a-zA-Z0-9\\s]{1,100}$") ||
-                        !immagine.matches("^[a-zA-Z0-9\\s]{1,50}$")||
-                        !(prezzo < 0)) {
+                        //validate the image for a valid PATH with slashes and dots
+                        !immagine.matches("^[a-zA-Z0-9\\s/.]{1,50}$") ||
+                        (prezzo < 0)) {
+                    System.out.println("Error: invalid input");
                     response.sendRedirect("addProduct.jsp?error=true"); // Redirect to the add product page
                     return;
                 }
@@ -74,7 +78,7 @@ public class ProductServlet extends HttpServlet {
 
                 }
 
-                response.sendRedirect(request.getContextPath() + "/admin/AddProduct.jsp");
+                response.sendRedirect("/admin/AddProduct.jsp");
                 break;
 
             case "delete":
@@ -91,7 +95,7 @@ public class ProductServlet extends HttpServlet {
                     response.sendRedirect(request.getContextPath()+ "/Error.jsp");
                 }
 
-                response.sendRedirect(request.getContextPath() + "/ViewCategory.jsp");
+                response.sendRedirect(request.getContextPath() + "/admin/ViewCategory.jsp");
 
                 break;
 
@@ -109,7 +113,7 @@ public class ProductServlet extends HttpServlet {
                         !descrizioneModify.matches("^[a-zA-Z0-9\\s]{1,50}$") ||
                         !immagineModify.matches("^[a-zA-Z0-9\\s]{1,50}$")||
                         prezzoModify >= 0) {
-                    response.sendRedirect("modifyProduct.jsp?error=true"); // Redirect to the modify product page
+                    response.sendRedirect("admin/ModifyProduct.jsp?error=true"); // Redirect to the modify product page
                     return;
                 }
 
@@ -131,13 +135,10 @@ public class ProductServlet extends HttpServlet {
                     response.sendRedirect(request.getContextPath()+ "/Error.jsp");
                 }
 
-                response.sendRedirect(request.getContextPath() + "/ViewCategory.jsp");
+                response.sendRedirect(request.getContextPath() + "admin/ViewCategory.jsp");
 
                 break;
 
-            default:
-                response.sendRedirect("index.jsp");
-                break;
         }
     }
 

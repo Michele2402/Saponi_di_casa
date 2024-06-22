@@ -58,9 +58,9 @@ public class LoginServlet extends HttpServlet {
 
                 // Set the admin status in the session
                 if(userBean.isAdmin())
-                    session.setAttribute("isAdmin", true);
+                    session.setAttribute("isAdmin", Boolean.TRUE);
                 else
-                    session.setAttribute("isAdmin", false);
+                    session.setAttribute("isAdmin", Boolean.FALSE);
 
                 // Redirect to home page
                 response.sendRedirect("Home.jsp");

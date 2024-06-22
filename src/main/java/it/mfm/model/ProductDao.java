@@ -35,7 +35,7 @@ public class ProductDao implements ProductDaoInterfaccia{
 
         String insertSQL = "INSERT INTO " +
                 TABLE_NAME +
-                " (nome, descrizione, prezzo, immagine, categoria_id) VALUES (?, ?, ?, ?, ?, ?)";
+                " (nome, descrizione, prezzo, immagine, categoria_id) VALUES (?, ?, ?, ?, ?)";
 
         try {
             connection = ds.getConnection();
