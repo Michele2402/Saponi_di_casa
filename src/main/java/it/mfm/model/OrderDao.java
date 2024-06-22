@@ -40,7 +40,7 @@ public class OrderDao implements OrderDaoInterfaccia{
         try {
             connection = ds.getConnection();
             connection.setAutoCommit(false);
-            preparedStatement = connection.prepareStatement(insertSQL);
+            preparedStatement = connection.prepareStatement(insertSQL, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setDouble(1, orderBean.getTotale());
             preparedStatement.setDate(2, new java.sql.Date(orderBean.getData_creazione().getTime()));
             preparedStatement.setString(3, orderBean.getUtente_username());
