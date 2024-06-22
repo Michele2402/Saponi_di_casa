@@ -48,12 +48,12 @@ public class MyInformationsServlet extends HttpServlet {
                 return;
             }
 
-            String address = request.getParameter("address");
-            String email = request.getParameter("email");
-            String name = request.getParameter("name");
-            String surname = request.getParameter("surname");
-            String phone = request.getParameter("phone");
-            String password = request.getParameter("password");
+            String address = request.getParameter("indirizzoMyInf");
+            String email = request.getParameter("emailMyInf");
+            String name = request.getParameter("nomeMyInf");
+            String surname = request.getParameter("cognomeMyInf");
+            String phone = request.getParameter("telefonoMyInf");
+            String password = request.getParameter("passwordInf");
 
             // Validate input
             if (!address.matches("^[a-zA-Z0-9\\s,]+$") ||

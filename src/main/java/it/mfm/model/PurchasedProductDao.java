@@ -34,8 +34,8 @@ public class PurchasedProductDao implements PurchasedProductDaoInterfaccia{
 
         String insertSQL = "INSERT INTO " +
                 TABLE_NAME +
-                " (nome, prezzo, quantita, ordine_id) " +
-                "VALUES (?, ?, ?, ?, ?)";
+                " (nome, prezzo, quantità, ordine_id) " +
+                "VALUES (?, ?, ?, ?)";
 
         try {
             connection = ds.getConnection();
@@ -52,6 +52,7 @@ public class PurchasedProductDao implements PurchasedProductDaoInterfaccia{
 
             preparedStatement.executeBatch();
             connection.commit();
+
         } catch (SQLException e) {
             throw new SQLException(e.getMessage());
         } finally {
