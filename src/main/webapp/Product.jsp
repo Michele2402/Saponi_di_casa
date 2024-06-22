@@ -46,7 +46,7 @@
             </div>
             <% } %>
             <% } else { %>
-            <p>Nessuna recensione</p>
+            <div class="review-container">Nessuna recensione</div>
             <% } %>
         </div>
     </div>

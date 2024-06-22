@@ -98,7 +98,7 @@ img {
 }
 
 #admin-button {
-    background-color: #9370DB;
+    background-color: #FFD700;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -108,7 +108,15 @@ img {
 }
 
 #admin-button:hover {
-    background-color: #7B68EE;
+    background-color: #FFC107;
+}
+
+#button-container {
+    width: 150px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
 }
 
 @media screen and (max-width: 700px) {

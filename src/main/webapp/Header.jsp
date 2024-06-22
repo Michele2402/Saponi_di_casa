@@ -2,9 +2,13 @@
 <html>
 <head>
     <title>Title</title>
-   <link rel="stylesheet" type="text/css" href="css/global.css">
-    <link rel="stylesheet" type="text/css" href="css/header.css">
-    <script src="script/header.js"></script>
+    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/global.css">
+    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/header.css">
+    <script>
+        var contextPath = "<%= request.getContextPath() %>";
+        console.log(contextPath)
+    </script>
+    <script src="<%= request.getContextPath() %>/script/header.js"></script>
 </head>
 <body>
     <div id="header-container">

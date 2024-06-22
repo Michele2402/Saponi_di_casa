@@ -88,3 +88,33 @@ button {
 button:hover {
     background-color: #5be55b;
 }
+
+@media screen and (max-width: 1000px) {
+
+    #review-order-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        height: auto;
+    }
+
+    #order-info, #delivery-info {
+        width: 100%;
+    }
+
+    #payment-methods-container {
+        width: 80%;
+    }
+
+
+}
+
+@media screen and (max-width: 750px) {
+
+    #review-order-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        height: auto;
+    }
+}

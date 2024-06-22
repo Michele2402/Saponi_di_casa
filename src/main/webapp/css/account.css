@@ -1,10 +1,20 @@
-#account-container {
-    height: 400px;
+#util {
     width: 60%;
-    background-color: #C39898;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
+    gap: 20px;
+}
+
+#account-container {
+    height: 100%;
+    width: 100%;
+    background-color: #C39898;
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -39,6 +49,21 @@ p {
     margin: 0;
     text-align: center;
 }
+
+button {
+    background-color: #DBB5B5;
+    color: ghostwhite;
+    border: 2px solid ghostwhite;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-family: 'Arial', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
 
 @media screen and (max-width: 800px) {
     #account-container {

@@ -35,7 +35,7 @@
         </div>
         <div class="placeholder middle">
             <p class="top">CVV:</p>
-            <p class="bottom"><input type="number" name="cv" required placeholder="Inserisci cvv"/></p>
+            <p class="bottom"><input type="text" name="cv" required placeholder="Inserisci cvv"/></p>
             <div class="error cvv"></div>
         </div>
         <div class="placeholder middle">

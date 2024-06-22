@@ -10,31 +10,36 @@
     <link rel="stylesheet" type="text/css" href="css/home.css">
     <script src="script/home.js"></script>
 </head>
+
+<body>
 <script>
-    window.onload = function() {
+    window.addEventListener('DOMContentLoaded', function () {
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "<%= request.getContextPath() %>/AllProducts", true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                console.log("Request to AllProducts successful.");
-                // Handle the response if needed
+        xhr.open('GET', 'AllProducts', true);
+
+        xhr.onload = function () {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                document.body.style.display = 'block';
+            } else {
+                console.error('Errore nel caricamento dei prodotti');
+                location.reload();
             }
         };
-        xhr.send();
-    };
-</script>
-<body>
 
-    <%@ include file="./Header.jsp" %>
-    <%
-        List<CategoryBean> allCategories = (List<CategoryBean>) request.getSession().getAttribute("allCategories");
+        xhr.send();
+    });
+
+</script>
+
+<%@ include file="./Header.jsp" %>
+<%
+    List<CategoryBean> allCategories = (List<CategoryBean>) request.getSession().getAttribute("allCategories");
         List<ProductBean> allProducts = (List<ProductBean>) request.getSession().getAttribute("allProducts");
         UserBean user = (UserBean) request.getSession().getAttribute("user");
         boolean admin = false;
         if(user != null) {
             if(user.isAdmin())
                 admin = true;
-            System.out.println(user.isAdmin());
         }
 
     %>
@@ -72,7 +77,9 @@
     </div>
 
     <% if(admin) {%>
-    <button id="admin-button">Sezione admin</button>
+    <div id="button-container">
+        <button id="admin-button" onclick="goToAdminPanel()">Sezione admin</button>
+    </div>
     <%}%>
 
 </body>
