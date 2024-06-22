@@ -47,7 +47,7 @@ public class ReviewDao implements ReviewDaoInterfaccia{
 
             connection.commit();
         } catch (SQLException e) {
-            System.out.println("Error:" + e.getMessage());
+            throw new SQLException(e.getMessage());
         } finally {
             try {
                 if (preparedStatement != null)

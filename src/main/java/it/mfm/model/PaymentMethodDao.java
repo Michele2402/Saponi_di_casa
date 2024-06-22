@@ -50,7 +50,7 @@ public class PaymentMethodDao implements PaymentMethodDaoInterfaccia{
 
             connection.commit();
         } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
+            throw new SQLException(e.getMessage());
         } finally {
             try {
                 if (preparedStatement != null)
@@ -80,7 +80,7 @@ public class PaymentMethodDao implements PaymentMethodDaoInterfaccia{
             if (connection != null) {
                 connection.rollback();
             }
-            throw e;
+            throw new SQLException(e.getMessage());
         } finally {
             try {
                 if (preparedStatement != null)

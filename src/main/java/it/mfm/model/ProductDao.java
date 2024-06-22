@@ -50,7 +50,7 @@ public class ProductDao implements ProductDaoInterfaccia{
 
             connection.commit();
         } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
+            throw new SQLException(e.getMessage());
         } finally {
             try {
                 if (preparedStatement != null)
@@ -84,7 +84,7 @@ public class ProductDao implements ProductDaoInterfaccia{
 
             connection.commit();
         } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
+            throw new SQLException(e.getMessage());
         } finally {
             try {
                 if (preparedStatement != null)
@@ -112,7 +112,7 @@ public class ProductDao implements ProductDaoInterfaccia{
 
             connection.commit();
         } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
+            throw new SQLException(e.getMessage());
         } finally {
             try {
                 if (preparedStatement != null)

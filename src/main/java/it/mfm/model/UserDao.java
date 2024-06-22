@@ -47,14 +47,14 @@ public class UserDao implements UserDaoInterfaccia {
             preparedStatement.setString(5, userBean.getPassword());
             preparedStatement.setString(6, userBean.getIndirizzo());
             preparedStatement.setString(7, userBean.getTelefono());
-            preparedStatement.setBoolean(8, userBean.isAdmin());
+            preparedStatement.setInt(8, userBean.isAdmin());
 
             preparedStatement.executeUpdate();
 
             connection.commit();
         }
         catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
+            throw new SQLException(e.getMessage());
         } finally {
             try {
                 if (preparedStatement != null)
@@ -91,10 +91,10 @@ public class UserDao implements UserDaoInterfaccia {
                 userBean.setPassword(resultSet.getString("password"));
                 userBean.setIndirizzo(resultSet.getString("indirizzo"));
                 userBean.setTelefono(resultSet.getString("telefono"));
-                userBean.setAdmin(resultSet.getBoolean("admin"));
+                userBean.setAdmin(resultSet.getInt("admin"));
             }
         } catch (Exception e) {
-                System.out.println("Error: " + e.getMessage());
+            throw new SQLException(e.getMessage());
         } finally {
             try {
                 if (resultSet != null)
@@ -142,7 +142,7 @@ public class UserDao implements UserDaoInterfaccia {
             }
         }
         catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            throw new SQLException(e.getMessage());
         } finally {
             try {
                 if (resultSet != null)
@@ -179,16 +179,14 @@ public class UserDao implements UserDaoInterfaccia {
             preparedStatement.setString(3, user.getCognome());
             preparedStatement.setString(4, user.getEmail());
             preparedStatement.setString(5, user.getIndirizzo());
-            preparedStatement.setBoolean(6, user.getAdmin());
+            preparedStatement.setInt(6, user.getAdmin());
             preparedStatement.setString(7, user.getUsername());
             preparedStatement.executeUpdate();
 
             connection.commit();
-        }
-        catch(Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-        finally {
+        } catch(Exception e) {
+            throw new SQLException(e.getMessage());
+        } finally {
             try {
                 if (preparedStatement != null)
                     preparedStatement.close();

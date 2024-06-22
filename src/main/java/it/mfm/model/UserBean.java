@@ -9,7 +9,7 @@ public class UserBean {
     private String password;
     private String indirizzo;
     private String telefono;
-    private boolean admin;
+    private int admin;
 
     public UserBean() {}
 
@@ -21,11 +21,11 @@ public class UserBean {
         this.username = username;
     }
 
-    public boolean isAdmin() {
+    public int isAdmin() {
         return admin;
     }
 
-    public void setAdmin(boolean admin) {
+    public void setAdmin(int admin) {
         this.admin = admin;
     }
 
@@ -77,12 +77,7 @@ public class UserBean {
         this.nome = nome;
     }
 
-    public boolean getAdmin() {
-        return admin;
-    }
+    public int getAdmin(){return admin;}
 
-    public void setAdmin(Boolean admin) {
-        this.admin = admin;
-    }
 }
 
