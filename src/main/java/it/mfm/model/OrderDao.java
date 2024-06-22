@@ -55,7 +55,7 @@ public class OrderDao implements OrderDaoInterfaccia{
                 throw new SQLException("Creating order failed, no ID obtained.");
             }
         } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
+            throw new SQLException(e.getMessage());
         } finally {
             try {
                 if (preparedStatement != null)
@@ -98,6 +98,8 @@ public class OrderDao implements OrderDaoInterfaccia{
                 orderBean.setData_creazione(resultSet.getDate("data_creazione"));
                 orderBean.setUtente_username(resultSet.getString("utente_username"));
             }
+        } catch (SQLException e) {
+            throw new SQLException(e.getMessage());
         } finally {
             try {
                 if (resultSet != null)
@@ -138,6 +140,8 @@ public class OrderDao implements OrderDaoInterfaccia{
                 orderBean.setUtente_username(resultSet.getString("utente_username"));
                 orderList.add(orderBean);
             }
+        } catch (SQLException e) {
+            throw new SQLException(e.getMessage());
         } finally {
             try {
                 if (resultSet != null)
@@ -157,11 +161,12 @@ public class OrderDao implements OrderDaoInterfaccia{
     }
 
     @Override
-    public OrderBean doRetrieveByUser(UserBean userBean) throws SQLException {
+    public ArrayList<OrderBean> doRetrieveByUser(UserBean userBean) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         OrderBean orderBean = null;
+        ArrayList<OrderBean> orderList = new ArrayList<>();
 
         String selectSQL = "SELECT * FROM " + TABLE_NAME + " WHERE utente_username = ?";
 
@@ -171,13 +176,16 @@ public class OrderDao implements OrderDaoInterfaccia{
             preparedStatement.setString(1, userBean.getUsername());
             resultSet = preparedStatement.executeQuery();
 
-            if (resultSet.next()) {
+            while(resultSet.next()) {
                 orderBean = new OrderBean();
                 orderBean.setId(resultSet.getInt("id"));
                 orderBean.setTotale(resultSet.getDouble("totale"));
                 orderBean.setData_creazione(resultSet.getDate("data_creazione"));
                 orderBean.setUtente_username(resultSet.getString("utente_username"));
+                orderList.add(orderBean);
             }
+        } catch(SQLException e){
+            throw new SQLException(e.getMessage());
         } finally {
             try {
                 if (resultSet != null)
@@ -193,7 +201,7 @@ public class OrderDao implements OrderDaoInterfaccia{
             }
         }
 
-        return orderBean;
+        return orderList;
     }
 
     @Override
@@ -220,6 +228,8 @@ public class OrderDao implements OrderDaoInterfaccia{
                 orderBean.setUtente_username(resultSet.getString("utente_username"));
                 orderList.add(orderBean);
             }
+        } catch (SQLException e) {
+            throw new SQLException(e.getMessage());
         } finally {
             try {
                 if (resultSet != null)

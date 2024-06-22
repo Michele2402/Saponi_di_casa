@@ -21,6 +21,7 @@ public class UserBean {
         this.username = username;
     }
 
+
     public boolean isAdmin() {
         return admin == 1;
     }
@@ -77,6 +78,7 @@ public class UserBean {
         this.nome = nome;
     }
 
+
     public int getAdmin() {
         return admin;
     }
@@ -84,5 +86,6 @@ public class UserBean {
     public void setAdmin(Integer admin) {
         this.admin = admin;
     }
+
 }
 

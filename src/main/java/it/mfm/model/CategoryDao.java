@@ -48,7 +48,7 @@ public class CategoryDao implements CategoryDaoInterfaccia{
 
             connection.commit();
         } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
+            throw new SQLException(e.getMessage());
         } finally {
             try {
                 if (preparedStatement != null)
@@ -81,6 +81,8 @@ public class CategoryDao implements CategoryDaoInterfaccia{
                 categoryBean.setDescrizione(resultSet.getString("descrizione"));
                 categoryList.add(categoryBean);
             }
+        } catch (SQLException e) {
+            throw new SQLException(e.getMessage());
         } finally {
             try {
                 if (resultSet != null)
@@ -120,6 +122,8 @@ public class CategoryDao implements CategoryDaoInterfaccia{
                 categoryBean.setNome(resultSet.getString("nome"));
                 categoryBean.setDescrizione(resultSet.getString("descrizione"));
             }
+        } catch (SQLException e) {
+            throw new SQLException(e.getMessage());
         } finally {
             try {
                 if (resultSet != null)

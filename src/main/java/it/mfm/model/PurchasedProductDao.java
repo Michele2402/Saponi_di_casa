@@ -53,7 +53,7 @@ public class PurchasedProductDao implements PurchasedProductDaoInterfaccia{
             preparedStatement.executeBatch();
             connection.commit();
         } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
+            throw new SQLException(e.getMessage());
         } finally {
             try {
                 if (preparedStatement != null)
@@ -88,6 +88,8 @@ public class PurchasedProductDao implements PurchasedProductDaoInterfaccia{
                 purchasedProduct.setOrdine_id(resultSet.getInt("ordine_id"));
                 purchasedProductList.add(purchasedProduct);
             }
+        } catch (SQLException e) {
+            throw new SQLException(e.getMessage());
         } finally {
             try {
                 if (resultSet != null)

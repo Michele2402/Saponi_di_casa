@@ -1,15 +1,12 @@
 package it.mfm.control;
 
-import it.mfm.model.CategoryBean;
-import it.mfm.model.CategoryDao;
-import it.mfm.model.ProductBean;
-import it.mfm.model.ProductDao;
+import it.mfm.model.*;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -26,11 +23,21 @@ public class CategoryServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         String action = request.getParameter("action");
         String redirectedPage = request.getParameter("page");
 
         try {
             if ("new".equals(action)) {
+
+                // Check if the user is an admin
+                HttpSession session = request.getSession();
+
+                if (session.getAttribute("user") == null || !((UserBean) session.getAttribute("user")).isAdmin()) {
+                    response.sendRedirect(request.getContextPath() + "/login.jsp");
+                    return;
+                }
+
                 // Create and save a new category
                 String nome = request.getParameter("nome");
                 String descrizione = request.getParameter("descrizione");
@@ -41,7 +48,6 @@ public class CategoryServlet extends HttpServlet {
 
                 categoryDao.doSave(category);
                 //update the list of categories
-                HttpSession session = request.getSession();
                 session.setAttribute("categories", categoryDao.doRetrieveAll());
 
             } else if ("find".equals(action)) {
