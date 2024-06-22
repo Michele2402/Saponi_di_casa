@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
+import static it.mfm.control.LoginServlet.hashPassword;
 
 
 @WebServlet("/MyInformations")
@@ -53,10 +54,10 @@ public class MyInformationsServlet extends HttpServlet {
             String name = request.getParameter("nomeMyInf");
             String surname = request.getParameter("cognomeMyInf");
             String phone = request.getParameter("telefonoMyInf");
-            String password = request.getParameter("passwordInf");
+            String password = hashPassword(request.getParameter("passwordInf"));
 
             // Validate input
-            if (!address.matches("^[a-zA-Z0-9\\s,]+$") ||
+/*            if (!address.matches("^[a-zA-Z0-9\\s,]+$") ||
                     !email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$") ||
                     !name.matches("^[a-zA-Z\\s]+$") ||
                     !surname.matches("^[a-zA-Z\\s]+$") ||
@@ -64,7 +65,7 @@ public class MyInformationsServlet extends HttpServlet {
                     !password.matches("/^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/")) {
                 response.sendRedirect("MyInformations.jsp?error=true"); // Redirect to the error page
                 return;
-            }
+            }*/
 
             userInformation.setIndirizzo(address);
             userInformation.setEmail(email);
@@ -78,12 +79,15 @@ public class MyInformationsServlet extends HttpServlet {
             userDao.doUpdate(userInformation);
             session.setAttribute("user", user); // Update the user in the session
 
+            response.sendRedirect("MyInformations.jsp?success=true"); // Redirect to the success page
         } catch (SQLException e) {
 
             System.out.println("Error:" + e.getMessage());
             response.sendRedirect("Error.jsp"); // Redirect to the error page
 
         }
+
+
     }
 
 

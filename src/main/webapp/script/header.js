@@ -1,15 +1,16 @@
 function backHome() {
-    window.location.href = "Home.jsp";
+    console.log(contextPath);
+    window.location.href = contextPath + "/Home.jsp";
 }
 
 function goToLogin() {
-    window.location.href = "Login.jsp";
+    window.location.href = contextPath + "/Login.jsp";
 }
 
 function goToAccount() {
-    window.location.href = "Account.jsp";
+    window.location.href = contextPath + "/Account.jsp";
 }
 
 function goToCart() {
-    window.location.href = "Cart.jsp";
+    window.location.href = contextPath + "/Cart.jsp";
 }

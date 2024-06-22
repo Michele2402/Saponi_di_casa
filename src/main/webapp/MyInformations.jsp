@@ -1,11 +1,8 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="it.mfm.model.UserBean" %>
 <%@ page import="it.mfm.model.PaymentMethodBean" %>
 <%@ page import="java.util.List" %>
-<%--<%@ page import="com.example.UserBean" %>
-<%@ page import="com.example.PaymentMethodBean" %> --%>
 <html>
 <head>
     <title>Title</title>
@@ -16,49 +13,47 @@
 <%@ include file="./Header.jsp" %>
 
 <%
-      UserBean user = (UserBean) session.getAttribute("user");
-      List<PaymentMethodBean> paymentMethods = (List<PaymentMethodBean>) session.getAttribute("paymentMethods");
+    UserBean user = (UserBean) session.getAttribute("user");
+    List<PaymentMethodBean> paymentMethods = (List<PaymentMethodBean>) session.getAttribute("paymentMethods");
+    boolean error = Boolean.parseBoolean(String.valueOf(session.getAttribute("error")));
 %>
 
 <div id="myInformations-container">
-    <form action="MyInformations" method="post" id="modify-form"  onsubmit="event.preventDefault(); validateRegistration(this)">
+    <% if (error) { %>
+    <div class="error-message">
+        Si è verificato un errore durante la modifica delle informazioni.
+    </div>
+    <% } %>
+    <form action="MyInformations" method="post" id="modify-form">
         <div class="tableRow">
             <p>Nome:</p>
-            <p><input class="input" type="text" name="nomeMyInf" required placeholder="inserisci il tuo nome"/></p>
-            <div class="error" id="RegNome"></div>
+            <p><input class="input" type="text" name="nomeMyInf" required value="<%= user.getNome() %>"/></p>
         </div>
         <div class="tableRow">
             <p>Cognome:</p>
-            <p><input class="input" type="text" name="cognomeMyInf" required placeholder="inserisci il tuo cognome"/></p>
-            <div class="error" id="RegCognome"></div>
+            <p><input class="input" type="text" name="cognomeMyInf" required value="<%= user.getCognome() %>"/></p>
         </div>
         <div class="tableRow">
-            <p>Data di nascita:</p>
-            <p> <input class="input" type="date" name="dataNascitaMyInf" required placeholder="inserisci la tua data di nascita"/></p>
-            <div class="error" id="RegData"></div>
+            <p>Numero di telefono:</p>
+            <p><input class="input" type="text" name="telefonoMyInf" required value="<%= user.getTelefono() %>"/></p>
         </div>
         <div class="tableRow">
             <p>Indirizzo:</p>
-            <p><input class="input" type="text" name="indirizzoMyInf" required placeholder="inserisci il tuo indirizzo"/></p>
-            <div class="error" id="RegIndirizzo"></div>
+            <p><input class="input" type="text" name="indirizzoMyInf" required value="<%= user.getIndirizzo() %>"/></p>
         </div>
         <div class="tableRow">
             <p>Email:</p>
-            <p><input class="input" type="email" name="emailMyInf" required placeholder="inserisci la tua email"/></p>
-            <div class="error" id="RegEmail"></div>
+            <p><input class="input" type="email" name="emailMyInf" required value="<%= user.getEmail() %>"/></p>
         </div>
         <div class="tableRow">
             <p>Password:</p>
             <p><input class="input" type="password" name="passwordInf" required placeholder="inserisci la tua password"/></p>
-            <div class="error" id="RegPassword"></div>
         </div>
         <div class="tableRowButton">
             <input class="button" type="submit" value="Modifica">
         </div>
     </form>
 </div>
-
-
 
 </body>
 </html>

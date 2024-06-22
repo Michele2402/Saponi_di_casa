@@ -181,8 +181,9 @@ public class UserDao implements UserDaoInterfaccia {
             preparedStatement.setString(3, user.getCognome());
             preparedStatement.setString(4, user.getEmail());
             preparedStatement.setString(5, user.getIndirizzo());
-            preparedStatement.setInt(6, user.getAdmin());
-            preparedStatement.setString(7, user.getUsername());
+            preparedStatement.setString(6, user.getTelefono());
+            preparedStatement.setInt(7, user.getAdmin());
+            preparedStatement.setString(8, user.getUsername());
             preparedStatement.executeUpdate();
 
             connection.commit();
