@@ -34,7 +34,7 @@
         </div>
         <div class="tableRow">
             <p>Data di nascita:</p>
-            <p><input class="input" type="date" name="dataNascitaMyInf" required placeholder="inserisci la tua data di nascita"/></p>
+            <p> <input class="input" type="date" name="dataNascitaMyInf" required placeholder="inserisci la tua data di nascita"/></p>
             <div class="error" id="RegData"></div>
         </div>
         <div class="tableRow">

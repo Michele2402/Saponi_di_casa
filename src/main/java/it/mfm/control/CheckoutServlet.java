@@ -42,6 +42,7 @@ public class CheckoutServlet extends HttpServlet {
             // get all products and their quantities from the cart
 
             ArrayList<PurchasedProductBean> purchasedProducts = getPurchasedProductBeans(cart, orderId);
+            System.out.println(purchasedProducts);
 
             // Save all the purchased products to the database
             purchasedProductDao.doSaveAll(purchasedProducts);
@@ -52,8 +53,10 @@ public class CheckoutServlet extends HttpServlet {
             response.sendRedirect("checkout.jsp?success=true");
 
         } catch (SQLException e) {
-            // If there's an error, redirect with "success=false"
-            response.sendRedirect("checkout.jsp?success=false");
+            // If an error occurs, redirect back to the calling JSP with parameter "success=false"
+            // and print the error message to the console
+            e.printStackTrace();
+            response.sendRedirect("Home.jsp");
         }
     }
 
@@ -73,6 +76,7 @@ public class CheckoutServlet extends HttpServlet {
             purchasedProduct.setOrdine_id(orderId);
             purchasedProduct.setQuantita(quantity);
             purchasedProduct.setPrezzo(product.getPrezzo());
+            System.out.println(purchasedProduct.getNome() + " " + purchasedProduct.getPrezzo() + " " + purchasedProduct.getQuantita() + " " + purchasedProduct.getOrdine_id());
 
             // Add the PurchasedProductBean to the array
             purchasedProducts.add(purchasedProduct);
