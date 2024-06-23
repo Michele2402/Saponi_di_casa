@@ -64,10 +64,11 @@ public class CategoryServlet extends HttpServlet {
             }
 
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
             throw new ServletException("Error updating category", e);
         }
 
-        response.sendRedirect(request.getContextPath() + "/" + redirectedPage);
+        response.sendRedirect(request.getContextPath() + "/" + redirectedPage );
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

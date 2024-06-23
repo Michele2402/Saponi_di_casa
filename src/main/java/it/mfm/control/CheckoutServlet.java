@@ -50,7 +50,7 @@ public class CheckoutServlet extends HttpServlet {
             // If everything is successful, redirect back to the calling JSP with parameter "success=true"
             Cart newCart = new Cart();
             session.setAttribute("cart", newCart);
-            response.sendRedirect("checkout.jsp?success=true");
+            response.sendRedirect("Cart.jsp?success=true");
 
         } catch (SQLException e) {
             // If an error occurs, redirect back to the calling JSP with parameter "success=false"

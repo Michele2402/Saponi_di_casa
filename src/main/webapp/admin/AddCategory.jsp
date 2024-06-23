@@ -11,6 +11,7 @@
 <div id="add-category-container">
     <form action="../Category" method="post" id="myForm">
         <input type="hidden" name="action" value="new">
+        <input type="hidden" name="page" value="/admin/AddProduct.jsp">
 
         <div class="placeholder">
             <p class="top">Nome:</p>
