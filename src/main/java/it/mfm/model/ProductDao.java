@@ -82,7 +82,7 @@ public class ProductDao implements ProductDaoInterfaccia{
             preparedStatement.setInt(6, productBean.getId());
             preparedStatement.executeUpdate();
 
-            connection.commit();
+            /*connection.commit();*/
         } catch (SQLException e) {
             throw new SQLException(e.getMessage());
         } finally {

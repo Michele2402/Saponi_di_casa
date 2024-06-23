@@ -20,6 +20,13 @@
     boolean error = Boolean.parseBoolean(String.valueOf(session.getAttribute("error")));
 %>
 
+<% if(request.getParameter("success") != null && request.getParameter("success").equals("true")) { %>
+<div class="message">
+    Informazioni modificate
+</div>
+<% } %>
+
+
 <div id="myInformations-container">
     <% if (error) { %>
     <div class="error-message">
@@ -71,6 +78,8 @@
         <% } %>
     </div>
 </div>
+
+<%@ include file="./Footer.jsp" %>
 
 </body>
 </html>

@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            background-color: #FAF3E0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -15,31 +15,31 @@
             margin: 0;
         }
         .error-container {
-            background-color: #ffffff;
+            background-color: #FFF7E3;
             padding: 20px 30px;
-            border: 1px solid #cccccc;
+            border: 1px solid #E5C49D;
             border-radius: 10px;
             text-align: center;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .error-container h1 {
-            color: #ff6b6b;
+            color: #D2691E;
             margin-bottom: 20px;
         }
         .error-container p {
-            color: #333333;
+            color: #8B4513;
             margin-bottom: 20px;
         }
         .error-container a {
             text-decoration: none;
-            color: #ffffff;
-            background-color: #007bff;
+            color: #FFF7E3;
+            background-color: #8B4513;
             padding: 10px 20px;
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
         .error-container a:hover {
-            background-color: #0056b3;
+            background-color: #D2691E;
         }
     </style>
 </head>

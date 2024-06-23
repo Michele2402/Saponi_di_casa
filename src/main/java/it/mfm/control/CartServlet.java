@@ -33,7 +33,8 @@ public class CartServlet extends HttpServlet{
             String id = request.getParameter("id");
             String pageredirect = request.getParameter("page");
 
-            System.out.println(action + " " + id + " " + pageredirect);
+
+
 
             if(action != null && id != null) {
                 ProductBean product = productDao.doRetrieveById(Integer.parseInt(id));

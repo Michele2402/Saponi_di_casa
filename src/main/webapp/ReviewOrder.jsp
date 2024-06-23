@@ -32,6 +32,7 @@
             method.addEventListener('click', function() {
                 paymentMethods.forEach(m => m.classList.remove('highlight'));
                 this.classList.add('highlight');
+                document.getElementById("confirm-order-button").style.display = "block";
             });
         });
     });
@@ -67,10 +68,11 @@
         <div class="headers">Numero di telefono</div>
         <div class="text"><%= user.getTelefono() %></div>
 
-        <button onclick="checkout()">Conferma ordine</button>
+        <button id="confirm-order-button" onclick="checkout()">Conferma ordine</button>
     </div>
 </div>
 
+<%@ include file="./Footer.jsp" %>
 
 </body>
 </html>

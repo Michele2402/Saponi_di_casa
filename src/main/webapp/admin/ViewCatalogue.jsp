@@ -1,5 +1,6 @@
 <%@ page import="it.mfm.model.CategoryBean" %>
 <%@ page import="java.util.List" %>
+<%@ page import="it.mfm.model.UserBean" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -10,6 +11,15 @@
 </head>
 <body>
 <%@ include file="../Header.jsp" %>
+
+<%
+    UserBean user = (UserBean) session.getAttribute("user");
+
+    if(user == null || !user.isAdmin()) {
+        response.sendRedirect(request.getContextPath() + "/NotAuthorized.jsp");
+        return;
+    }
+%>
 
 <%
     List<CategoryBean> allCategories = (List<CategoryBean>) request.getSession().getAttribute("allCategories");
@@ -27,6 +37,8 @@
     <p>Nessuna categoria disponibile.</p>
     <% } %>
 </div>
+
+<%@ include file="../Footer.jsp" %>
 
 </body>
 </html>

@@ -9,6 +9,12 @@
 <body>
     <%@ include file="./Header.jsp" %>
 
+    <% if(request.getParameter("success") != null && request.getParameter("success").equals("true")) { %>
+    <div class="message">
+        Metodo di pagamento aggiunto
+    </div>
+    <% } %>
+
     <div id="util">
         <div id="account-container">
             <div class="card" onclick="goToMyOrders()">
@@ -29,6 +35,8 @@
         </div>
         <button onclick="logout()">Logout</button>
     </div>
+
+    <%@ include file="./Footer.jsp" %>
 
 </body>
 </html>

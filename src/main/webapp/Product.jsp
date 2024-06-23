@@ -18,6 +18,12 @@
     List<ReviewBean> reviews = (List<ReviewBean>) request.getSession().getAttribute("reviews");
 %>
 
+<% if(request.getParameter("success") != null && request.getParameter("success").equals("true")) { %>
+<div class="message">
+    Aggiunto al carrello
+</div>
+<% } %>
+
 <div id="product-container">
     <div id="left">
         <div id="image-container">
@@ -52,6 +58,8 @@
     </div>
 
 </div>
+
+<%@ include file="./Footer.jsp" %>
 
 </body>
 </html>

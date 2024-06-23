@@ -2,6 +2,7 @@
 <%@ page import="it.mfm.model.PurchasedProductBean" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
+<%@ page import="it.mfm.model.UserBean" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -17,9 +18,16 @@
     Map<OrderBean, List<PurchasedProductBean>> ordersWithProducts = (Map<OrderBean, List<PurchasedProductBean>>) request.getSession().getAttribute("allOrders");
     Map<OrderBean, List<PurchasedProductBean>> userOrders = (Map<OrderBean, List<PurchasedProductBean>>) request.getSession().getAttribute("userOrders");
     Map<OrderBean, List<PurchasedProductBean>> intervalOrders = (Map<OrderBean, List<PurchasedProductBean>>) request.getSession().getAttribute("intervalOrders");
-
 %>
 
+<%
+    UserBean user = (UserBean) session.getAttribute("user");
+
+    if(user == null || !user.isAdmin()) {
+        response.sendRedirect(request.getContextPath() + "/NotAuthorized.jsp");
+        return;
+    }
+%>
 
 <div id="orders-container">
     <div id="filter">
@@ -64,6 +72,7 @@
     <% } %>
 </div>
 
+<%@ include file="../Footer.jsp" %>
 
 </body>
 </html>

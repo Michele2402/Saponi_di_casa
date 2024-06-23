@@ -3,7 +3,7 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Accesso Non Autorizzato</title>
+    <title>Errore 404 - Pagina Non Trovata</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,7 +14,7 @@
             height: 100vh;
             margin: 0;
         }
-        .unauthorized-container {
+        .error-container {
             background-color: #FFF7E3;
             padding: 20px 30px;
             border: 1px solid #E5C49D;
@@ -22,15 +22,15 @@
             text-align: center;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .unauthorized-container h1 {
+        .error-container h1 {
             color: #D2691E;
             margin-bottom: 20px;
         }
-        .unauthorized-container p {
+        .error-container p {
             color: #8B4513;
             margin-bottom: 20px;
         }
-        .unauthorized-container a {
+        .error-container a {
             text-decoration: none;
             color: #FFF7E3;
             background-color: #8B4513;
@@ -38,15 +38,15 @@
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
-        .unauthorized-container a:hover {
+        .error-container a:hover {
             background-color: #D2691E;
         }
     </style>
 </head>
 <body>
-<div class="unauthorized-container">
-    <h1>Accesso Non Autorizzato</h1>
-    <p>Non sei autorizzato ad accedere a questa pagina.</p>
+<div class="error-container">
+    <h1>Errore 404 - Pagina Non Trovata</h1>
+    <p>La pagina che stavi cercando non è disponibile.</p>
     <a href="Home.jsp">Torna alla homepage</a>
 </div>
 </body>

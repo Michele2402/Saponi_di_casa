@@ -1,6 +1,7 @@
 <%@ page import="it.mfm.model.CategoryBean" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
+<%@ page import="it.mfm.model.UserBean" %>
 <html>
 <head>
     <title>Title</title>
@@ -14,6 +15,21 @@
 <%
     List<CategoryBean> categories = (List<CategoryBean>) request.getSession().getAttribute("allCategories");
 %>
+
+<%
+    UserBean user = (UserBean) session.getAttribute("user");
+
+    if(user == null || !user.isAdmin()) {
+        response.sendRedirect(request.getContextPath() + "/NotAuthorized.jsp");
+        return;
+    }
+%>
+
+<% if(request.getParameter("success") != null && request.getParameter("success").equals("true")) { %>
+<div class="message">
+Prodotto inserito
+</div>
+<% } %>
 
 <div id="add-product-container">
     <form action="../Product" method="post" id="myForm">
@@ -61,6 +77,8 @@
         });
     });
 </script>
+
+<%@ include file="../Footer.jsp" %>
 
 </body>
 </html>
