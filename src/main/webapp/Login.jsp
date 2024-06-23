@@ -9,6 +9,12 @@
 <body>
     <%@ include file="./Header.jsp" %>
 
+    <% if(request.getParameter("error") != null && request.getParameter("error").equals("true")) { %>
+    <div class="message">
+        Username o password sbagliati
+    </div>
+    <% } %>
+
     <div id="login-container">
         <div class="button">Login</div>
         <div class="button"  onclick="showForm(1)">Crea Account</div>
@@ -35,6 +41,8 @@
         </div>
 
     </div>
+
+    <%@ include file="./Footer.jsp" %>
 
 </body>
 </html>

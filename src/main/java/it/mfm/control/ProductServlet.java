@@ -128,9 +128,8 @@ public class ProductServlet extends HttpServlet {
 
                 } catch (SQLException e) {
                     System.out.println("Error:" + e.getMessage());
-                    response.sendRedirect(request.getContextPath()+ "/Error.jsp");
+                    response.sendRedirect(request.getContextPath() + "/Error.jsp");
                 }
-
                 response.sendRedirect(request.getContextPath() + "/admin/ViewCategory.jsp?update=true");
 
                 break;

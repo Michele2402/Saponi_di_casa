@@ -88,7 +88,7 @@ function validate(obj) {
     var numeroCarta = document.getElementsByName("nu")[0];
     if(!checkCardNumber(numeroCarta)) {
         valid = false;
-        document.getElementsByClassName("numero")[0].innerHTML = "numero carta non valida";
+        document.getElementsByClassName("numero")[0].innerHTML = "Numero a 16 cifre";
     }
     else {
         document.getElementsByClassName("numero")[0].innerHTML = "";
@@ -97,7 +97,7 @@ function validate(obj) {
     var cvv = document.getElementsByName("cv")[0];
     if(!checkCvv(cvv)) {
         valid = false;
-        document.getElementsByClassName("cvv")[0].innerHTML = "cvv non valido";
+        document.getElementsByClassName("cvv")[0].innerHTML = "Numero a 3 cifre";
     }
     else {
         document.getElementsByClassName("cvv")[0].innerHTML = "";
@@ -137,7 +137,7 @@ function validateRegistration(obj) {
     var password = document.getElementsByName("password")[0];
     if (!checkPassword(password)) {
         regValid = false;
-        document.getElementById("RegPassword").innerHTML = "password non valida";
+        document.getElementById("RegPassword").innerHTML = "Minimo 8 caratteri, 1 numero e 1 carattere maiuscolo";
     } else {
         document.getElementById("RegPassword").innerHTML = "";
     }

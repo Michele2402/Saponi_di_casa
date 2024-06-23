@@ -1,5 +1,4 @@
 function AddToCart(id) {
-    alert("Aggiunto al carrello");
-    const url = `Cart?id=${id}&action=add&page=Product.jsp`;
+    const url = `Cart?id=${id}&action=add&page=Product.jsp?success=true`;
     window.location.href = url;
 }

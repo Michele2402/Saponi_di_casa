@@ -3,50 +3,50 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Accesso Non Autorizzato</title>
+    <title>Errore del Server</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #FAF3E0;
+            background-color: #f5f5dc; /* Beige chiaro */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
         }
-        .unauthorized-container {
-            background-color: #FFF7E3;
+        .error-container {
+            background-color: #fffaf0; /* Beige */
             padding: 20px 30px;
-            border: 1px solid #E5C49D;
+            border: 1px solid #dcdcdc; /* Beige scuro */
             border-radius: 10px;
             text-align: center;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .unauthorized-container h1 {
-            color: #D2691E;
+        .error-container h1 {
+            color: #d2691e; /* Marrone chiaro */
             margin-bottom: 20px;
         }
-        .unauthorized-container p {
-            color: #8B4513;
+        .error-container p {
+            color: #8b4513; /* Marrone scuro */
             margin-bottom: 20px;
         }
-        .unauthorized-container a {
+        .error-container a {
             text-decoration: none;
-            color: #FFF7E3;
-            background-color: #8B4513;
+            color: #ffffff;
+            background-color: #d2691e; /* Marrone chiaro */
             padding: 10px 20px;
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
-        .unauthorized-container a:hover {
-            background-color: #D2691E;
+        .error-container a:hover {
+            background-color: #8b4513; /* Marrone scuro */
         }
     </style>
 </head>
 <body>
-<div class="unauthorized-container">
-    <h1>Accesso Non Autorizzato</h1>
-    <p>Non sei autorizzato ad accedere a questa pagina.</p>
+<div class="error-container">
+    <h1>Errore del Server</h1>
+    <p>Si è verificato un errore interno al server..</p>
     <a href="Home.jsp">Torna alla homepage</a>
 </div>
 </body>

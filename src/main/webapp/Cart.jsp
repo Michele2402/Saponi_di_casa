@@ -24,6 +24,13 @@
     UserBean user = (UserBean) request.getSession().getAttribute("user");
 %>
 
+<% if(request.getParameter("success") != null && request.getParameter("success").equals("true")) { %>
+<div class="message">
+    Ordine effettuato
+</div>
+<% } %>
+
+
 <div id="cart-container">
     <% if (products == null || products.isEmpty()) { %>
     <div id="empty">Il carrello è vuoto</div>
@@ -60,7 +67,7 @@
     <% } %>
 </div>
 
-
+<%@ include file="./Footer.jsp" %>
 
 </body>
 </html>

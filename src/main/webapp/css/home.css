@@ -98,17 +98,25 @@ img {
 }
 
 #admin-button {
-    background-color: #FFD700;
-    color: #fff;
-    padding: 10px 20px;
+    background-color: #9c7676;
+    color: white;
     border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 160px;
 }
 
 #admin-button:hover {
-    background-color: #FFC107;
+    background-color: #896262;
 }
 
 #button-container {

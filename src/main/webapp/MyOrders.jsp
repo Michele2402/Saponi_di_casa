@@ -38,7 +38,7 @@
         </div>
         <div class="add-review-container">
             <form action="./Review" method="post" id="myForm">
-                <input type="hidden" name="prodotto_id" id="prodotto_id">
+                <input type="hidden" name="prodotto_id" id="prodotto_id" value="">
                 <div class="placeholder">
                     <p class="top">Valutazione (1-5):</p>
                     <p class="bottom"><input type="number" name="valutazione" min="1" max="5" required placeholder="Inserisci valutazione"/></p>
@@ -71,7 +71,6 @@
                 prod.classList.remove('selected');
             });
 
-            // Aggiungi la classe 'selected' al prodotto cliccato
             this.classList.add('selected');
 
             // Nascondi tutti i div add-review-container
@@ -92,5 +91,8 @@
         });
     });
 </script>
+
+<%@ include file="./Footer.jsp" %>
+
 </body>
 </html>

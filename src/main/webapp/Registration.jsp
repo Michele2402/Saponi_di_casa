@@ -10,6 +10,12 @@
 <body>
 <%@ include file="./Header.jsp" %>
 
+<% if(request.getParameter("error") != null && request.getParameter("error").equals("true")) { %>
+<div class="message">
+    I campi non sono stati compilati correttamente
+</div>
+<% } %>
+
 <div id="registration-container">
     <div class="button"  onclick="showForm(0)">Login</div>
     <div class="button">Crea Account</div>
@@ -63,6 +69,8 @@
     </div>
 
 </div>
+
+<%@ include file="./Footer.jsp" %>
 </body>
 </html>
 

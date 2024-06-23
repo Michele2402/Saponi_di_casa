@@ -83,7 +83,6 @@ public class PaymentMethodServlet extends HttpServlet {
                 // Update the payment methods in the session
                 UserDao userDao = new UserDao();
                 session.setAttribute("paymentMethods", userDao.doRetrivePaymentMethods(user));
-
             }
         } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
@@ -91,8 +90,7 @@ public class PaymentMethodServlet extends HttpServlet {
         }
 
         // Redirect to the page
-        response.sendRedirect(request.getContextPath() + "/Account.jsp");
-
+        response.sendRedirect(request.getContextPath() + "/Account.jsp?success=true");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

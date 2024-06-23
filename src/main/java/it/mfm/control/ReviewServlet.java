@@ -32,12 +32,12 @@ public class ReviewServlet extends HttpServlet {
 
         try {
             // Create and save a new review
-
-            String nomeProdotto = request.getParameter("prodotto_id");
+            String nomeProdotto = (String) request.getSession().getAttribute("prodotto_id");
             int idProdotto = 0;
 
             ArrayList<ProductBean> prodotti = (ArrayList<ProductBean>) session.getAttribute("allProducts");
             //find the product id
+            System.out.println(nomeProdotto);
             for (ProductBean p : prodotti){
                 if(p.getNome().equals(nomeProdotto)){
                     idProdotto = p.getId();
@@ -50,7 +50,6 @@ public class ReviewServlet extends HttpServlet {
             review.setTesto(request.getParameter("testo"));
             review.setData(new Date(System.currentTimeMillis()));
             review.setProdotto_id(idProdotto);
-
             reviewDao.doSave(review);
             response.sendRedirect("MyOrders.jsp");
 
