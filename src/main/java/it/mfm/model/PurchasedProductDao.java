@@ -85,7 +85,7 @@ public class PurchasedProductDao implements PurchasedProductDaoInterfaccia{
                 purchasedProduct.setId(resultSet.getInt("id"));
                 purchasedProduct.setNome(resultSet.getString("nome"));
                 purchasedProduct.setPrezzo(resultSet.getDouble("prezzo"));
-                purchasedProduct.setQuantita(resultSet.getInt("quantita"));
+                purchasedProduct.setQuantita(resultSet.getInt("quantità"));
                 purchasedProduct.setOrdine_id(resultSet.getInt("ordine_id"));
                 purchasedProductList.add(purchasedProduct);
             }

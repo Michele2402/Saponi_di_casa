@@ -35,15 +35,15 @@ public class CategoryDao implements CategoryDaoInterfaccia{
 
         String insertSQL = "INSERT INTO " +
                 TABLE_NAME +
-                " (id, nome, descrizione) " +
-                "VALUES (?, ?, ?)";
+                " (nome, descrizione) " +
+                "VALUES (?, ?)";
 
         try {
             connection = ds.getConnection();
             connection.setAutoCommit(false);
             preparedStatement = connection.prepareStatement(insertSQL);
-            preparedStatement.setString(2, category.getNome());
-            preparedStatement.setString(3, category.getDescrizione());
+            preparedStatement.setString(1, category.getNome());
+            preparedStatement.setString(2, category.getDescrizione());
             preparedStatement.executeUpdate();
 
             connection.commit();

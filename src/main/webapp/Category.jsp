@@ -15,9 +15,7 @@
 <%
     List<CategoryBean> allCategories = (List<CategoryBean>) request.getSession().getAttribute("allCategories");
     CategoryBean category = (CategoryBean) request.getSession().getAttribute("category");
-    System.out.println(category);
     List<ProductBean> categoryProducts = (List<ProductBean>) request.getSession().getAttribute("categoryProducts");
-    System.out.println(categoryProducts);
 %>
 
 <div id="home-container">

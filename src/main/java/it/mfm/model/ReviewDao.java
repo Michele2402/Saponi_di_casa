@@ -32,7 +32,7 @@ public class ReviewDao implements ReviewDaoInterfaccia{
 
         String insertSQL = "INSERT INTO " + TABLE_NAME +
                 " (utente_username, valutazione, testo, data, prodotto_id) " +
-                "VALUES (?, ?, ?, ?, ?, ?)";
+                "VALUES (?, ?, ?, ?, ?)";
 
         try {
             connection = ds.getConnection();

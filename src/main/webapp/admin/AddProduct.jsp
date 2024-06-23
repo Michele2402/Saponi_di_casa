@@ -13,7 +13,6 @@
 
 <%
     List<CategoryBean> categories = (List<CategoryBean>) request.getSession().getAttribute("allCategories");
-    System.out.println(categories);
 %>
 
 <div id="add-product-container">

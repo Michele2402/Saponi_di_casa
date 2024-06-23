@@ -15,7 +15,35 @@
     CategoryBean category = (CategoryBean) request.getSession().getAttribute("category");
 %>
 
+<div id="modify-product-container">
+    <form action="../Product" method="post" id="myForm">
+        <input type="hidden" name="action" value="modify">
 
+        <div class="placeholder top category">
+            <p class="top">Categoria: <%= category.getNome() %></p>
+        </div>
+
+        <div class="placeholder">
+            <p class="top">Nome:</p>
+            <p class="bottom"><input type="text" name="nome" required placeholder="Inserisci nome" value="<%= product.getNome() %>"/></p>
+        </div>
+        <div class="placeholder">
+            <p class="top">Descrizione:</p>
+            <p class="bottom"><input type="text" name="descrizione" required placeholder="Inserisci descrizione" value="<%= product.getDescrizione() %>"/></p>
+        </div>
+        <div class="placeholder">
+            <p class="top">Prezzo</p>
+            <p class="bottom"><input type="number" name="prezzo" required placeholder="Inserisci prezzo" value="<%= product.getPrezzo() %>"/></p>
+        </div>
+        <div class="placeholder">
+            <p class="top">URL dell'immagine:</p>
+            <p class="bottom"><input type="text" name="immagine" required placeholder="immagini/***.jpg" value="<%= product.getImmagine() %>"/></p>
+        </div>
+        <div class="placeholder middle">
+            <input class="button"  type="submit" Value="Add">
+        </div>
+    </form>
+</div>
 
 <div></div>
 

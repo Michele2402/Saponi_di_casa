@@ -47,6 +47,7 @@ public class OrdersServlet extends HttpServlet {
             session.setAttribute("ordersWithProducts", ordersWithProducts);
             response.sendRedirect("MyOrders.jsp");
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
             throw new ServletException("Error retrieving orders and products", e);
         }
     }
