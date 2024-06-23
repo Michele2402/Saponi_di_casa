@@ -21,7 +21,7 @@
             <p>Aggiungi Prodotto</p>
         </div>
     </div>
-    <div class="card" onclick="goToPaymentMethod()">
+    <div class="card" onclick="goToViewOrders()">
         <div class="util" >
             <p>Visualizza Ordini</p>
         </div>

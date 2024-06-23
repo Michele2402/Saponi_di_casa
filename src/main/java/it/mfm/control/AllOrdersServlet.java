@@ -37,8 +37,8 @@ public class AllOrdersServlet extends HttpServlet {
         HttpSession session = request.getSession();
         UserBean user = (UserBean) session.getAttribute("user");
 
-        if(user == null || user.isAdmin()) {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+        if(user == null || !user.isAdmin()) {
+            response.sendRedirect(request.getContextPath() + "/NotAuthorized.jsp");
             return;
         }
 

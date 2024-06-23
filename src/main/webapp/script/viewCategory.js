@@ -6,5 +6,4 @@ function goToDelete(id) {
 function goToModify(id) {
     const url = `../Details?id=${id}&page=admin/ModifyProduct.jsp`;
     window.location.href = url;
-
 }
