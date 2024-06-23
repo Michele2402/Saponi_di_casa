@@ -51,13 +51,9 @@ public class ProductServlet extends HttpServlet {
                 int IDcategoria = Integer.parseInt(escapeHtml(request.getParameter("IDcategoria")));
                 System.out.println(immagine);
 
-                //validation of the input
-                if (!nome.matches("^[a-zA-Z0-9\\s]{1,50}$") ||
-                        //validate the image for a valid PATH with slashes and dots
-                        !immagine.matches("^[a-zA-Z0-9\\s/.]{1,50}$") ||
-                        (prezzo < 0)) {
+                if (!immagine.matches("^[a-zA-Z0-9\\s/.]{1,50}$") || (prezzo < 0)) {
                     System.out.println("Error: invalid input");
-                    response.sendRedirect("addProduct.jsp?error=true"); // Redirect to the add product page
+                    response.sendRedirect(request.getContextPath() + "/admin/AddProduct.jsp?error=true"); // Redirect to the add product page
                     return;
                 }
 
@@ -78,12 +74,11 @@ public class ProductServlet extends HttpServlet {
 
                 }
 
-                response.sendRedirect("/saponi_di_casa_war_exploded/admin/AddProduct.jsp");
+                response.sendRedirect(request.getContextPath() + "/admin/AddProduct.jsp?success=true");
                 break;
 
             case "delete":
-
-
+                String page = request.getParameter("page");
                 int id = Integer.parseInt(request.getParameter("id"));
                 try {
                     ProductBean newBean = new ProductBean();
@@ -96,7 +91,7 @@ public class ProductServlet extends HttpServlet {
                     response.sendRedirect(request.getContextPath()+ "/Error.jsp");
                 }
 
-                response.sendRedirect(request.getContextPath() + "/admin/ViewCategory.jsp");
+                response.sendRedirect(request.getContextPath() + "/" + page);
 
                 break;
 
@@ -106,14 +101,14 @@ public class ProductServlet extends HttpServlet {
                 String nomeModify = escapeHtml(request.getParameter("nome"));
                 String descrizioneModify = escapeHtml(request.getParameter("descrizione"));
                 int prezzoModify = Integer.parseInt(escapeHtml(request.getParameter("prezzo")));
-                String immagineModify = escapeHtml(request.getParameter("immagine"));
+                String immagineModify = request.getParameter("immagine");
                 int idModify = currentProduct.getCategoria_id();
 
                 //validation of the input
                 if (!nomeModify.matches("^[a-zA-Z0-9\\s]{1,50}$") ||
-                        !descrizioneModify.matches("^[a-zA-Z0-9\\s]{1,50}$") ||
-                        !immagineModify.matches("^[a-zA-Z0-9\\s]{1,50}$")||
-                        prezzoModify >= 0) {
+                        //!descrizioneModify.matches("^[a-zA-Z0-9\\s]{1,50}$") ||
+                        !immagineModify.matches("^[a-zA-Z0-9\\s/.]{1,50}$") ||
+                        prezzoModify < 0) {
                     response.sendRedirect("admin/ModifyProduct.jsp?error=true"); // Redirect to the modify product page
                     return;
                 }
@@ -136,7 +131,7 @@ public class ProductServlet extends HttpServlet {
                     response.sendRedirect(request.getContextPath()+ "/Error.jsp");
                 }
 
-                response.sendRedirect(request.getContextPath() + "admin/ViewCategory.jsp");
+                response.sendRedirect(request.getContextPath() + "/admin/ViewCategory.jsp?update=true");
 
                 break;
 

@@ -34,7 +34,7 @@ public class CategoryServlet extends HttpServlet {
                 HttpSession session = request.getSession();
 
                 if (session.getAttribute("user") == null || !((UserBean) session.getAttribute("user")).isAdmin()) {
-                    response.sendRedirect(request.getContextPath() + "/login.jsp");
+                    response.sendRedirect(request.getContextPath() + "/NotAuthorized.jsp");
                     return;
                 }
 
