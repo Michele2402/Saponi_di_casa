@@ -88,6 +88,7 @@
             var prodottoIdInput = document.getElementById('prodotto_id');
             prodottoIdInput.value = this.getAttribute('data-id');
             console.log('Selected Product ID:', prodottoIdInput.value);
+
         });
     });
 </script>
