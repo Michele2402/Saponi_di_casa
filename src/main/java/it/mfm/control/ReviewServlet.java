@@ -32,6 +32,7 @@ public class ReviewServlet extends HttpServlet {
             // Create and save a new review
             ReviewBean review = new ReviewBean();
             review.setUtente_username(user.getUsername());
+            System.out.println(request.getParameter("prodotto_id"));
             review.setProdotto_id(Integer.parseInt(request.getParameter("prodotto_id")));
             review.setValutazione(Integer.parseInt(request.getParameter("valutazione")));
             review.setTesto(request.getParameter("testo"));

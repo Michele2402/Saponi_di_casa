@@ -29,7 +29,7 @@
         <div class="products-container">
             <% List<PurchasedProductBean> products = entry.getValue(); %>
             <% for (PurchasedProductBean product : products) { %>
-            <div class="product" data-id="<%= product.getId() %>">
+            <div class="product" data-id="<%= product.getNome() %>">
                 <div class="name"><%= product.getNome() %></div>
                 <div>x<%= product.getQuantita() %></div>
                 <div>€<%= product.getPrezzo() %></div>

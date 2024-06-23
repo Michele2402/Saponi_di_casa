@@ -5,3 +5,7 @@ function goToAddProduct() {
 function goToViewCatalogue() {
     window.location.href = "ViewCatalogue.jsp";
 }
+
+function goToViewOrders() {
+    window.location.href = `../AllOrders?action=all`;
+}
