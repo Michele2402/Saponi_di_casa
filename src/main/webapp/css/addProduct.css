@@ -6,16 +6,16 @@
     border-radius: 20px;
 }
 
-.category {
-    grid-column-start: 1;
-    grid-column-end: 3;
-}
-
 #myForm {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
+}
+
+.category {
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
 
 .placeholder {

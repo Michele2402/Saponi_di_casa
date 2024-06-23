@@ -3,6 +3,8 @@
 <%@ page import="it.mfm.model.UserBean" %>
 <%@ page import="it.mfm.model.PaymentMethodBean" %>
 <%@ page import="java.util.List" %>
+<%@ page import="it.mfm.util.Utility" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <html>
 <head>
     <title>Title</title>
@@ -53,6 +55,21 @@
             <input class="button" type="submit" value="Modifica">
         </div>
     </form>
+
+    <div id="payment-methods-container">
+        <div>Metodi di pagamento:</div>
+        <% if (paymentMethods != null && !paymentMethods.isEmpty()) { %>
+        <% for (PaymentMethodBean paymentMethod : paymentMethods) { %>
+        <div class="payment-method-container">
+            <div class="numero-carta"><%= Utility.maskCardNumber(paymentMethod.getNumero_di_carta()) %></div>
+            <div><%= paymentMethod.getNome() %> <%= paymentMethod.getCognome() %></div>
+            <div class="date"><%= new SimpleDateFormat("MM/yyyy").format(paymentMethod.getData_di_Scadenza()) %></div>
+        </div>
+        <% } %>
+        <% } else { %>
+        <p>Nessun metodo di pagamento inserito</p>
+        <% } %>
+    </div>
 </div>
 
 </body>
