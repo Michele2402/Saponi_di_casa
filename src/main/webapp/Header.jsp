@@ -6,7 +6,6 @@
     <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/header.css">
     <script>
         var contextPath = "<%= request.getContextPath() %>";
-        console.log(contextPath)
     </script>
     <script src="<%= request.getContextPath() %>/script/header.js"></script>
 </head>

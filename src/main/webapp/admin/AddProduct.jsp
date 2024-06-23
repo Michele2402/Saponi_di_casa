@@ -22,11 +22,12 @@
 
         <div class="placeholder top category">
             <p class="top">Categoria:</p>
-            <select name="IDcategoria" required>
+            <select name="IDcategoria" id="IDcategoria" required>
                 <option value="" disabled selected>Scegli una categoria</option>
                 <% for (CategoryBean category : categories) { %>
                 <option value="<%= category.getId() %>"><%= category.getNome() %></option>
                 <% } %>
+                <option value="newCategory">Aggiungi una nuova categoria</option>
             </select>
         </div>
 
@@ -51,6 +52,16 @@
         </div>
     </form>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('IDcategoria').addEventListener('change', function() {
+            if (this.value === 'newCategory') {
+                window.location.href = 'AddCategory.jsp';
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
