@@ -1,0 +1,165 @@
+-- Inserimento di 5 account
+INSERT INTO `utente` (`username`, `nome`, `cognome`, `telefono`, `email`, `password`, `indirizzo`, `admin`) VALUES
+('john_doe', 'John', 'Doe', '1234567890', 'john@example.com', SHA2('password1', 256), '123 Street, City, Country', 0),
+('jane_doe', 'Jane', 'Doe', '0987654321', 'jane@example.com', SHA2('password2', 256), '456 Street, City, Country', 0),
+('jim_beam', 'Jim', 'Beam', '1122334455', 'jim@example.com', SHA2('password3', 256), '789 Street, City, Country', 0),
+('jack_daniels', 'Jack', 'Daniels', '5566778899', 'jack@example.com', SHA2('password4', 256), '321 Street, City, Country', 0),
+('jill_bourbon', 'Jill', 'Bourbon', '9988776655', 'jill@example.com', SHA2('password5', 256), '654 Street, City, Country', 0);
+
+-- Inserimento di 30 prodotti
+INSERT INTO `prodotto` (`nome`, `descrizione`, `prezzo`, `immagine`, `categoria_id`) VALUES
+('Sapone alla Menta', 'Questo è un sapone biologico rinfrescante con un tocco di menta.', 12.0, 'images/soap1.jpg', 1),
+('Sapone alla Lavanda', 'Questo sapone ha una fragranza calmante di lavanda.', 10.0, 'images/soap2.jpg', 2),
+('Sapone all''Eucalipto', 'Un sapone terapeutico con eucalipto e olio di tea tree.', 15.0, 'images/soap3.jpg', 3),
+('Sapone alla Rosa e Sandalo', 'Un sapone di lusso infuso con rosa e sandalo.', 20.0, 'images/soap4.jpg', 4),
+('Sapone Colorato per Bambini', 'Un sapone divertente e colorato progettato per i bambini.', 8.0, 'images/soap5.jpg', 5),
+('Sapone agli Agrumi', 'Un sapone con una schiuma ricca e cremosa e un profumo di agrumi.', 12.0, 'images/soap6.jpg', 1),
+('Sapone alla Camomilla', 'Un sapone con il profumo calmante della camomilla.', 10.0, 'images/soap7.jpg', 2),
+('Sapone alla Menta Piperita', 'Un sapone con il profumo vivificante della menta piperita.', 15.0, 'images/soap8.jpg', 3),
+('Sapone alla Vaniglia e Miele', 'Un sapone con il dolce profumo della vaniglia e miele.', 12.0, 'images/soap9.jpg', 4),
+('Sapone al Gelsomino e Rosa', 'Un sapone con l''esotico profumo del gelsomino e rosa.', 14.0, 'images/soap10.jpg', 5),
+('Sapone alla Brezza Marina', 'Un sapone con il fresco profumo di brezza marina.', 12.0, 'images/soap11.jpg', 1),
+('Sapone al Sandalo e Miele', 'Un sapone con il caldo profumo del sandalo e miele.', 15.0, 'images/soap12.jpg', 2),
+('Sapone al Patchouli e Rosa', 'Un sapone con il profumo terroso del patchouli e rosa.', 15.0, 'images/soap13.jpg', 3),
+('Sapone alla Rosa e Lavanda', 'Un sapone con il profumo romantico della rosa e lavanda.', 20.0, 'images/soap14.jpg', 4),
+('Sapone alla Lavanda e Menta', 'Un sapone con il profumo rilassante della lavanda e menta.', 10.0, 'images/soap15.jpg', 5),
+('Sapone Energizzante agli Agrumi e Menta', 'Un sapone con il profumo energizzante degli agrumi e menta.', 12.0, 'images/soap16.jpg', 1),
+('Sapone alla Vaniglia e Cocco', 'Un sapone con il profumo confortante della vaniglia e cocco.', 10.0, 'images/soap17.jpg', 2),
+('Sapone alla Menta Piperita e Eucalipto', 'Un sapone con il profumo sollevante della menta piperita e eucalipto.', 15.0, 'images/soap18.jpg', 3),
+('Sapone alla Camomilla e Miele', 'Un sapone con il profumo lenitivo della camomilla e miele.', 10.0, 'images/soap19.jpg', 4),
+('Sapone al Cetriolo e Limone', 'Un sapone con il profumo rinfrescante del cetriolo e limone.', 12.0, 'images/soap20.jpg', 5),
+('Sapone all''Eucalipto e Menta', 'Un sapone con il profumo fresco dell''eucalipto e menta.', 15.0, 'images/soap21.jpg', 1),
+('Sapone al Miele e Vaniglia', 'Un sapone con il dolce profumo del miele e vaniglia.', 12.0, 'images/soap22.jpg', 2),
+('Sapone alla Cannella e Miele', 'Un sapone con il profumo speziato della cannella e miele.', 15.0, 'images/soap23.jpg', 3),
+('Sapone al Limone e Menta', 'Un sapone con il profumo pungente del limone e menta.', 12.0, 'images/soap24.jpg', 4),
+('Sapone al Cocco e Vaniglia', 'Un sapone con il profumo tropicale del cocco e vaniglia.', 14.0, 'images/soap25.jpg', 5),
+('Sapone al Lillà e Rosa', 'Un sapone con il profumo floreale del lillà e rosa.', 12.0, 'images/soap26.jpg', 1),
+('Sapone al Cotone e Lavanda', 'Un sapone con il profumo pulito del cotone e lavanda.', 10.0, 'images/soap27.jpg', 2),
+('Sapone al Bambù e Menta', 'Un sapone con l''esotico profumo del bambù e menta.', 15.0, 'images/soap28.jpg', 3),
+('Sapone al Tè Verde e Limone', 'Un sapone con il fresco profumo del tè verde e limone.', 12.0, 'images/soap29.jpg', 4),
+('Sapone alla Fragola e Vaniglia', 'Un sapone con il dolce profumo della fragola e vaniglia.', 10.0, 'images/soap30.jpg', 5);
+
+INSERT INTO `recensione` (`utente_username`, `valutazione`, `testo`, `data`, `prodotto_id`) VALUES
+('john_doe', 5, 'Ottimo prodotto! Il profumo di menta è rinfrescante e lascia la mia pelle morbida.', '2024-01-01', 1),
+('jane_doe', 4, 'Mi piace questo prodotto. Ha una bella consistenza e fa molta schiuma.', '2024-01-02', 1),
+('jim_beam', 5, 'Ottimo prodotto! Il profumo di lavanda è calmante e il sapone è delicato sulla mia pelle.', '2024-01-03', 2),
+('jack_daniels', 4, 'Mi piace questo prodotto. Fa molta schiuma e non lascia residui.', '2024-01-04', 2),
+('jill_bourbon', 5, 'Ottimo prodotto! Il profumo di eucalipto è rinfrescante e lascia la mia pelle morbida.', '2024-01-05', 3),
+('john_doe', 4, 'Mi piace questo prodotto. Ha una bella consistenza e fa molta schiuma.', '2024-01-06', 3),
+('jane_doe', 5, 'Ottimo prodotto! Il profumo di rosa e sandalo è calmante e il sapone è delicato sulla mia pelle.', '2024-01-07', 4),
+('jim_beam', 4, 'Mi piace questo prodotto. Fa molta schiuma e non lascia residui.', '2024-01-08', 4),
+('jack_daniels', 5, 'Ottimo prodotto! Il profumo di colori è rinfrescante e lascia la mia pelle morbida.', '2024-01-09', 5),
+('jill_bourbon', 4, 'Mi piace questo prodotto. Ha una bella consistenza e fa molta schiuma.', '2024-01-10', 5),
+('john_doe', 5, 'Ottimo prodotto! Il profumo di agrumi è rinfrescante e lascia la mia pelle morbida.', '2024-01-11', 6),
+('jane_doe', 4, 'Mi piace questo prodotto. Ha una bella consistenza e fa molta schiuma.', '2024-01-12', 6),
+('jim_beam', 5, 'Ottimo prodotto! Il profumo di camomilla è calmante e il sapone è delicato sulla mia pelle.', '2024-01-13', 7),
+('jack_daniels', 4, 'Mi piace questo prodotto. Fa molta schiuma e non lascia residui.', '2024-01-14', 7),
+('jill_bourbon', 5, 'Ottimo prodotto! Il profumo di menta piperita è rinfrescante e lascia la mia pelle morbida.', '2024-01-15', 8),
+('john_doe', 4, 'Mi piace questo prodotto. Ha una bella consistenza e fa molta schiuma.', '2024-01-16', 8),
+('jane_doe', 5, 'Ottimo prodotto! Il profumo di vaniglia è calmante e il sapone è delicato sulla mia pelle.', '2024-01-17', 9),
+('jim_beam', 4, 'Mi piace questo prodotto. Fa molta schiuma e non lascia residui.', '2024-01-18', 9),
+('jack_daniels', 5, 'Ottimo prodotto! Il profumo di camomilla è rinfrescante e lascia la mia pelle morbida.', '2024-01-19', 10),
+('jill_bourbon', 4, 'Mi piace questo prodotto. Ha una bella consistenza e fa molta schiuma.', '2024-01-20', 10),
+('john_doe', 5, 'Ottimo prodotto! Il profumo di cetriolo è rinfrescante e lascia la mia pelle morbida.', '2024-01-21', 11),
+('jane_doe', 4, 'Mi piace questo prodotto. Ha una bella consistenza e fa molta schiuma.', '2024-01-22', 11),
+('jim_beam', 5, 'Ottimo prodotto! Il profumo di eucalipto è calmante e il sapone è delicato sulla mia pelle.', '2024-01-23', 12),
+('jack_daniels', 4, 'Mi piace questo prodotto. Fa molta schiuma e non lascia residui.', '2024-01-24', 12),
+('jill_bourbon', 5, 'Ottimo prodotto! Il profumo di miele è rinfrescante e lascia la mia pelle morbida.', '2024-01-25', 13),
+('john_doe', 4, 'Mi piace questo prodotto. Ha una bella consistenza e fa molta schiuma.', '2024-01-26', 13),
+('jane_doe', 5, 'Ottimo prodotto! Il profumo di cannella è calmante e il sapone è delicato sulla mia pelle.', '2024-01-27', 14),
+('jim_beam', 4, 'Mi piace questo prodotto. Fa molta schiuma e non lascia residui.', '2024-01-28', 14),
+('jack_daniels', 5, 'Ottimo prodotto! Il profumo di limone è rinfrescante e lascia la mia pelle morbida.', '2024-01-29', 15),
+('jill_bourbon', 4, 'Mi piace questo prodotto. Ha una bella consistenza e fa molta schiuma.', '2024-01-30', 15),
+('john_doe', 5, 'Ottimo prodotto! Il profumo di cocco è calmante e il sapone è delicato sulla mia pelle.', '2024-01-31', 16),
+('jane_doe', 4, 'Mi piace questo prodotto. Fa molta schiuma e non lascia residui.', '2024-02-01', 16),
+('jim_beam', 5, 'Ottimo prodotto! Il profumo di lillà è rinfrescante e lascia la mia pelle morbida.', '2024-02-02', 17),
+('jack_daniels', 4, 'Mi piace questo prodotto. Ha una bella consistenza e fa molta schiuma.', '2024-02-03', 17),
+('jill_bourbon', 5, 'Ottimo prodotto! Il profumo di cotone è calmante e il sapone è delicato sulla mia pelle.', '2024-02-04', 18),
+('john_doe', 4, 'Mi piace questo prodotto. Fa molta schiuma e non lascia residui.', '2024-02-05', 18),
+('jane_doe', 5, 'Ottimo prodotto! Il profumo di bambù è rinfrescante e lascia la mia pelle morbida.', '2024-02-06', 19),
+('jim_beam', 4, 'Mi piace questo prodotto. Ha una bella consistenza e fa molta schiuma.', '2024-02-07', 19),
+('jack_daniels', 5, 'Ottimo prodotto! Il profumo di tè verde è calmante e il sapone è delicato sulla mia pelle.', '2024-02-08', 20),
+('jill_bourbon', 4, 'Mi piace questo prodotto. Fa molta schiuma e non lascia residui.', '2024-02-09', 20),
+('john_doe', 5, 'Ottimo prodotto! Il profumo di fragola è rinfrescante e lascia la mia pelle morbida.', '2024-02-10', 21),
+('jane_doe', 4, 'Mi piace questo prodotto. Ha una bella consistenza e fa molta schiuma.', '2024-02-11', 21),
+('jim_beam', 5, 'Ottimo prodotto! Il profumo di eucalipto è calmante e il sapone è delicato sulla mia pelle.', '2024-02-12', 22),
+('jack_daniels', 4, 'Mi piace questo prodotto. Fa molta schiuma e non lascia residui.', '2024-02-13', 22),
+('jill_bourbon', 5, 'Ottimo prodotto! Il profumo di miele è rinfrescante e lascia la mia pelle morbida.', '2024-02-14', 23),
+('john_doe', 4, 'Mi piace questo prodotto. Ha una bella consistenza e fa molta schiuma.', '2024-02-15', 23),
+('jane_doe', 5, 'Ottimo prodotto! Il profumo di cannella è calmante e il sapone è delicato sulla mia pelle.', '2024-02-16', 24),
+('jim_beam', 4, 'Mi piace questo prodotto. Fa molta schiuma e non lascia residui.', '2024-02-17', 24),
+('jack_daniels', 5, 'Ottimo prodotto! Il profumo di limone è rinfrescante e lascia la mia pelle morbida.', '2024-02-18', 25),
+('jill_bourbon', 4, 'Mi piace questo prodotto. Ha una bella consistenza e fa molta schiuma.', '2024-02-19', 25),
+('john_doe', 5, 'Ottimo prodotto! Il profumo di cocco è calmante e il sapone è delicato sulla mia pelle.', '2024-02-20', 26),
+('jane_doe', 4, 'Mi piace questo prodotto. Fa molta schiuma e non lascia residui.', '2024-02-21', 26),
+('jim_beam', 5, 'Ottimo prodotto! Il profumo di lillà è rinfrescante e lascia la mia pelle morbida.', '2024-02-22', 27),
+('jack_daniels', 4, 'Mi piace questo prodotto. Ha una bella consistenza e fa molta schiuma.', '2024-02-23', 27),
+('jill_bourbon', 5, 'Ottimo prodotto! Il profumo di cotone è calmante e il sapone è delicato sulla mia pelle.', '2024-02-24', 28),
+('john_doe', 4, 'Mi piace questo prodotto. Fa molta schiuma e non lascia residui.', '2024-02-25', 28),
+('jane_doe', 5, 'Ottimo prodotto! Il profumo di bambù è rinfrescante e lascia la mia pelle morbida.', '2024-02-26', 29),
+('jim_beam', 4, 'Mi piace questo prodotto. Ha una bella consistenza e fa molta schiuma.', '2024-02-27', 29),
+('jack_daniels', 5, 'Ottimo prodotto! Il profumo di tè verde è calmante e il sapone è delicato sulla mia pelle.', '2024-02-28', 30),
+('jill_bourbon', 4, 'Mi piace questo prodotto. Fa molta schiuma e non lascia residui.', '2024-02-29', 30);
+
+-- Inserimento di 2 ordini per ogni utente
+INSERT INTO `ordine` (`totale`, `data_creazione`, `utente_username`) VALUES
+(100.0, '2022-01-01', 'john_doe'),
+(200.0, '2022-02-01', 'john_doe'),
+(150.0, '2022-01-15', 'jane_doe'),
+(250.0, '2022-02-15', 'jane_doe'),
+(300.0, '2022-01-30', 'jim_beam'),
+(350.0, '2022-02-28', 'jim_beam'),
+(400.0, '2022-01-07', 'jack_daniels'),
+(450.0, '2022-02-07', 'jack_daniels'),
+(500.0, '2022-01-21', 'jill_bourbon'),
+(550.0, '2022-02-21', 'jill_bourbon');
+
+-- Inserimento di prodotti acquistati per ogni ordine
+INSERT INTO `prodotto_acquistato` (`nome`, `prezzo`, `quantità`, `ordine_id`) VALUES
+-- 2 products for order 1
+('Sapone alla Menta', 12.0, 2, 1),
+('Sapone alla Lavanda', 10.0, 3, 1),
+-- 3 products for order 2
+('Sapone all''Eucalipto', 15.0, 2, 2),
+('Sapone alla Rosa e Sandalo', 20.0, 1, 2),
+('Sapone Colorato per Bambini', 8.0, 4, 2),
+-- 4 products for order 3
+('Sapone agli Agrumi', 12.0, 3, 3),
+('Sapone alla Camomilla', 10.0, 3, 3),
+('Sapone alla Menta Piperita', 15.0, 2, 3),
+('Sapone alla Vaniglia', 12.0, 5, 3),
+-- 2 products for order 4
+('Sapone al Gelsomino', 14.0, 1, 4),
+('Sapone alla Brezza Marina', 12.0, 3, 4),
+-- 3 products for order 5
+('Sapone al Sandalo', 15.0, 2, 5),
+('Sapone al Patchouli', 15.0, 4, 5),
+('Sapone alla Rosa', 20.0, 1, 5),
+-- 4 products for order 6
+('Sapone alla Lavanda', 10.0, 3, 6),
+('Sapone Energizzante agli Agrumi', 12.0, 5, 6),
+('Sapone alla Vaniglia', 10.0, 2, 6),
+('Sapone alla Menta Piperita', 15.0, 3, 6),
+-- 2 products for order 7
+('Sapone alla Camomilla', 10.0, 4, 7),
+('Sapone al Cetriolo', 12.0, 5, 7),
+-- 3 products for order 8
+('Sapone all''Eucalipto', 15.0, 2, 8),
+('Sapone al Miele e Vaniglia', 12.0, 2, 8),
+('Sapone alla Cannella e Miele', 15.0, 2, 8),
+-- 4 products for order 9
+('Sapone al Limone e Menta', 12.0, 2, 9),
+('Sapone al Cocco e Vaniglia', 14.0, 2, 9),
+('Sapone al Lillà e Rosa', 12.0, 2, 9),
+('Sapone al Cotone e Lavanda', 10.0, 2, 9),
+-- 2 products for order 10
+('Sapone al Bambù e Menta', 15.0, 2, 10),
+('Sapone al Tè Verde e Limone', 12.0, 2, 10);
+
+-- Inserimento di metodi di pagamento per ogni utente
+INSERT INTO `metodo_di_pagamento` (`tipo`, `numero_di_carta`, `cvv`, `nome`, `cognome`, `data_di_scadenza`, `utente_username`) VALUES
+('Visa', '4111111111111111', '123', 'John', 'Doe', '2025-12-31', 'john_doe'),
+('MasterCard', '5555555555554444', '456', 'Jane', 'Doe', '2025-12-31', 'jane_doe'),
+('American Express', '378282246310005', '789', 'Jim', 'Beam', '2025-12-31', 'jim_beam'),
+('Discover', '6011111111111117', '012', 'Jack', 'Daniels', '2025-12-31', 'jack_daniels'),
+('JCB', '3530111333300000', '345', 'Jill', 'Bourbon', '2025-12-31', 'jill_bourbon');
