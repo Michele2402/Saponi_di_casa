@@ -54,6 +54,9 @@
 }
 
 @media screen and (max-width: 700px) {
+    #add-payment-method-container{
+        width: 60%
+    }
     #myForm {
         display: grid;
         grid-template-columns: 1fr;

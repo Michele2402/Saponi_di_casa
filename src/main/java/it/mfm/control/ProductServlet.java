@@ -78,10 +78,11 @@ public class ProductServlet extends HttpServlet {
 
                 }
 
-                response.sendRedirect("/admin/AddProduct.jsp");
+                response.sendRedirect("/saponi_di_casa_war_exploded/admin/AddProduct.jsp");
                 break;
 
             case "delete":
+
 
                 int id = Integer.parseInt(request.getParameter("id"));
                 try {
