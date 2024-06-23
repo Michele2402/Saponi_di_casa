@@ -74,12 +74,12 @@ public class OrderDao implements OrderDaoInterfaccia{
         return id;
     }
 
-    @Override
     public ArrayList<OrderBean> doRetrieveByUsername(String utente_username) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         OrderBean orderBean = null;
+        ArrayList<OrderBean> orderBeans = new ArrayList<>();
 
         String selectSQL = "SELECT * FROM " +
                 TABLE_NAME +
@@ -91,12 +91,13 @@ public class OrderDao implements OrderDaoInterfaccia{
             preparedStatement.setString(1, utente_username);
             resultSet = preparedStatement.executeQuery();
 
-            if (resultSet.next()) {
+            while (resultSet.next()) {
                 orderBean = new OrderBean();
                 orderBean.setId(resultSet.getInt("id"));
                 orderBean.setTotale(resultSet.getDouble("totale"));
                 orderBean.setData_creazione(resultSet.getDate("data_creazione"));
                 orderBean.setUtente_username(resultSet.getString("utente_username"));
+                orderBeans.add(orderBean);
             }
         } catch (SQLException e) {
             throw new SQLException(e.getMessage());
@@ -115,7 +116,7 @@ public class OrderDao implements OrderDaoInterfaccia{
             }
         }
 
-        return null;
+        return orderBeans;
     }
 
     @Override

@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../css/global.css">
     <link rel="stylesheet" type="text/css" href="../css/viewCategory.css">
     <script src="../script/viewCategory.js"></script>
+
 </head>
 <body>
 <%@ include file="../Header.jsp" %>
@@ -26,9 +27,8 @@
     </div>
     <% } %>
     <% } else { %>
-    <p>Nessuna prodotto disponibile.</p>
+    <p>Nessun prodotto disponibile.</p>
     <% } %>
 </div>
-
 </body>
 </html>

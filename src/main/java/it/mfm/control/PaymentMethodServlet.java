@@ -36,7 +36,7 @@ public class PaymentMethodServlet extends HttpServlet {
 
 
         String action = escapeHtml(request.getParameter("action"));
-        String redirectedPage = escapeHtml(request.getParameter("page"));
+
         HttpSession session = request.getSession();
 
         UserBean user = (UserBean)session.getAttribute("user");
@@ -86,11 +86,12 @@ public class PaymentMethodServlet extends HttpServlet {
 
             }
         } catch (SQLException e) {
-            throw new ServletException("Error updating payment method", e);
+            System.out.println("Error: " + e.getMessage());
+            response.sendRedirect("Error.jsp");
         }
 
         // Redirect to the page
-        response.sendRedirect(request.getContextPath() + "/" + redirectedPage);
+        response.sendRedirect(request.getContextPath() + "/Account.jsp");
 
     }
 
