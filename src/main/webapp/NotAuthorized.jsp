@@ -47,7 +47,7 @@
 <div class="unauthorized-container">
     <h1>Accesso Non Autorizzato</h1>
     <p>Non sei autorizzato ad accedere a questa pagina.</p>
-    <a href="Home.jsp">Torna alla homepage</a>
+    <a href="<%= request.getContextPath() %>/Home.jsp">Torna alla homepage</a>
 </div>
 </body>
 </html>

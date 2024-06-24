@@ -47,7 +47,7 @@
 <div class="error-container">
     <h1>Errore 404 - Pagina Non Trovata</h1>
     <p>La pagina che stavi cercando non è disponibile.</p>
-    <a href="Home.jsp">Torna alla homepage</a>
+    <a href="<%= request.getContextPath() %>/Home.jsp">Torna alla homepage</a>
 </div>
 </body>
 </html>

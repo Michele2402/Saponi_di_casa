@@ -62,7 +62,7 @@
 }
 
 .product-container{
-    height: 200px;
+    height: 210px;
     width: 160px;
     border: 2px solid #A67B5B;
     background-color: #EADBC8;
@@ -82,11 +82,12 @@
     align-items: center;
 }
 
-img {
-    width: 100%;
-    height: auto;
-/*    object-fit: cover;
-    object-position: center;*/
+.please {
+
+    width: 150px;
+    height: 120px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .product-banner {

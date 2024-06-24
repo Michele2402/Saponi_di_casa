@@ -17,9 +17,9 @@
             </div>
         </div>
         <div id="item2">
-            <form action="Search" method="get">
-                <input type="text" name="query" placeholder="Cerca un prodotto">
-                <input type="submit" value="Search">
+            <form action="Search" method="get" id="util">
+                <input id="search-bar" type="text" name="query" placeholder="Cerca un prodotto">
+                <input id="submit-button" type="submit" value="Search">
             </form>
         </div>
         <div id="item3">

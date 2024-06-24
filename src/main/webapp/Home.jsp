@@ -62,7 +62,7 @@
             <% for (ProductBean product : allProducts) { %>
             <div class="product-container" onclick="goToDetails('<%= product.getId() %>')">
                 <div class="image">
-                    <img src="<%= product.getImmagine() %>" alt="<%= product.getNome() %>">
+                    <img class="please" src="<%= product.getImmagine() %>" alt="<%= product.getNome() %>">
                 </div>
                 <div class="product-banner">
                     <div id="product-name"><%= product.getNome() %></div>

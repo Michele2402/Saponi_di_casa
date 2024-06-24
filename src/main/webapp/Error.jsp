@@ -47,7 +47,7 @@
 <div class="error-container">
     <h1>Errore</h1>
     <p>Si è verificato un errore durante l'elaborazione della tua richiesta.</p>
-    <a href="Home.jsp">Torna alla homepage</a>
+    <a href="<%= request.getContextPath() %>/Home.jsp">Torna alla homepage</a>
 </div>
 </body>
 </html>
