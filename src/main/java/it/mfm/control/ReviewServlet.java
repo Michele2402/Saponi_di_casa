@@ -32,7 +32,7 @@ public class ReviewServlet extends HttpServlet {
 
         try {
             // Create and save a new review
-            String nomeProdotto = (String) request.getSession().getAttribute("prodotto_id");
+            String nomeProdotto = request.getParameter("prodotto_id");
             int idProdotto = 0;
 
             ArrayList<ProductBean> prodotti = (ArrayList<ProductBean>) session.getAttribute("allProducts");

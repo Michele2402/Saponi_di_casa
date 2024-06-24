@@ -38,7 +38,7 @@
         </div>
         <div class="add-review-container">
             <form action="./Review" method="post" id="myForm">
-                <input type="hidden" name="prodotto_id" id="prodotto_id" value="">
+                <input type="hidden" name="prodotto_id" id="prodotto_id">
                 <div class="placeholder">
                     <p class="top">Valutazione (1-5):</p>
                     <p class="bottom"><input type="number" name="valutazione" min="1" max="5" required placeholder="Inserisci valutazione"/></p>
@@ -74,19 +74,18 @@
             this.classList.add('selected');
 
             // Nascondi tutti i div add-review-container
-            var allReviewContainers = document.querySelectorAll('.add-review-container');
+            let allReviewContainers = document.querySelectorAll('.add-review-container');
             allReviewContainers.forEach(function(container) {
                 container.style.display = 'none';
             });
 
             // Mostra il div add-review-container associato al prodotto cliccato
-            var reviewContainer = this.closest('.order-container').querySelector('.add-review-container');
+            let reviewContainer = this.closest('.order-container').querySelector('.add-review-container');
             reviewContainer.style.display = 'block';
 
             // Imposta il valore del campo nascosto 'prodotto_id'
-            var prodottoIdInput = document.getElementById('prodotto_id');
-            prodottoIdInput.value = this.getAttribute('data-id');
-            console.log('Selected Product ID:', prodottoIdInput.value);
+            let hiddenInput = reviewContainer.querySelector('#prodotto_id');
+            hiddenInput.value = this.getAttribute('data-id');
 
         });
     });
