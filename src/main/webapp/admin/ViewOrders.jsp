@@ -27,6 +27,17 @@
         response.sendRedirect(request.getContextPath() + "/NotAuthorized.jsp");
         return;
     }
+
+    String filter = request.getParameter("filter");
+    Map<OrderBean, List<PurchasedProductBean>> ordersToDisplay = ordersWithProducts; // Default to all orders
+
+    if ("cliente".equals(filter)) {
+        ordersToDisplay = userOrders;
+    } else if ("intervallo".equals(filter)) {
+        ordersToDisplay = intervalOrders;
+    } else if("all".equals(filter)) {
+        ordersToDisplay = ordersWithProducts;
+    }
 %>
 
 <div id="orders-container">
@@ -47,8 +58,8 @@
             <button onclick="byInterval()">Cerca</button>
         </div>
     </div>
-    <% if (ordersWithProducts != null && !ordersWithProducts.isEmpty()) { %>
-    <% for (Map.Entry<OrderBean, List<PurchasedProductBean>> entry : intervalOrders.entrySet()) { %>
+    <% if (ordersToDisplay != null && !ordersToDisplay.isEmpty()) { %>
+    <% for (Map.Entry<OrderBean, List<PurchasedProductBean>> entry : ordersToDisplay.entrySet()) { %>
     <div class="order-container">
         <div class="order-details">
             <div class="info">Cliente: <%= entry.getKey().getUtente_username() %></div>
