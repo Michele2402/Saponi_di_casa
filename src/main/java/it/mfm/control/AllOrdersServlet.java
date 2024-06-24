@@ -37,6 +37,8 @@ public class AllOrdersServlet extends HttpServlet {
         HttpSession session = request.getSession();
         UserBean user = (UserBean) session.getAttribute("user");
 
+        String filter = "";
+
         if(user == null || !user.isAdmin()) {
             response.sendRedirect(request.getContextPath() + "/NotAuthorized.jsp");
             return;
@@ -52,6 +54,7 @@ public class AllOrdersServlet extends HttpServlet {
                     ordersWithProducts.put(order, products);
                 }
 
+                filter = "?filter=all";
                 session.setAttribute("allOrders", ordersWithProducts);
 
             } else if ("cliente".equals(action)) {
@@ -65,6 +68,7 @@ public class AllOrdersServlet extends HttpServlet {
                     ordersWithProducts.put(order, products);
                 }
 
+                filter = "?filter=cliente";
                 session.setAttribute("userOrders", ordersWithProducts);
 
 
@@ -80,12 +84,13 @@ public class AllOrdersServlet extends HttpServlet {
                     ordersWithProducts.put(order, products);
                 }
 
+                filter = "?filter=intervallo";
                 session.setAttribute("intervalOrders", ordersWithProducts);
 
 
             }
 
-            response.sendRedirect(request.getContextPath() + "/admin/ViewOrders.jsp");
+            response.sendRedirect(request.getContextPath() + "/admin/ViewOrders.jsp" + filter);
 
         } catch (SQLException e) {
             throw new ServletException("Error retrieving orders", e);

@@ -73,7 +73,7 @@
 }
 
 .image {
-    width: 100%;
+/*    width: 100%;*/
     max-width: 150px;
     max-height: 150px;
     overflow: hidden;
@@ -85,8 +85,8 @@
 img {
     width: 100%;
     height: auto;
-    object-fit: cover;
-    object-position: center;
+/*    object-fit: cover;
+    object-position: center;*/
 }
 
 .product-banner {
