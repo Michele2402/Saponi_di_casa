@@ -33,8 +33,9 @@
                 </div>
             </div>
         </div>
-        <button onclick="logout()">Logout</button>
     </div>
+
+    <button id="logout" onclick="logout()">Logout</button>
 
     <%@ include file="./Footer.jsp" %>
 

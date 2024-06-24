@@ -1,5 +1,5 @@
 function goToDelete(id) {
-    const url = `../Product?id=${id}&action=delete&page=admin/VIewCatalogue.jsp`;
+    const url = `../Product?id=${id}&action=delete&page=admin/ViewCatalogue.jsp`;
     window.location.href = url;
 }
 

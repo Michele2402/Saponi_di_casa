@@ -35,9 +35,10 @@
         ordersToDisplay = userOrders;
     } else if ("intervallo".equals(filter)) {
         ordersToDisplay = intervalOrders;
-    } else if("all".equals(filter)) {
-        ordersToDisplay = ordersWithProducts;
     }
+  /*  else if("all".equals(filter)) {
+        ordersToDisplay = ordersWithProducts;
+    }*/
 %>
 
 <div id="orders-container">
