@@ -6,38 +6,46 @@ INSERT INTO `utente` (`username`, `nome`, `cognome`, `telefono`, `email`, `passw
 ('jack_daniels', 'Jack', 'Daniels', '5566778899', 'jack@example.com', SHA2('password4', 256), '321 Street, City, Country', 0),
 ('jill_bourbon', 'Jill', 'Bourbon', '9988776655', 'jill@example.com', SHA2('password5', 256), '654 Street, City, Country', 0);
 
+-- Inserimento di 5 categorie
+INSERT INTO `categoria` (`id`, `nome`, `descrizione`) VALUES
+(1, 'Saponi Biologici', 'Saponi fatti a mano con ingredienti naturali'),
+(2, 'Saponi Profumati', 'Saponi con una varietà di profumi'),
+(3, 'Saponi Terapeutici', 'Saponi con proprietà terapeutiche'),
+(4, 'Saponi di Lusso', 'Saponi premium per un''esperienza di balneazione di lusso'),
+(5, 'Saponi per Bambini', 'Saponi appositamente progettati per i bambini');
+
 -- Inserimento di 30 prodotti
 INSERT INTO `prodotto` (`nome`, `descrizione`, `prezzo`, `immagine`, `categoria_id`) VALUES
-('Sapone alla Menta', 'Questo è un sapone biologico rinfrescante con un tocco di menta.', 12.0, 'images/soap1.jpg', 1),
-('Sapone alla Lavanda', 'Questo sapone ha una fragranza calmante di lavanda.', 10.0, 'images/soap2.jpg', 2),
-('Sapone all''Eucalipto', 'Un sapone terapeutico con eucalipto e olio di tea tree.', 15.0, 'images/soap3.jpg', 3),
-('Sapone alla Rosa e Sandalo', 'Un sapone di lusso infuso con rosa e sandalo.', 20.0, 'images/soap4.jpg', 4),
-('Sapone Colorato per Bambini', 'Un sapone divertente e colorato progettato per i bambini.', 8.0, 'images/soap5.jpg', 5),
-('Sapone agli Agrumi', 'Un sapone con una schiuma ricca e cremosa e un profumo di agrumi.', 12.0, 'images/soap6.jpg', 1),
-('Sapone alla Camomilla', 'Un sapone con il profumo calmante della camomilla.', 10.0, 'images/soap7.jpg', 2),
-('Sapone alla Menta Piperita', 'Un sapone con il profumo vivificante della menta piperita.', 15.0, 'images/soap8.jpg', 3),
-('Sapone alla Vaniglia e Miele', 'Un sapone con il dolce profumo della vaniglia e miele.', 12.0, 'images/soap9.jpg', 4),
-('Sapone al Gelsomino e Rosa', 'Un sapone con l''esotico profumo del gelsomino e rosa.', 14.0, 'images/soap10.jpg', 5),
-('Sapone alla Brezza Marina', 'Un sapone con il fresco profumo di brezza marina.', 12.0, 'images/soap11.jpg', 1),
-('Sapone al Sandalo e Miele', 'Un sapone con il caldo profumo del sandalo e miele.', 15.0, 'images/soap12.jpg', 2),
-('Sapone al Patchouli e Rosa', 'Un sapone con il profumo terroso del patchouli e rosa.', 15.0, 'images/soap13.jpg', 3),
-('Sapone alla Rosa e Lavanda', 'Un sapone con il profumo romantico della rosa e lavanda.', 20.0, 'images/soap14.jpg', 4),
-('Sapone alla Lavanda e Menta', 'Un sapone con il profumo rilassante della lavanda e menta.', 10.0, 'images/soap15.jpg', 5),
-('Sapone Energizzante agli Agrumi e Menta', 'Un sapone con il profumo energizzante degli agrumi e menta.', 12.0, 'images/soap16.jpg', 1),
-('Sapone alla Vaniglia e Cocco', 'Un sapone con il profumo confortante della vaniglia e cocco.', 10.0, 'images/soap17.jpg', 2),
-('Sapone alla Menta Piperita e Eucalipto', 'Un sapone con il profumo sollevante della menta piperita e eucalipto.', 15.0, 'images/soap18.jpg', 3),
-('Sapone alla Camomilla e Miele', 'Un sapone con il profumo lenitivo della camomilla e miele.', 10.0, 'images/soap19.jpg', 4),
-('Sapone al Cetriolo e Limone', 'Un sapone con il profumo rinfrescante del cetriolo e limone.', 12.0, 'images/soap20.jpg', 5),
-('Sapone all''Eucalipto e Menta', 'Un sapone con il profumo fresco dell''eucalipto e menta.', 15.0, 'images/soap21.jpg', 1),
-('Sapone al Miele e Vaniglia', 'Un sapone con il dolce profumo del miele e vaniglia.', 12.0, 'images/soap22.jpg', 2),
-('Sapone alla Cannella e Miele', 'Un sapone con il profumo speziato della cannella e miele.', 15.0, 'images/soap23.jpg', 3),
-('Sapone al Limone e Menta', 'Un sapone con il profumo pungente del limone e menta.', 12.0, 'images/soap24.jpg', 4),
-('Sapone al Cocco e Vaniglia', 'Un sapone con il profumo tropicale del cocco e vaniglia.', 14.0, 'images/soap25.jpg', 5),
-('Sapone al Lillà e Rosa', 'Un sapone con il profumo floreale del lillà e rosa.', 12.0, 'images/soap26.jpg', 1),
-('Sapone al Cotone e Lavanda', 'Un sapone con il profumo pulito del cotone e lavanda.', 10.0, 'images/soap27.jpg', 2),
-('Sapone al Bambù e Menta', 'Un sapone con l''esotico profumo del bambù e menta.', 15.0, 'images/soap28.jpg', 3),
-('Sapone al Tè Verde e Limone', 'Un sapone con il fresco profumo del tè verde e limone.', 12.0, 'images/soap29.jpg', 4),
-('Sapone alla Fragola e Vaniglia', 'Un sapone con il dolce profumo della fragola e vaniglia.', 10.0, 'images/soap30.jpg', 5);
+('Sapone alla Menta', 'Questo è un sapone biologico rinfrescante con un tocco di menta.', 12.0, 'immagini/soap1.jpg', 1),
+('Sapone alla Lavanda', 'Questo sapone ha una fragranza calmante di lavanda.', 10.0, 'immagini/soap2.jpg', 2),
+('Sapone all''Eucalipto', 'Un sapone terapeutico con eucalipto e olio di tea tree.', 15.0, 'immagini/soap3.jpg', 3),
+('Sapone alla Rosa e Sandalo', 'Un sapone di lusso infuso con rosa e sandalo.', 20.0, 'immagini/soap4.jpg', 4),
+('Sapone Colorato per Bambini', 'Un sapone divertente e colorato progettato per i bambini.', 8.0, 'immagini/soap5.jpg', 5),
+('Sapone agli Agrumi', 'Un sapone con una schiuma ricca e cremosa e un profumo di agrumi.', 12.0, 'immagini/soap6.jpg', 1),
+('Sapone alla Camomilla', 'Un sapone con il profumo calmante della camomilla.', 10.0, 'immagini/soap7.jpg', 2),
+('Sapone alla Menta Piperita', 'Un sapone con il profumo vivificante della menta piperita.', 15.0, 'immagini/soap8.jpg', 3),
+('Sapone alla Vaniglia e Miele', 'Un sapone con il dolce profumo della vaniglia e miele.', 12.0, 'immagini/soap9.jpg', 4),
+('Sapone al Gelsomino e Rosa', 'Un sapone con l''esotico profumo del gelsomino e rosa.', 14.0, 'immagini/soap10.jpg', 5),
+('Sapone alla Brezza Marina', 'Un sapone con il fresco profumo di brezza marina.', 12.0, 'immagini/soap11.jpg', 1),
+('Sapone al Sandalo e Miele', 'Un sapone con il caldo profumo del sandalo e miele.', 15.0, 'immagini/soap12.jpg', 2),
+('Sapone al Patchouli e Rosa', 'Un sapone con il profumo terroso del patchouli e rosa.', 15.0, 'immagini/soap13.jpg', 3),
+('Sapone alla Rosa e Lavanda', 'Un sapone con il profumo romantico della rosa e lavanda.', 20.0, 'immagini/soap14.jpg', 4),
+('Sapone alla Lavanda e Menta', 'Un sapone con il profumo rilassante della lavanda e menta.', 10.0, 'immagini/soap15.jpg', 5),
+('Sapone Energizzante agli Agrumi e Menta', 'Un sapone con il profumo energizzante degli agrumi e menta.', 12.0, 'immagini/soap16.jpg', 1),
+('Sapone alla Vaniglia e Cocco', 'Un sapone con il profumo confortante della vaniglia e cocco.', 10.0, 'immagini/soap17.jpg', 2),
+('Sapone alla Menta Piperita e Eucalipto', 'Un sapone con il profumo sollevante della menta piperita e eucalipto.', 15.0, 'immagini/soap18.jpg', 3),
+('Sapone alla Camomilla e Miele', 'Un sapone con il profumo lenitivo della camomilla e miele.', 10.0, 'immagini/soap19.jpg', 4),
+('Sapone al Cetriolo e Limone', 'Un sapone con il profumo rinfrescante del cetriolo e limone.', 12.0, 'immagini/soap20.jpg', 5),
+('Sapone all''Eucalipto e Menta', 'Un sapone con il profumo fresco dell''eucalipto e menta.', 15.0, 'immagini/soap21.jpg', 1),
+('Sapone al Miele e Vaniglia', 'Un sapone con il dolce profumo del miele e vaniglia.', 12.0, 'immagini/soap22.jpg', 2),
+('Sapone alla Cannella e Miele', 'Un sapone con il profumo speziato della cannella e miele.', 15.0, 'immagini/soap23.jpg', 3),
+('Sapone al Limone e Menta', 'Un sapone con il profumo pungente del limone e menta.', 12.0, 'immagini/soap24.jpg', 4),
+('Sapone al Cocco e Vaniglia', 'Un sapone con il profumo tropicale del cocco e vaniglia.', 14.0, 'immagini/soap25.jpg', 5),
+('Sapone al Lillà e Rosa', 'Un sapone con il profumo floreale del lillà e rosa.', 12.0, 'immagini/soap26.jpg', 1),
+('Sapone al Cotone e Lavanda', 'Un sapone con il profumo pulito del cotone e lavanda.', 10.0, 'immagini/soap27.jpg', 2),
+('Sapone al Bambù e Menta', 'Un sapone con l''esotico profumo del bambù e menta.', 15.0, 'immagini/soap28.jpg', 3),
+('Sapone al Tè Verde e Limone', 'Un sapone con il fresco profumo del tè verde e limone.', 12.0, 'immagini/soap29.jpg', 4),
+('Sapone alla Fragola e Vaniglia', 'Un sapone con il dolce profumo della fragola e vaniglia.', 10.0, 'immagini/soap30.jpg', 5);
 
 INSERT INTO `recensione` (`utente_username`, `valutazione`, `testo`, `data`, `prodotto_id`) VALUES
 ('john_doe', 5, 'Ottimo prodotto! Il profumo di menta è rinfrescante e lascia la mia pelle morbida.', '2024-01-01', 1),
@@ -156,10 +164,10 @@ INSERT INTO `prodotto_acquistato` (`nome`, `prezzo`, `quantità`, `ordine_id`) V
 ('Sapone al Bambù e Menta', 15.0, 2, 10),
 ('Sapone al Tè Verde e Limone', 12.0, 2, 10);
 
--- Inserimento di metodi di pagamento per ogni utente
-INSERT INTO `metodo_di_pagamento` (`tipo`, `numero_di_carta`, `cvv`, `nome`, `cognome`, `data_di_scadenza`, `utente_username`) VALUES
-('Visa', '4111111111111111', '123', 'John', 'Doe', '2025-12-31', 'john_doe'),
-('MasterCard', '5555555555554444', '456', 'Jane', 'Doe', '2025-12-31', 'jane_doe'),
-('American Express', '378282246310005', '789', 'Jim', 'Beam', '2025-12-31', 'jim_beam'),
-('Discover', '6011111111111117', '012', 'Jack', 'Daniels', '2025-12-31', 'jack_daniels'),
-('JCB', '3530111333300000', '345', 'Jill', 'Bourbon', '2025-12-31', 'jill_bourbon');
+-- Inserimento di 5 metodi di pagamento
+INSERT INTO `metodo_di_pagamento` (`numero_di_carta`, `cvv`, `nome`, `cognome`, `data_di_scadenza`, `utente_username`) VALUES
+('4111111111111111', '123', 'John', 'Doe', '2025-12-31', 'john_doe'),
+('5555555555554444', '456', 'Jane', 'Doe', '2025-12-31', 'jane_doe'),
+('378282246310005', '789', 'Jim', 'Beam', '2025-12-31', 'jim_beam'),
+('6011111111111117', '012', 'Jack', 'Daniels', '2025-12-31', 'jack_daniels'),
+('3530111333300000', '345', 'Jill', 'Bourbon', '2025-12-31', 'jill_bourbon');
